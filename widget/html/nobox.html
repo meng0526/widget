@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>设置</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/src_761chess_resource_img_safebox_s_bg1.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  #padding_top{
+    padding:40px;
+  }
+  #login_box ul{
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  #login_box ul li{
+    width: 25%;
+    height: 50px;
+    float: left;
+    line-height: 38px;
+    text-align: center;
+    color: white;
+  }
+  #login_box ul li:nth-child(n+1):nth-child(-n+4){
+    background-image: url('../image/game/src_761chess_resource_img_setting_yinyue.png');
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: 0px 30px;
+  }
+  #login_box ul li:nth-child(n+5):nth-child(-n+14){
+    background-image: url('../image/game/src_761chess_resource_img_safebox_baoxianxiangyuebg.png');
+    background-size: 100% 100%;
+  }
+  #login_box ul li:nth-child(15){
+    background-image: url('../image/game/src_761chess_resource_img_safebox_qingchu.png');
+    background-size: 100% 100%;
+  }
+  #login_box ul li:nth-child(16){
+    background-image: url('../image/game/src_761chess_resource_img_safebox_dengluzhucedenglubut.png');
+    background-size: 100% 100%;
+  }
+</style>
+<body id="body">
+  <div id="login">
+      <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+      <div id="padding_top"></div>
+      <div id="login_box">
+        <ul>
+          <li class="num1" val=""></li>
+          <li class="num2" val=""></li>
+          <li class="num3" val=""></li>
+          <li class="num4" val=""></li>
+          <li class="btn clicknum" val="0">0</li>
+          <li class="btn clicknum" val="1">1</li>
+          <li class="btn clicknum" val="2">2</li>
+          <li class="btn clicknum" val="3">3</li>
+          <li class="btn clicknum" val="4">4</li>
+          <li class="btn clicknum" val="5">5</li>
+          <li class="btn clicknum" val="6">6</li>
+          <li class="btn clicknum" val="7">7</li>
+          <li class="btn clicknum" val="8">8</li>
+          <li class="btn clicknum" val="9">9</li>
+          <li class="btn clearnum"></li>
+          <li class="btn finish"></li>
+        </ul>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  var userinfo  = $api.getStorage('userinfo');
+  FastClick.attach(document.body);
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px')
+
+  var padding_top = $api.byId('padding_top');
+  var padding_top_height = $api.offset(padding_top);
+  var login_box_height = login_h.h-padding_top_height.h-login_offsettop-10;
+  $api.css($api.byId('login_box'),'height:'+login_box_height+'px')
+  //选择密码
+  var c = 1;
+  var status =true;
+  $('.clicknum').on('click',function(){
+    var val = $(this).attr('val');
+    if(c<=4){
+      if(status){
+        var str = '.num'+c;
+        $(str).text('*');
+        $(str).attr('val',val);
+        if(c==4){
+          status =false;
+        }
+        if(c<4){
+          c++;
+        }
+      }
+    }
+  })
+  $('.clearnum').on('click',function(){
+    if(c<4){
+      status =true;
+    }
+    if(c>=1){
+      var str = '.num'+c;
+      $(str).text('');
+      $(str).attr('val','');
+      c--;
+    }
+  })
+  //提交保险箱密码
+  $('.finish').on('click',function(){
+    var boxpswd = '';
+    for (var i = 1; i < 5; i++) {
+      var num = '.num'+i;
+      var val = $(num).attr('val');
+      if(val!=''){
+        boxpswd+=val;
+      }else {
+          api.openFrame({
+            name: 'error',
+            url: 'error.html',
+            bgColor:'rgba(0,0,0,0.0)',
+            animation:{
+              type:"ripple",
+              duration:300
+            },
+            pageParam: {
+                describe: '请输入完整密码！'
+            }
+        });
+        return;
+      }
+    }
+    var datas = {
+      'boxpswd':boxpswd,
+      'lastsession':userinfo.last_session,
+    };
+    $.post('http://aipai.lbcity.cn:8686/api/boxpswd',datas,function(data){
+      var msg = JSON.parse(data.status.msg);
+      if(data.status.errorCode==0){
+          api.openFrame({
+            name: 'success',
+            url: 'success.html',
+            bgColor:'rgba(0,0,0,0.0)',
+            animation:{
+              type:"ripple",
+              duration:300
+            },
+            pageParam: {
+                describe: msg
+            }
+        });
+        api.closeFrame({
+            name: api.frameName
+        });
+        api.openWin({
+          name: 'inbox',
+          url: 'inbox.html',
+          bgColor:'rgba(0,0,0,1)',
+          animation:{
+            type:"push",
+            subType:"from_right",
+            duration:200
+          }
+        });
+      }else {
+          api.openFrame({
+            name: 'error',
+            url: 'error.html',
+            bgColor:'rgba(0,0,0,0.0)',
+            animation:{
+              type:"ripple",
+              duration:300
+            },
+            pageParam: {
+                describe: '提交失败请联系管理员!！'
+            }
+        });
+      }
+    })
+  })
+}
+</script>
+</html>

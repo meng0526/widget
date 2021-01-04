@@ -1,0 +1,781 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>充值</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:45%;
+      float: left;
+    }
+    #header .logo{
+      width:35%;
+      float: left;
+    }
+    #header .logo .logo_1{
+      width: 50%;
+      height: 25px;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhiyue.png');
+      background-size: 90% 100%;
+      background-repeat:no-repeat;
+      margin-top: 8px;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+      line-height: 25px;
+    }
+    @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+    }
+    #header .logo .logo_2{
+      width: 15%;
+      height: 25px;
+      float: left;
+      margin-top: 5px;
+    }
+    #header .logo .logo_2 .conter_money_btn_true{
+      -webkit-transform: rotate(360deg);
+      animation: rotation 10s linear infinite;
+      -moz-animation: rotation 10s linear infinite;
+      -webkit-animation: rotation 10s linear infinite;
+      -o-animation: rotation 10s linear infinite;
+    }
+    #header .logo .logo_3{
+      width: 35%;
+      height: 25px;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhichontijilu.png'),url('../image/game/src_761chess_resource_img_deposit_chonzhichontijilubg.png');
+      background-size: 16% 60%,90% 100%;
+      background-repeat: no-repeat,no-repeat;
+      background-position: 5px 5px,0 0;
+      margin-top: 8px;
+      line-height: 25px;
+      color: #A88F6C;
+      font-size: 12px;
+      text-align: center;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 23%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_left_nav_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    #m_right_box{
+      padding: 10px;
+      overflow-y: scroll;
+    }
+    .list_av{
+      height: 100%;
+    }
+    .list_av:nth-child(n+2){
+      display: none;
+    }
+    #main .m_right{
+      width: 76%;
+      float: right;
+      margin-top: 10px;
+      color: white;
+    }
+    .top{
+      font-size: 12px;
+      color: #A88F6C;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxindian.png');
+      background-size: 10px 10px;
+      text-indent: 30px;
+      background-position: 10px 3px;
+      background-repeat: no-repeat;
+    }
+    .bank{
+      height: 65px;
+      padding: 10px 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .no-bank{
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_tixaintixiandaoyinhangkadibu.png');
+      background-size: 100% 100%;
+      font-size: 13px;
+      line-height: 25px;
+    }
+    .no-bank_1{
+      width: 70%;
+      float: left;
+    }
+    .no-bank_2{
+      width: 30%;
+      float: left;
+    }
+    .no-bank_1_1{
+      width: 20%;
+      float: left;
+      text-align: center;
+    }
+    .no-bank_1_1 img{
+      position: relative;
+      top: 10px;
+    }
+    .no-bank_1_2{
+      width: 80%;
+      float: left;
+      text-indent: 10px;
+    }
+    .no-bank_2{
+      text-align: right;
+      padding-top: 20px;
+    }
+    .title_text_name{
+      font-size: 12px;
+      text-indent: 20px;
+    }
+    .money_num {
+      margin-top: 5px;
+      overflow: hidden;
+    }
+    .money_num div{
+      width: 25%;
+      text-align:center;
+      float: left;
+    }
+    .money_num div span{
+      display: block;
+      width: 85%;
+      height: 70px;
+      line-height: 55px;
+      margin: auto auto;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhijinebut2.png');
+      background-size: 100% 100%;
+    }
+    .money_num div .spanclick{
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhijinebut.png');
+      background-size: 100% 100%;
+    }
+    .moneytext{
+      width: 100%;
+      height: 65px;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhiyinhangkabg.png');
+      background-size: 100% 100%;
+      line-height: 65px;
+    }
+    .moneytext div:nth-child(1),.moneytext div:nth-child(3){
+      width: 20%;
+      text-align: center;
+      height: 30px;
+      float: left;
+    }
+    .moneytext div:nth-child(3) img{
+      margin-top: 15px;
+    }
+    .moneytext div:nth-child(2){
+      text-align: center;
+      width: 60%;
+      height: 30px;
+      float: left;
+    }
+    .moneytext div:nth-child(2) input{
+      width: 100%;
+      height: 100%;
+      text-indent: 10px;
+      font-size: 12px;
+      outline-style: none;
+      color: white;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhiweixinhao.png');
+      background-size: 100% 100%;
+    }
+    .tijiaobtn{
+      text-align: center;
+      margin-top: 20px;
+    }
+    </style>
+</head>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico">
+             <img src="../image/game/src_761chess_resource_img_deposit_chonzhibiaoti.png" alt="" width="140px" height="25px">
+           </div>
+           <div class="logo">
+             <div class="logo_1 balance">0.0</div>
+             <div class="logo_2"><img src="../image/game/src_761chess_resource_img_deposit_chonzhishuaxin.png" alt="" width="18px" height="20px" class="conter_money_btn"></div>
+             <div class="logo_3 czjilu">充值记录</div>
+           </div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+                <div class="btn userlistbtn active"><img src="../image/game/src_761chess_resource_img_deposit_chonzhiwangyinchonzhi2.png" alt="../image/game/src_761chess_resource_img_deposit_chonzhiwangyinchonzhi.png" width="100%" height="45px"></div>
+
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_deposit_alipayoffline.png" alt="../image/game/src_761chess_resource_img_deposit_alipayoffline_active.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_deposit_wxoffline.png" alt="../image/game/src_761chess_resource_img_deposit_wxoffline_active.png" width="100%" height="45px"></div>
+               <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_deposit_chonzhidailichonzhi.png" alt="../image/game/src_761chess_resource_img_deposit_chonzhidailichonzhi2.png" width="100%" height="45px"></div>
+              </div>
+            </div>
+            <div class="m_right">
+                <div id="m_right_box">
+                  <div class="m_right_box_1 list_av">
+                    <div class="top">充值收款银行选择</div>
+                    <div class="bank no-bank">
+                      <div class="no-bank_1">
+                        <div class="no-bank_1_1"><img src="" alt=""  class="bankiuc"></div>
+                        <div class="no-bank_1_2">
+                          <p>银行转账：成功率100%返1%</p>
+                          <p class="kacode"></p>
+                        </div>
+                      </div>
+                      <div class="no-bank_2">
+                        <span><img src="../image/game/src_761chess_resource_img_deposit_chonzhiqianwangchonzhi.png" alt="" width="80px" height="30px" class="btn bindbank"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="m_right_box_2 list_av">
+                    <div class="title_text_name">支付宝转账——玩家常玩的充值金额</div>
+                    <div class="money_num">
+                      <div><span class="btn moneybtn" v="30">30元</span></div>
+                      <div><span class="btn moneybtn" v="50">50元</span></div>
+                      <div><span class="btn moneybtn" v="200">200元</span></div>
+                      <div><span class="btn moneybtn" v="500">500元</span></div>
+                      <div><span class="btn moneybtn" v="1000">1000元</span></div>
+                      <div><span class="btn moneybtn" v="2000">2000元</span></div>
+                      <div><span class="btn moneybtn" v="5000">5000元</span></div>
+                      <div><span class="btn moneybtn" v="10000">10000元</span></div>
+                    </div>
+                    <div class="moneytext">
+                       <div>充值金额</div>
+                       <div><input type="number" placeholder="请输入充值金额" class="moneyval"></div>
+                       <div><img src="../image/game/src_761chess_resource_img_deposit_qingchu.png" alt="" width="80px" height="35px" class="btn clearmoney"></div>
+                    </div>
+                    <div class="tijiaobtn">
+                      <img src="../image/game/src_761chess_resource_img_deposit_chonzhitijiaochongzhi.png" alt="" width="120px" height="40px" class="btn wabtn" paytype="ali">
+                    </div>
+                  </div>
+                  <div class="m_right_box_3 list_av">
+                    <div class="title_text_name">微信转账——玩家常玩的充值金额</div>
+                    <div class="money_num">
+                      <div><span class="btn moneybtn" v="30">30元</span></div>
+                      <div><span class="btn moneybtn" v="50">50元</span></div>
+                      <div><span class="btn moneybtn" v="200">200元</span></div>
+                      <div><span class="btn moneybtn" v="500">500元</span></div>
+                      <div><span class="btn moneybtn" v="1000">1000元</span></div>
+                      <div><span class="btn moneybtn" v="2000">2000元</span></div>
+                      <div><span class="btn moneybtn" v="5000">5000元</span></div>
+                      <div><span class="btn moneybtn" v="10000">10000元</span></div>
+                    </div>
+                    <div class="moneytext">
+                       <div>充值金额</div>
+                       <div><input type="number" placeholder="请输入充值金额" class="moneyval"></div>
+                       <div><img src="../image/game/src_761chess_resource_img_deposit_qingchu.png" alt="" width="80px" height="35px" class="btn clearmoney"></div>
+                    </div>
+                    <div class="tijiaobtn">
+                      <img src="../image/game/src_761chess_resource_img_deposit_chonzhitijiaochongzhi.png" alt="" width="120px" height="40px" class="btn wabtn" paytype="wx">
+                    </div>
+                  </div>
+                  <input type="hidden" name="" value="" id="btnistype">
+                  <div class="m_right_box_4 list_av">
+                  <style type="text/css">
+                     html,body{
+                       overflow: hidden;
+                     }
+                     .content{
+                       height: 100%;
+                     }
+                     .content .bankinfo{
+                       width: 100%;
+                       height: 85%;
+                       background-image: url('../image/game/shoukuaninfo.png'),url('../image/game/ic_gathering_bg.png');
+                       background-size: 100px 30px,100% 100%;
+                       background-repeat: no-repeat;
+                       background-position: center 0,center;
+                       float: left;
+                     }
+
+                     .content .bankinfo div{
+                       float: left;
+                       height: 40px;
+                       line-height: 40px;
+                       color: #a0a0a0;
+                     }
+                     .content .paybank div{
+                       float: left;
+                       color: #a0a0a0;
+                     }
+                     .content .bankinfo div:nth-child(odd),.content .paybank div:nth-child(odd){
+                       text-align: center;
+                       width: 30%;
+                       font-size: 12px;
+                     }
+                     .content .paybank div:nth-child(even){
+                       width: 70%;
+                     }
+                     .bspan1{
+                       display: inline-block;
+                       width: 70%;
+                       float: left;
+                       text-overflow: ellipsis;
+                       overflow: hidden;/*超出部分隐藏*/
+                       white-space: nowrap;/*规定段落中的文本不进行换行 */
+                     }
+                     .bspan2{
+                       display: inline-block;
+                       width: 30%;
+                       float: left;
+                     }
+                     .content .bankinfo div:nth-child(even){
+                       width: 60%;
+                       border-bottom: 1px solid #b7b7b7;
+                     }
+                     .content .bankinfo div:nth-child(even) img{
+                       position: relative;
+                       top: 8px;
+                       left: 10px;
+                     }
+                     .content .bankinfo div:nth-child(1),.content .bankinfo div:nth-child(2),.content .paybank div:nth-child(1),.content .paybank div:nth-child(2){
+                       margin-top: 20px;
+                     }
+                     .content .paybank{
+                       width: 47%;
+                       height: 60%;
+                       background-image: url('../image/game/saoqrcode.png'),url('../image/game/ic_gathering_bg.png');
+                       background-size: 100px 30px,100% 100%;
+                       background-repeat: no-repeat;
+                       background-position: center 0,center;
+                       float: right;
+                     }
+                    .accountif{
+                      width: 100%!important;
+                    }
+                    input{
+                       width: 100%;
+                       height: 30px;
+                       text-indent: 10px;
+                       font-size: 11px;
+                       outline-style: none;
+                       color: white;
+                       background-image: url('../image/game/src_761chess_resource_img_setting_pwd_input.png');
+                       background-size: 100% 100%;
+                     }
+                     h3{
+                       color: #a0a0a0;
+                       font-size: 12px;
+                       text-indent: 20px;
+                       padding: 10px;
+                     }
+                     .ts{
+                       text-align: center;
+                       width: 100%!important;
+                       font-size: 12px;
+                     }
+                     .tscent{
+                       width: 100%!important;
+                       font-size: 12px;
+                       padding: 5px;
+                     }
+                     .buz{
+                       width: 100%;
+                       color: #a0a0a0;
+                       font-size: 12px;
+                       padding: 10px;
+                       overflow: hidden;
+                     }
+                     .buz div:nth-child(1){
+                       width: 47%;
+                       float: left;
+                     }
+                     .buz div:nth-child(2){
+                       width: 47%;
+                       float: right;
+                     }
+                     .footer div{
+                       width: 50%;
+                       text-align: center;
+                       float: left;
+                     }
+                     .footer{
+                       width: 100%;
+                       position:fixed;
+                       bottom: 30px;
+                     }
+                     .qrcodebox{
+                       width: 100%!important;
+                       height: auto!important;
+                       margin-top: 35px!important;
+                     }
+                     .qrcodebtn{
+                       width: 100%!important;
+                       height: auto!important;
+                       margin-top: 5px!important;
+                       text-align: center;
+                     }
+
+    *{
+      -webkit-user-select: auto;
+    }
+
+                  </style>
+                    <div class="content">
+                      <div class="bankinfo">
+                        <div>美美在线秒充</div>
+                        <div><span id="content">czfgg2013</span> <button id="copyBT"><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></button> </div>
+                        <div>小姐姐在线秒充</div>
+                        <div><span id="content2">czfgg2020</span> <button id="copyBT2"><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></button> </div>
+                        <div>好运来快去秒冲</div>
+                        <div><span id="content3">huhaitao521814</span><button id="copyBT3"><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></button> </div>
+
+                        <h3 class="tscent"></h3>
+                      </div>
+
+                  <script type="text/javascript" src="../script/api.js"></script>
+                  <script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+                  <script type="text/javascript" src="../script/jquery_adaptive_backgrounds.js"></script>
+                  <script type="text/javascript" src="../script/common.js"></script>
+                  <script type="text/javascript" src="../script/fastclick.js"></script>
+                  <script type="text/javascript">
+                     function copyArticle(event) {
+        const range = document.createRange();
+        range.selectNode(document.getElementById('content'));
+
+        const selection = window.getSelection();
+        if(selection.rangeCount > 0) selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        alert("复制成功！");
+      }
+
+      document.getElementById('copyBT').addEventListener('click', copyArticle, false);
+                  </script>
+                  <script type="text/javascript">
+                     function copyArticle(event) {
+        const range = document.createRange();
+        range.selectNode(document.getElementById('content2'));
+
+        const selection = window.getSelection();
+        if(selection.rangeCount > 0) selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        alert("复制成功！");
+      }
+
+      document.getElementById('copyBT2').addEventListener('click', copyArticle, false);
+                  </script>
+                  <script type="text/javascript">
+                     function copyArticle(event) {
+        const range = document.createRange();
+        range.selectNode(document.getElementById('content3'));
+
+        const selection = window.getSelection();
+        if(selection.rangeCount > 0) selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        alert("复制成功！");
+      }
+
+      document.getElementById('copyBT3').addEventListener('click', copyArticle, false);
+                  </script>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      api.addEventListener({
+          name: 'keyback'
+      }, function(ret, err) {
+        api.closeWin({
+            name: api.winName
+        });
+        api.setScreenOrientation({
+            orientation: 'landscape_left'
+        });
+      });
+      FastClick.attach(document.body);
+      var userinfo = $api.getStorage('userinfo');
+        var header = $api.byId('header');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var m_right_box_height =   api.winHeight - headerPos.h;
+        $api.css($api.byId('m_right_box'),'height:'+m_right_box_height+'px');
+        var box = $api.byId('m_right_box');
+        var box_papam = $api.offset(box);
+        //播放活动音效
+        api.startPlay({
+            path: 'widget://image/audio/src_761chess_resource_audio_musicrecharge.mp3'
+        });
+        //查询实际余额 中心账户+个人账户
+        var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+        $.get(center_money_url,function(data){
+          var data = JSON.parse(data);
+          $('.balance').text(data.Data);
+        })
+        //点击查询余额
+        $('.conter_money_btn').on('click',function(){
+          $(this).addClass('conter_money_btn_true');
+          var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+          $.get(center_money_url,function(data){
+            var data = JSON.parse(data);
+            $('.balance').text(data.Data);
+            $('.conter_money_btn').removeClass('conter_money_btn_true');
+          })
+        })
+        //菜单切换
+        $(".userlistbtn").on('click',function(){
+          api.closeFrame({
+              name: 'bankpay'
+          });
+          api.closeFrame({
+              name: 'zhuanzhang'
+          });
+          if($(this).index()==1){
+            $("#btnistype").val(1);
+          }else if ($(this).index()==2) {
+            $("#btnistype").val(2);
+          }
+          $(".list_av").eq($(this).index()).show().siblings().hide();
+        })
+        $(".moneybtn").on('click',function(){
+          $(this).parents('.list_av').find('.moneyval').val($(this).attr('v'));
+          $(this).addClass('spanclick').parent('div').siblings().children('span').removeClass('spanclick');
+        })
+        //清除
+        $(".clearmoney").on('click',function(){
+          $(".moneyval").val('');
+        });
+        //提交支付
+        $(".subbtn").on('click',function(){
+          var money = $(this).parents('.list_av').find('.moneyval').val();
+          if(money==''){
+            api.openFrame({
+              name: 'error',
+              url: 'error.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: '请输入充值金额！'
+              }
+          });
+            return;
+          }else if (money<1) {
+            api.openFrame({
+              name: 'error',
+              url: 'error.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: '充值金额不能小于1！'
+              }
+          });
+            return;
+          }else if (money>20000) {
+            api.openFrame({
+              name: 'error',
+              url: 'error.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: '充值金额不能大于20000！'
+              }
+          });
+            return;
+          }
+          var datas = {
+            'money':money,
+            'lastsession':userinfo.last_session,
+            'istype':$("#btnistype").val()
+          };
+          $.post('http://aipai.lbcity.cn:8686/api/jh_pay',datas,function(data){
+            api.openFrame({
+                name: 'paylink',
+                url: './paylink.html',
+                pageParam: {
+                    datas: data
+                },
+                bounces: true,
+                bgColor: 'rgba(255,255,255,1)',
+            });
+          },'json')
+        })
+        //充值记录
+        $(".czjilu").on('click',function(){
+            api.openFrame({
+              name: 'rechargewin',
+              url: 'rechargewin.html',
+              bgColor:'rgba(0,0,0,0.6)',
+              animation:{
+                type:"movein",
+                subType:"from_bottom",
+                duration:0
+              }
+          });
+        })
+        //银行卡充值
+        $(".bindbank").on('click',function(){
+          api.openFrame({
+              name: 'bankpay',
+              url: 'bankpay.html',
+              rect: {
+                  x: $(".m_right").offset().left,
+                  y: $(".m_right").offset().top,
+                  w: $(".m_right").width(),
+                  h: $(".m_right").height()
+              },
+              bounces: true,
+              bgColor: 'rgba(0,0,0,1)'
+          });
+
+        })
+        //转账充值
+        $(".wabtn").on('click',function(){
+          var money = $(this).parents('.list_av').find('.moneyval').val();
+          if(money==''){
+            api.openFrame({
+              name: 'error',
+              url: 'error.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: '请输入充值金额！'
+              }
+          });
+            return;
+          }else if (money<1) {
+            api.openFrame({
+              name: 'error',
+              url: 'error.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: '充值金额不能小于1！'
+              }
+          });
+            return;
+          }else if (money>20000) {
+            api.openFrame({
+              name: 'error',
+              url: 'error.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: '充值金额不能大于20000！'
+              }
+          });
+            return;
+          }
+          var paytype = $(this).attr('paytype');
+          api.openFrame({
+              name: 'zhuanzhang',
+              url: 'zhuanzhang.html',
+              rect: {
+                  x: $(".m_right").offset().left,
+                  y: $(".m_right").offset().top,
+                  w: $(".m_right").width(),
+                  h: $(".m_right").height()
+              },
+              bounces: true,
+              bgColor: 'rgba(0,0,0,1)',
+              pageParam: {
+                  money: money,
+                  paytype:paytype
+              }
+          });
+        })
+        //收款银行卡信息
+        $.get('http://aipai.lbcity.cn:8686/api/getbank_info',function(data){
+          $(".kacode").text(data[0].card_no);
+          var bankname = data[0].bank_id;
+          //获取开户行银行对应的编码
+           api.readFile({
+               path: 'widget://bankname.json'
+           }, function(ret, err) {
+               if (ret.status) {
+                 var data = JSON.parse(ret.data);
+                 var src = '../image/small_logo/'+data[bankname]+'.png'
+                 $(".bankiuc").attr('src',src);
+               } else {
+                   console.log(err.msg);
+               }
+          });
+        })
+    };
+</script>
+</html>

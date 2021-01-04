@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册页面</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/src_761chess_resource_img_register_pop.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  #login_box{
+    overflow-y: scroll;
+  }
+  #padding_top{
+    padding:48px;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  .u{
+    width: 60%;
+    margin: 0 auto;
+  }
+  .user{
+     width: 20%;
+     height: 40px;
+     line-height: 40px;
+     float: left;
+  }
+  .user_input{
+    width: 70%;
+    height: 40px;
+    margin-left: 10px;
+    line-height: 40px;
+    float: left;
+  }
+  .p{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+  .psw{
+     width: 20%;
+     height: 40px;
+     line-height: 40px;
+     float: left;
+  }
+  .psw_input{
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    float: left;
+  }
+  .user_input{
+    background-image: url('../image/game/src_761chess_resource_img_register_ipt.png');
+    background-size: 100% 100%;
+  }
+  .psw_input{
+    background-image: url('../image/game/src_761chess_resource_img_register_ipt.png');
+    background-size: 100% 100%;
+  }
+  input{
+    outline: none;
+    width: 100%;
+    color: white;
+    text-indent: 10px;
+  }
+  .yzinput{
+    background-image: url('../image/game/src_761chess_resource_img_register_ipt.png');
+    background-size: 60% 100%;
+    background-repeat: no-repeat;
+  }
+  .yzinput input{
+    width: 60%!important;
+    line-height: 40px;
+    float: left;
+  }
+  .psw_input img{
+    width: 38%;
+    height: 100%;
+    float: right;
+  }
+  .login_click{
+    width: 70%;
+    float: left;
+    text-align: right;
+  }
+  .login_click img{
+    margin-right: 70px;
+  }
+  .create_new{
+    width: 30%;
+    line-height: 50px;
+    float: left;
+  }
+  .clear{
+    clear:both;
+  }
+  .forget_pwd{
+    text-align: right;
+    padding: 10px 115px 10px 0px;
+  }
+  .login_div{
+    padding: 10px 0px;
+  }
+  .lj_zc{
+    color: #D6C09A;
+  }
+</style>
+<body id="body">
+  <div id="login">
+      <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+      <div id="padding_top"></div>
+      <div id="login_box">
+        <div>
+          <div class="u">
+            <div class="user">账号</div>
+            <div class="user_input"><input type="text" name="name" value="" placeholder="请输入您的账号" width="100%" height="100%" maxlength="14"></div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div>
+          <div class="p">
+            <div class="psw">密码</div>
+            <div class="psw_input"><input type="password" name="pswd" value="" placeholder="请输入您的密码" width="100%" height="100%" maxlength="12"></div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div>
+          <div class="p">
+            <div class="psw">确认密码</div>
+            <div class="psw_input"><input type="password" name="checkpswd" value="" placeholder="请输入您的密码" width="100%" height="100%" maxlength="12"></div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div>
+          <div class="p">
+            <div class="psw">提款密码</div>
+            <div class="psw_input"><input type="password" name="qk_pwd" value="" placeholder="请输入提款密码,6位纯数" width="100%" height="100%" maxlength="6"></div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- <div>
+          <div class="p">
+            <div class="psw">验证码</div>
+            <div class="psw_input yzinput">
+              <input type="text" name="captcha" value="" placeholder="请输入验证码" width="100%" height="100%" maxlength="4">
+              <img src="http://aipai.lbcity.cn:8686/kit/captcha/1" alt="" id="checkcode">
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div> -->
+        <div class="login_div">
+          <div class="login_click">
+            <img src="../image/game/src_761chess_resource_img_register_btn.png" alt="" width="140px" height="45px" id="create_btn">
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px')
+  var padding_top = $api.byId('padding_top');
+  var padding_top_height = $api.offset(padding_top);
+  var login_box_height = login_h.h-padding_top_height.h-login_offsettop-10;
+  $api.css($api.byId('login_box'),'height:'+login_box_height+'px')
+  //验证码
+  // $('#checkcode').on('click',function(){
+  //   $url = "http://aipai.lbcity.cn:8686/kit/captcha";
+  //   $url = $url + "/" + Math.random();
+  //   $(this).attr('src',$url);
+  // })
+  //提交注册
+  $('#create_btn').on('click',function(){
+    var datas = {
+      'name' : $("input[name='name']").val(),
+      'password' : $("input[name='pswd']").val(),
+      'password_confirmation' : $("input[name='checkpswd']").val(),
+      'qk_pwd' : $("input[name='qk_pwd']").val(),
+      'phone' : '',
+      'check1' : 1,
+      'check2' : 2
+    };
+    $.post('http://aipai.lbcity.cn:8686/m/register',datas,function(data){
+      var obj = JSON.parse(data.status.msg);
+      for ( var p in obj )
+      {
+         if(obj[p] instanceof Array){
+           obj = obj[p][0];
+           break;
+         }else {
+           obj = obj[p];
+         }
+      }
+      if(!data.url){
+          api.openFrame({
+            name: 'error',
+            url: 'error.html',
+            bgColor:'rgba(0,0,0,0.0)',
+            animation:{
+              type:"ripple",
+              duration:300
+            },
+            pageParam: {
+                describe: obj
+            }
+         });
+      }else {
+        api.openFrame({
+          name: 'success',
+          url: 'success.html',
+          bgColor:'rgba(0,0,0,0.0)',
+          animation:{
+            type:"ripple",
+            duration:300
+          },
+          pageParam: {
+              describe: '注册成功，去登陆！'
+          }
+       });
+         setTimeout(function(){
+           api.closeFrame({
+             name: api.frameName
+           });
+           api.openFrame({
+             name: 'login',
+             url: 'login.html',
+             bgColor:'rgba(0,0,0,0.6)',
+             animation:{
+               type:"movein",
+               subType:"from_bottom",
+               duration:0
+             }
+           });
+         },300)
+      }
+    },'json')
+  })
+}
+</script>
+</html>

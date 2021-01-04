@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>设置</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/src_761chess_resource_img_messageset_xiaoxishezhishezhipop.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  #padding_top{
+    padding:40px;
+  }
+  .login_box_left{
+     width: 25%;
+     height: 100%;
+     float: left;
+     background-image: url('../image/game/src_761chess_resource_img_getcharge_leftgide.png');
+     background-size: 100% 100%;
+     text-align: center;
+  }
+  .login_box_left img{
+    width: 96%;
+  }
+  .login_box_right{
+    width: 75%;
+    float: left;
+  }
+  .jcinfo,.audio_seting{
+    color: #D6C09A;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-indent: 20px;
+  }
+  .userinfo{
+    text-indent: 10px;
+  }
+  .login_box_right_2,.login_box_right_3{
+    display: none;
+  }
+  .login_box_right_3{
+    text-align: center;
+    line-height: 200px;
+  }
+  .backmusic{
+    width: 15%;
+    float: left;
+    text-indent: 20px;
+  }
+  .font10{
+    font-size: 10px;
+    color: #cea175;
+  }
+  .all,.all1 {
+  width: 75%;
+  height: 30px;
+  float: left;
+  position: relative;
+  }
+
+  .bar,.bar1 {
+  width: 90%;
+  height: 15px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-image: url('../image/game/src_761chess_resource_img_messageset_xiaoxishezhiyinliantiao.png');
+  background-size: 100% 100%;
+  }
+
+  .box,.box1 {
+  width: 20px;
+  height: 20px;
+  background-image: url('../image/game/src_761chess_resource_img_messageset_xiaoxishezhiyinliangdian.png');
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  margin: auto 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: left 0.1s linear 0s;
+  }
+  .checkedywllow,.checkedywllow1{
+    width: 0%;
+    height: 100%;
+    background-image: url('../image/game/src_761chess_resource_img_messageset_xiaoxishezhiyinliang2.png');
+    background-repeat: no-repeat;
+    background-size: 98% 100%;
+  }
+  .login_box_right_2_box{
+    padding: 15px;
+  }
+  .outlogin{
+    text-align: center;
+  }
+  .pswd{
+    width: 30%;
+    float: left;
+    color: #cea175;
+    text-indent: 50px;
+  }
+  .pswd_input{
+    width: 70%;
+    float: left;
+  }
+  .pswd_input input{
+    width: 60%;
+    outline: none;
+    background-image: url('../image/game/src_761chess_resource_img_setting_pwd_input.png');
+    background-size: 100% 100%;
+    color: white;
+  }
+  .clear{
+    clear:both;
+  }
+</style>
+<body id="body">
+  <div id="login">
+      <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+      <div id="padding_top"></div>
+      <div id="login_box">
+        <div class="login_box_left">
+          <div class="btn infosetting"><img src="../image/game/src_761chess_resource_img_setting_set_03.png" alt="../image/game/src_761chess_resource_img_setting_set_activity_03.png"></div>
+          <div class="btn infosetting"><img src="../image/game/src_761chess_resource_img_setting_set_02.png" alt="../image/game/src_761chess_resource_img_setting_set_activity_02.png"></div>
+          <div class="btn infosetting"><img src="../image/game/src_761chess_resource_img_setting_set_01.png" alt="../image/game/src_761chess_resource_img_setting_set_activity_01.png"></div>
+        </div>
+        <div class="login_box_right">
+           <div class="login_box_right_1">
+             <div class="jcinfo">基础信息:</div>
+             <div class="userinfo">
+               <span>
+                 <img src="../image/game/src_761chess_resource_img_index_index_icon.png" alt="" width="40px" height="40px">
+               </span>
+               <span>
+                  <p class="font10">账号:</p>
+                  <p class="name"></p>
+               </span>
+               <!-- <span>
+                  <p class="money">等级:</p>
+                  <p>vip1</p>
+               </span> -->
+             </div>
+             <div class="audio_seting">声音设置:</div>
+             <div>
+               <div class="backmusic font10">背景音乐:</div>
+               <div class="all">
+                 <div class="bar">
+                   <div class="checkedywllow"></div>
+                   <div class="box"></div>
+                 </div>
+               </div>
+             </div>
+             <!-- <div>
+               <div class="backmusic font10">点击音效:</div>
+               <div class="all1">
+                 <div class="bar1">
+                   <div class="checkedywllow1"></div>
+                   <div class="box1"></div>
+                 </div>
+               </div>
+             </div> -->
+             <div class="outlogin"><img src="../image/game/src_761chess_resource_img_messageset_xiaoxishezhituichudenglu.png" alt="" width="140px" height="45px" class="login_out"></div>
+           </div>
+           <div class="login_box_right_2">
+             <div class="login_box_right_2_box">
+               <div class="pswd">现密码:</div>
+               <div class="pswd_input"><input type="password" class="old_password"></div>
+               <div class="clear"></div>
+             </div>
+             <div class="login_box_right_2_box">
+               <div class="pswd">新密码:</div>
+               <div class="pswd_input"><input type="password" class="password"></div>
+               <div class="clear"></div>
+            </div>
+             <div class="login_box_right_2_box">
+               <div class="pswd">确认密码:</div>
+               <div class="pswd_input"><input type="password" class="password_confirmation"></div>
+               <div class="clear"></div>
+             </div>
+             <div class="login_box_right_2_box" style="text-align:center;"><img src="../image/game/src_761chess_resource_img_setting_modify_btn.png" alt="" width="140px" height="45" class="update_pswd"></div>
+           </div>
+           <div class="login_box_right_3">
+             当前已是最新版本！
+           </div>
+        </div>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  var userinfo  = $api.getStorage('userinfo');
+  //用户信息
+  $(".name").text(userinfo.name);
+  //退出登录
+  $('.login_out').on('click',function(){
+    $api.setStorage('userinfo','');
+    api.closeFrame({
+        name: api.frameName
+    });
+    api.execScript({
+      name: 'root',
+      script: 'window.location.reload();'
+    });
+  })
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px')
+
+  var padding_top = $api.byId('padding_top');
+  var padding_top_height = $api.offset(padding_top);
+  var login_box_height = login_h.h-padding_top_height.h-login_offsettop-10;
+  $api.css($api.byId('login_box'),'height:'+login_box_height+'px')
+
+  var checkedywllow = document.getElementsByClassName('checkedywllow')[0]
+  var box = document.getElementsByClassName('box')[0]
+  //获取记忆声音大小
+  api.getPrefs({
+      key: 'background_music'
+  }, function(ret, err) {
+     var music = ret.value;
+     if(music){
+         checkedywllow.style.width = (music*100)+'%';
+         box.style.left = (music*100) + '%';
+     }
+  });
+  //提交修改密码
+  $('.update_pswd').on('click',function(){
+    var old_password = $('.old_password').val();
+    var password = $('.password').val();
+    var password_confirmation = $('.password_confirmation').val();
+    var datas = {
+      'old_password' : old_password,
+      'password' : password,
+      'password_confirmation' : password_confirmation,
+      'lastsession' : userinfo.last_session
+    }
+    if(password!=password_confirmation){
+      api.openFrame({
+        name: 'error',
+        url: 'error.html',
+        bgColor:'rgba(0,0,0,0.0)',
+        animation:{
+          type:"ripple",
+          duration:300
+        },
+        pageParam: {
+            describe: '两次密码不一致'
+        }
+     });
+     return;
+    }
+    $.post('http://aipai.lbcity.cn:8686/api/update_login_password',datas,function(data){
+      var datamsg = JSON.parse(data.status.msg);
+      if(data.status.errorCode==0){
+        api.openFrame({
+          name: 'success',
+          url: 'success.html',
+          bgColor:'rgba(0,0,0,0.0)',
+          animation:{
+            type:"ripple",
+            duration:300
+          },
+          pageParam: {
+              describe: datamsg
+          }
+       });
+     }else{
+       api.openFrame({
+         name: 'error',
+         url: 'error.html',
+         bgColor:'rgba(0,0,0,0.0)',
+         animation:{
+           type:"ripple",
+           duration:300
+         },
+         pageParam: {
+             describe: datamsg
+         }
+      });
+     }
+    })
+  })
+}
+  //背景音乐
+  var box = document.getElementsByClassName('box')[0]
+  var checkedywllow = document.getElementsByClassName('checkedywllow')[0]
+  var bar = document.getElementsByClassName('bar')[0]
+  var all = document.getElementsByClassName('all')[0]
+  var cha = bar.offsetWidth - box.offsetWidth
+  box.addEventListener('touchstart',function (ev) {
+    var boxL = box.offsetLeft
+    var e = ev || window.event //兼容性
+    var mouseX = e.changedTouches[0].clientX //鼠标按下的位置
+    box.addEventListener('touchmove',function (ev) {
+      var e = ev || window.event
+      var moveL = e.changedTouches[0].clientX - mouseX //鼠标移动的距离
+      var newL = boxL + moveL //left值
+      // 判断最大值和最小值
+      if (newL < 0) {
+        newL = 0
+      }
+      if (newL >= cha) {
+        newL = cha
+      }
+      // 改变left值
+      box.style.left = newL + 'px'
+      // 计算比例
+      var bili = newL / cha * 100
+      checkedywllow.style.width = Math.ceil(bili)+'%';
+      var musicmax = Math.ceil(bili)/100;
+      api.setPrefs({
+          key: 'background_music',
+          value: musicmax
+      });
+      api.sendEvent({
+        name: 'background_music',
+        extra: {musicnum:musicmax}
+      });
+      // p.innerHTML = '当前位置' + Math.ceil(bili) + '%'
+      return false //取消默认事件
+    })
+    box.addEventListener('touchend',function () {
+      window.onmousemove = false //解绑移动事件
+      return false
+    })
+    return false
+  });
+  //点击音效
+  // var box1 = document.getElementsByClassName('box1')[0]
+  // var checkedywllow1 = document.getElementsByClassName('checkedywllow1')[0]
+  // var bar1 = document.getElementsByClassName('bar1')[0]
+  // var cha1 = bar1.offsetWidth - box1.offsetWidth
+  // box1.addEventListener('touchstart',function (ev) {
+  //   var boxL = box1.offsetLeft
+  //   var e = ev || window.event //兼容性
+  //   var mouseX = e.changedTouches[0].clientX //鼠标按下的位置
+  //   box1.addEventListener('touchmove',function (ev) {
+  //     var e = ev || window.event
+  //     var moveL = e.changedTouches[0].clientX - mouseX //鼠标移动的距离
+  //     var newL = boxL + moveL //left值
+  //     // 判断最大值和最小值
+  //     if (newL < 0) {
+  //       newL = 0
+  //     }
+  //     if (newL >= cha1) {
+  //       newL = cha1
+  //     }
+  //     // 改变left值
+  //     box1.style.left = newL + 'px'
+  //     // 计算比例
+  //     var bili = newL / cha1 * 100
+  //     checkedywllow1.style.width = Math.ceil(bili)+'%';
+  //     // p.innerHTML = '当前位置' + Math.ceil(bili) + '%'
+  //     return false //取消默认事件
+  //   })
+  //   box1.addEventListener('touchend',function () {
+  //     window.onmousemove = false //解绑移动事件
+  //     return false
+  //   })
+  //   return false
+  // });
+</script>
+</html>

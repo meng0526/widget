@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>提现列表</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #listmessage{
+    overflow-y: scroll;
+  }
+  ul li{
+    width: 98%;
+    height: 25px;
+    margin: 0px auto;
+  }
+  ul li div{
+     width: 33.3%;
+     height: 20px;
+     float: left;
+     color: white;
+     text-align: center;
+     line-height: 20px;
+     font-size: 12px;
+  }
+</style>
+<script id="txlist" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <li>
+      <div>
+        {{= it[prop].created_at}}
+      </div>
+      <div>
+        {{= it[prop].money}}
+      </div>
+      <div>
+        {{? it[prop].status==1}}
+            待确认
+          {{?? it[prop].status==2}}
+            提款成功
+          {{??}}
+            提款失败
+        {{?}}
+      </div>
+    </li>
+  {{ } }}
+  <div class="clear"></div>
+</script>
+<body id="body">
+  <ul id="listmessage">
+
+  </ul>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript" src="../script/doT_min.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  api.showProgress({
+    title: '努力加载中...',
+    text: '先喝杯茶...',
+    modal: false
+  });
+  FastClick.attach(document.body);
+  var userinfo = $api.getStorage('userinfo');
+  $api.css($api.byId('listmessage'),api.pageParam.listheight-50);
+  //下拉刷新
+  api.setRefreshHeaderInfo({
+      loadingImg: 'widget://image/refresh.png',
+      bgColor: 'rgba(255,255,255,0)',
+      textColor: '#7b7b7b',
+      textDown: '下拉刷新...',
+      textUp: '松开刷新...'
+  }, function(ret, err) {
+    var gameurl = 'http://aipai.lbcity.cn:8686/api/drawingList?page=1&start_at=&end_at=&lastsession='+userinfo.last_session;
+    $.get(gameurl,function(data){
+      if(data.data.length!=0){
+        var interText = doT.template($("#txlist").text());
+        $("#listmessage").html(interText(data.data));
+        api.refreshHeaderLoadDone();
+      }else {
+        alert("暂无数据!");
+        api.refreshHeaderLoadDone();
+      }
+    })
+      //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+  });
+  //获取提现数据
+  var gameurl = 'http://aipai.lbcity.cn:8686/api/drawingList?page=1&start_at=&end_at=&lastsession='+userinfo.last_session;
+  $.get(gameurl,function(data){
+    if(data.data.length!=0){
+      var interText = doT.template($("#txlist").text());
+      $("#listmessage").html(interText(data.data));
+      api.hideProgress();
+    }else {
+      alert("暂无数据!");
+      api.hideProgress();
+    }
+  })
+}
+</script>
+</html>

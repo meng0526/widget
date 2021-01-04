@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+#list{
+  overflow-y: scroll;
+  word-wrap: break-word;
+}
+.list1,.list3,.list4{
+  width: 16%;
+}
+.list2{
+  width: 20%;
+}
+.list5{
+  width: 32%;
+}
+#list ul li{
+  float: left;
+  height: 20px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+}
+.clear{
+  clear: both;
+}
+</style>
+<script id="toushulist" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <li class="list1">{{= it[prop].api.api_name}}</li>
+    <li class="list2">{{= it[prop].gameCode}}</li>
+    <li class="list3">{{= it[prop].betAmount}}</li>
+    <li class="list4">{{= it[prop].netAmount}}</li>
+    <li class="list5">{{= it[prop].betTime}}</li>
+  {{ } }}
+  <div class="clear"></div>
+</script>
+  <body>
+  <div id="list">
+    <ul>
+
+    </ul>
+  </div>
+  </body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/doT_min.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('listmessage'),api.pageParam.listheight);
+  var userinfo = $api.getStorage('userinfo');
+  var number = 2;
+  api.showProgress({
+    title: '努力加载中...',
+    text: '先喝杯茶...',
+    modal: false
+  });
+  //下拉刷新
+  api.setRefreshHeaderInfo({
+      loadingImg: 'widget://image/refresh.png',
+      bgColor: '#000',
+      textColor: '#7b7b7b',
+      textDown: '下拉刷新...',
+      textUp: '松开刷新...'
+  }, function(ret, err) {
+    var gameurl = 'http://aipai.lbcity.cn:8686/api/gameRecordList?page=1&start_at=&end_at=&lastsession='+userinfo.last_session;
+    $.get(gameurl,function(data){
+      if(data.total!=0){
+        var interText = doT.template($("#toushulist").text());
+        $("#list ul").html(interText(data.data));
+        api.refreshHeaderLoadDone();
+        number = 2;
+      }else {
+        api.refreshHeaderLoadDone();
+        $("#list").css({
+          "background-image": "url('../image/nodata.png')",
+          "background-repeat": "no-repeat",
+          "background-position": "50% 50%",
+          "background-size": "77px 60px"
+        });
+      }
+    })
+      //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+  });
+  //获取投注记录
+  var gameurl = 'http://aipai.lbcity.cn:8686/api/gameRecordList?page=1&start_at=&end_at=&lastsession='+userinfo.last_session;
+  $.get(gameurl,function(data){
+    if(data.total!=0){
+      var interText = doT.template($("#toushulist").text());
+      $("#list ul").html(interText(data.data));
+      api.hideProgress();
+    }else {
+      $("#list").css({
+        'height':api.pageParam.listheight+'px',
+        "background-image": "url('../image/nodata.png')",
+        "background-repeat": "no-repeat",
+        "background-position": "50% 50%",
+        "background-size": "77px 60px"
+      });
+      api.hideProgress();
+    }
+  })
+  api.addEventListener({
+      name: 'scrolltobottom'
+  }, function(ret, err){
+    api.showProgress({
+      title: '努力加载中...',
+      text: '先喝杯茶...',
+      modal: false
+    });
+    //获取投注记录
+    var gameurl = 'http://aipai.lbcity.cn:8686/api/gameRecordList?page='+number+'&start_at=&end_at=&lastsession='+userinfo.last_session;
+    $.get(gameurl,function(data){
+      if(data.data.length!=0){
+        var interText = doT.template($("#toushulist").text());
+        $("#list ul").append(interText(data.data));
+        api.hideProgress();
+        number++;
+      }else {
+        api.openFrame({
+          name: 'warning',
+          url: 'warning.html',
+          bgColor:'rgba(0,0,0,0.0)',
+          animation:{
+            type:"ripple",
+            duration:300
+          },
+          pageParam: {
+              describe: '已全部加载完毕！'
+          }
+        });
+        api.hideProgress();
+      }
+    })
+  });
+};
+</script>

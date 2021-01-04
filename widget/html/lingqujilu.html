@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>领取记录</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+#list{
+  overflow-y: scroll;
+  word-wrap: break-word;
+  background-image: url('../image/nodata.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 77px 60px;
+  background-color: #000;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius:5px;
+}
+#list ul li{
+  width: 50%;
+  float: left;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: white;
+}
+.clear{
+  clear: both;
+}
+</style>
+  <body>
+  <div id="list">
+    <ul>
+      <div class="clear"></div>
+    </ul>
+  </div>
+  </body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  //下拉刷新
+  // api.setRefreshHeaderInfo({
+  //     loadingImg: 'widget://image/refresh.png',
+  //     bgColor: '#000',
+  //     textColor: '#7b7b7b',
+  //     textDown: '下拉刷新...',
+  //     textUp: '松开刷新...'
+  // }, function(ret, err) {
+  //   api.refreshHeaderLoadDone();
+  //     //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+  // });
+  var listheight = api.pageParam.listheight-30;
+  $api.css($api.byId("list"),'height:'+listheight+'px');
+};
+</script>

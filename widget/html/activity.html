@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>优惠活动</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:65%;
+      float: left;
+    }
+    #header .logo{
+      width:15%;
+      float: left;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 23%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_left_nav_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    #m_right_box{
+      padding: 10px;
+      overflow-y: scroll;
+    }
+    .list_av:nth-child(n+2){
+      display: none;
+    }
+    #main .m_right{
+      width: 76%;
+      float: right;
+      margin-top: 10px;
+      color: white;
+    }
+    .col_detail{
+      background-image: url('../image/game/huodong.png');
+      background-size: 100% 100%;
+    }
+    .col_1{
+      height: 150px;
+      background-image: url('../image/game/ic_activity_item_bg.png');
+      background-size: 100% 100%;
+    }
+    .col_left{
+      width: 70%;
+      float: left;
+      text-indent: 15px;
+    }
+    .col_left div:nth-child(1){
+      margin-top: 5px;
+    }
+    .col_left div:nth-child(2){
+      font-size: 10px;
+    }
+    .col_right{
+      width: 30%;
+      float: left;
+    }
+    .col_right div:nth-child(1){
+      margin-top: 40px;
+      font-size: 12px;
+      text-align: center;
+    }
+    .col_right div:nth-child(2){
+      margin-top: 50px;
+      text-align: center;
+    }
+    .col_1:nth-child(n+2){
+      margin-top: 10px;
+    }
+    </style>
+</head>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico"><img src="../image/game/src_761chess_resource_img_activity_ac_title.png" alt="" width="250px" height="25px"></div>
+           <div class="logo"><img src="../image/game/src_761chess_resource_img_index_skeletonpic.png" alt="" width="75px" height="30px"></div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+                <div class="btn userlistbtn active"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_all2.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_all.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_qp.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_qp2.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_by.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_by2.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_dz.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_dz2.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_zr.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_zr2.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_ty.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_ty2.png" width="100%" height="45px"></div>
+              </div>
+            </div>
+            <div class="m_right">
+                <div id="m_right_box">
+                  <div class="m_right_box_1 list_av">
+                      <div class="col_1">
+                          <div class="col_left">
+                            <!-- <div>会生钱的app：天天红包</div> -->
+                            <div></div>
+                            <div><img src="../image/game/1552468930640.jpg" alt="" width="88%" height="100px"></div>
+                          </div>
+                          <div class="col_right">
+                            <!-- <div>该活动不支持在线领取</div> -->
+                            <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                          </div>
+                           <div class="col_detail"></div>
+                      </div>
+                      <div class="col_1">
+                          <div class="col_left">
+                            <!-- <div>会生钱的app：天天红包</div> -->
+                            <div></div>
+                            <div><img src="../image/game/15524689553440.jpg" alt="" width="88%" height="100px"></div>
+                          </div>
+                          <div class="col_right">
+                            <!-- <div>该活动不支持在线领取</div> -->
+                            <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                          </div>
+                           <div class="col_detail"></div>
+                      </div>
+                      <div class="col_1">
+                          <div class="col_left">
+                            <!-- <div>会生钱的app：天天红包</div> -->
+                            <div></div>
+                            <div><img src="../image/game/155246893432423.jpg" alt="" width="88%" height="100px"></div>
+                          </div>
+                          <div class="col_right">
+                            <!-- <div>该活动不支持在线领取</div> -->
+                            <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                          </div>
+                           <div class="col_detail"></div>
+                      </div>
+                      <div class="col_1">
+                          <div class="col_left">
+                            <!-- <div>会生钱的APP：周礼金</div> -->
+                            <div></div>
+                            <div><img src="../image/game/1552395238301.jpg" alt="" width="88%" height="100px"></div>
+                          </div>
+                          <div class="col_right">
+                            <!-- <div>该活动不支持在线领取</div> -->
+                            <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                          </div>
+                          <div class="col_detail"></div>
+                      </div>
+                      <div class="col_1">
+                        <div class="col_left">
+                          <!-- <div>百樂們娱乐城独家「双返水」</div> -->
+                          <div></div>
+                          <div><img src="../image/game/1550232368732.jpg" alt="" width="88%" height="100px"></div>
+                        </div>
+                        <div class="col_right">
+                          <!-- <div>该活动不支持在线领取</div> -->
+                          <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                        </div>
+                         <div class="col_detail"></div>
+                     </div>
+                      <div class="col_1">
+                        <div class="col_left">
+                          <!-- <div>金猪报喜 存款加赠30%</div> -->
+                          <div></div>
+                          <div><img src="../image/game/1549715037596.jpg" alt="" width="88%" height="100px"></div>
+                        </div>
+                        <div class="col_right">
+                          <!-- <div>该活动不支持在线领取</div> -->
+                          <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                        </div>
+                         <div class="col_detail"></div>
+                      </div>
+                       <div class="col_1">
+                            <div class="col_left">
+                              <!-- <div>猪事大吉 7天签到领红包</div> -->
+                              <div></div>
+                              <div><img src="../image/game/15524689306404.jpg" alt="" width="88%" height="100px"></div>
+                            </div>
+                            <div class="col_right">
+                              <div>该活动不支持在线领取</div>
+                              <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                            </div>
+                          <div class="col_detail"></div>
+                        </div>
+                        <div class="col_1">
+                          <div class="col_left">
+                            <!-- <div>新会员专享 761元大礼包</div> -->
+                            <div></div>
+                            <div><img src="../image/game/1552464445955.jpg" alt="" width="88%" height="100px"></div>
+                          </div>
+                          <div class="col_right">
+                            <div>该活动不支持在线领取</div>
+                            <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                          </div>
+                        <div class="col_detail"></div>
+                      </div>
+                       <div style="padding:10px;"></div>
+                  </div>
+                  <div class="m_right_box_2 list_av">
+                      <div class="col_1">
+                        <div class="col_left">
+                          <!-- <div>百樂們娱乐城独家「双返水」</div> -->
+                          <div></div>
+                          <div><img src="../image/game/1550232368732.jpg" alt="" width="88%" height="100px"></div>
+                        </div>
+                        <div class="col_right">
+                          <div>该活动不支持在线领取</div>
+                          <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                        </div>
+                         <div class="col_detail"></div>
+                      </div>
+                  </div>
+                  <div class="m_right_box_3 list_av">
+                    <div class="col_1">
+                        <div class="col_left">
+                          <!-- <div>百樂們娱乐城独家「双返水」</div> -->
+                          <div></div>
+                          <div><img src="../image/game/1550232368732.jpg" alt="" width="88%" height="100px"></div>
+                        </div>
+                        <div class="col_right">
+                          <div>该活动不支持在线领取</div>
+                          <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                        </div>
+                       <div class="col_detail"></div>
+                    </div>
+                  </div>
+                  <div class="m_right_box_4 list_av">
+                    <div class="col_1">
+                      <div class="col_left">
+                        <!-- <div>百樂們娱乐城独家「双返水」</div> -->
+                        <div></div>
+                        <div><img src="../image/game/1550232368732.jpg" alt="" width="88%" height="100px"></div>
+                      </div>
+                      <div class="col_right">
+                        <div>该活动不支持在线领取</div>
+                        <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                      </div>
+                       <div class="col_detail"></div>
+                    </div>
+                  </div>
+                  <div class="m_right_box_5 list_av">
+                    <div class="col_1">
+                      <div class="col_left">
+                        <!-- <div>百樂們娱乐城独家「双返水」</div> -->
+                        <div></div>
+                        <div><img src="../image/game/1550232368732.jpg" alt="" width="88%" height="100px"></div>
+                      </div>
+                      <div class="col_right">
+                        <div>该活动不支持在线领取</div>
+                        <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                      </div>
+                       <div class="col_detail"></div>
+                    </div>
+                  </div>
+                  <div class="m_right_box_6 list_av">
+                    <div class="col_1">
+                        <div class="col_left">
+                          <!-- <div>百樂們娱乐城独家「双返水」</div> -->
+                          <div></div>
+                          <div><img src="../image/game/1550232368732.jpg" alt="" width="88%" height="100px"></div>
+                        </div>
+                        <div class="col_right">
+                          <div>该活动不支持在线领取</div>
+                          <div><img src="../image/game/ic_cus_zixun.png" alt="" width="80px" height="30px" class="service_link"></div>
+                        </div>
+                        <div class="col_detail"></div>
+                     </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+    FastClick.attach(document.body);
+    apiready = function(){
+        var header = $api.byId('header');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var m_right_box_height =   api.winHeight - headerPos.h - 10;
+        $api.css($api.byId('m_right_box'),'height:'+m_right_box_height+'px');
+        //播放活动音效
+        api.startPlay({
+            path: 'widget://image/audio/src_761chess_resource_audio_musicacitivity.mp3'
+        });
+        //菜单切换
+        $(".userlistbtn").on('click',function(){
+          $(".list_av").eq($(this).index()).show().siblings().hide();
+        })
+        //咨询客服
+        $(".service_link").on('click',function(){
+          api.openFrame({
+            name: 'service',
+            url: 'service.html',
+            bgColor:'rgba(0,0,0,1)',
+            animation:{
+              type:"movein",
+              subType:"from_bottom",
+              duration:0
+            }
+          });
+        })
+};
+</script>
+</html>

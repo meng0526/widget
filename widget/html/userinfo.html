@@ -1,0 +1,694 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:65%;
+      float: left;
+    }
+    #header .logo{
+      width:15%;
+      float: left;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 23%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_left_nav_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+      overflow-y: scroll;
+    }
+    #m_right_box{
+      width: 99%;
+    }
+    .m_right_box_1{
+      width: 100%;
+      overflow: hidden;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinbg.png'),url('../image/game/src_761chess_resource_img_index_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_right{
+      width: 76%;
+      float: right;
+      margin-top: 10px;
+      color: white;
+    }
+    .jcinfo{
+      text-indent: 5px;
+      height: 30px;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinlan2.png');
+      background-size: 100% 100%;
+      line-height: 30px;
+    }
+    .lianxi{
+      text-indent: 5px;
+      width: 100%;
+      float: left;
+    }
+    .lianxi div{
+      padding: 7px;
+    }
+    .edit{
+      float: right;
+      margin-right: 10px;
+    }
+    .edit img{
+      position:relative;
+      top: 3px;
+    }
+    .yellow{
+      color: #eaa65a;
+    }
+    .white input{
+      color: white;
+      outline: none;
+      border-radius: 10px;
+      text-indent: 5px;
+    }
+    .light_yellow{
+      color: #D6C09A;
+    }
+    .jilumenu ul{
+      width: 100%;
+      height: 40px;
+      white-space: nowrap;
+      overflow-x: auto;
+   }
+   .record_active{
+     background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinjilubg1.png');
+     background-size: 100% 100%;
+   }
+   .jilumenu ul li:nth-child(n+2){
+     background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinjilubg2.png');
+     background-size: 100% 100%;
+   }
+    .jilumenu ul li{
+       width: 120px;
+       height: 40px;
+       line-height: 40px;
+       font-size: 12px;
+       color: #666;
+       text-align: center;
+       display: inline-block;
+    }
+    .jy{
+      width: 20%;
+      height: 30px;
+      float: left;
+    }
+    .pjtime,.gamept{
+      width: 40%;
+      height: 30px;
+      line-height: 30px;
+      float: left;
+    }
+    .pjtime_baobiao{
+      width: 100%;
+      height: 30px;
+      line-height: 35px;
+      float: left;
+    }
+    .game_option{
+      width: 99.6%;
+      height: 30px;
+      background-image: url('../image/game/gameoption.png');
+      background-size:100% 100%;
+      margin: 0 auto;
+      margin-top: 5px;
+    }
+    .game_option_baobiao{
+      width: 99.6%;
+      height: 30px;
+      margin: 0 auto;
+      margin-top: 5px;
+    }
+    .titlename{
+      text-align: center;
+      width: 40%;
+      float: left;
+      color: #79787B;
+      font-size: 10px;
+    }
+    .titlename_baobiao{
+      text-align: center;
+      width: 15%;
+      float: left;
+      color: #79787B;
+      font-size: 12px;
+    }
+    .titleoption{
+      width: 60%;
+      float: left;
+    }
+    .titleoption_baobiao{
+      width: 85%;
+      float: left;
+    }
+    .titleoption div{
+      width: 75%;
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      text-align: center;
+      color: #eee;
+    }
+    .titleoption select{
+      width: 75%;
+      color: #79787B;
+      text-indent: 15px;
+      background: transparent;
+      appearance:none;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari 和 Chrome */
+      border: 0px;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinpingtai.png');
+      background-size: 100% 100%;
+      outline-style: none;
+    }
+    .titleoption_baobiao select{
+      width: 40%;
+      height:25px;
+      line-height: 25px;
+      text-align-last: center;
+      color: #79787B;
+      background: transparent;
+      appearance:none;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari 和 Chrome */
+      border: 0px;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinpingtai.png');
+      background-size: 100% 100%;
+      outline-style: none;
+    }
+    .gamelist ul {
+      background-color: #473F36;
+      margin: 0 auto;
+      font-size: 12px;
+      width: 100%;
+    }
+    .m_right_box_2 .gamelist ul li:nth-child(1),.m_right_box_2 .gamelist ul li:nth-child(3),.m_right_box_2 .gamelist ul li:nth-child(4){
+      width: 15%;
+    }
+    .m_right_box_2 .gamelist ul li:nth-child(2){
+      width: 19%;
+    }
+    .m_right_box_2 .gamelist ul li:nth-child(5){
+      width: 31%;
+    }
+    .gamelist ul li{
+      width: 19.8%;
+      float: left;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      color: #FFD784;
+    }
+    .gamelist ul li:nth-child(n+2){
+      border-left: 1px solid #3D342B;
+    }
+    .clear{
+      clear: both;
+    }
+    .m_right_box_3{
+      position: relative;
+    }
+    .count{
+      width: 100%;
+      height: 50px;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhichonzhijinebg.png');
+      background-size: 100% 100%;
+      position: absolute;
+      bottom: 3px;
+      font-size: 12px;
+    }
+    .count .count_1{
+      width: 15%;
+      float: left;
+      text-indent: 20px;
+      padding-top: 10px;
+      color: #c7c7c7;
+    }
+    .count .count_2{
+      padding-top: 10px;
+      width: 10%;
+      float: left;
+      color: #c7c7c7;
+    }
+    .count .count_2 .count_2_1{
+      color: green;
+    }
+    .count .count_2 .count_2_2{
+      color: yellow;
+    }
+    .count .count_3{
+      padding-top: 10px;
+      width: 10%;
+      float: left;
+      color: #c7c7c7;
+    }
+    .count .count_3 .count_3_1{
+      color: red;
+    }
+    .count .count_3 .count_3_2{
+      color: yellow;
+    }
+    .count .count_4{
+      width: 63%;
+      float: left;
+      text-align: right;
+      line-height: 50px;
+      padding-right: 10px;
+    }
+    #baobiao{
+      background-image: url('../image/game/ic_pc_bgm.png');
+      background-size: 100% 100%;
+    }
+    .count_num_1{
+      text-align: center;
+      height: 80px;
+      line-height: 85px;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinline.png');
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position: bottom;
+    }
+    .yltitle{
+      color: #3D342B;
+    }
+    .count_num_2{
+      margin-top: 10px;
+    }
+    .count_num_2_1,.count_num_2_2,.count_num_2_3{
+      text-align: center;
+      width: 33.3%;
+      float: left;
+      padding-top: 30px;
+      line-height: 40px;
+    }
+    .count_num_2_1 p:nth-child(2),.count_num_2_2 p:nth-child(2),.count_num_2_3 p:nth-child(2){
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinyouxiaotouzhubg.png');
+      background-repeat: no-repeat;
+      font-size: 12px;
+    }
+    .count_num_2_1,.count_num_2_2{
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinline2.png');
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+    .ylze{
+      font-size: 25px;
+      color: green;
+      font-weight: bold;
+    }
+    .yxtz,.pjze,.fdze{
+      font-size: 20px;
+      font-weight: bold;
+      color: yellow;
+    }
+    .m_right_box div:nth-child(n+1){
+      display: none;
+    }
+    </style>
+</head>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinbiaoti.png" alt="" width="250px" height="25px"></div>
+           <div class="logo"><img src="../image/game/src_761chess_resource_img_index_skeletonpic.png" alt="" width="75px" height="30px"></div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+                <div class="btn userlistbtn active"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxingerenxinxi2.png" alt="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxingerenxinxi.png" width="100%" height="50px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxintouzhujilu.png" alt="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxintouzhujilu2.png" width="100%" height="50px"></div>
+                <!-- <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinzhanghumingxi.png" alt="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinzhanghumingxi2.png" width="100%" height="50px"></div> -->
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxingerenbaobiao.png" alt="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxingerenbaobiao2.png" width="100%" height="50px"></div>
+                <!-- <div class="btn"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinvipxiangqing.png" alt="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinvipxiangqing2.png" width="100%" height="50px"></div> -->
+              </div>
+            </div>
+            <div class="m_right">
+                <div id="m_right_box">
+                  <div class="m_right_box_1">
+                      <div class="jcinfo">
+                        <span><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxindian.png" alt="" width="10px" height="10px"></span>
+                        <span class="yellow">基础信息</span>
+                        <span class="edit"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinbianji.png" alt="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinwancheng.png" width="15px" height="15px"><span class="yellow">编辑</span></span>
+                      </div>
+                      <div class="lianxi">
+                         <div>
+                           <span class="light_yellow">账号：<span class="white name"></span></span>
+                         </div>
+                         <div>
+                           <span class="light_yellow">姓名：<span class="white real_name"></span></span>
+                         </div>
+                         <div>
+                           <span class="light_yellow">邮箱：<span class="white"><input type="text" value="" disabled="disabled" class="userinfo_input email"></span></span>
+                         </div>
+                         <div>
+                           <span class="light_yellow">电话：<span class="white"><input type="text" value="" disabled="disabled" class="userinfo_input phone"></span></span>
+                         </div>
+                         <div>
+                           <span class="light_yellow">QQ：<span class="white"><input type="text" value="" disabled="disabled" class="userinfo_input qq"></span></span>
+                         </div>
+                         <div>
+                           <span class="light_yellow">微信：<span class="white"><input type="text" value="" disabled="disabled" class="userinfo_input weixin"></span></span>
+                         </div>
+                      </div>
+                  </div>
+                  <div class="m_right_box_2">
+                    <!-- <div class="jilumenu">
+                      <ul>
+                        <li class="record btn record_active">棋牌投注记录</li>
+                        <li class="record btn">视讯投注记录</li>
+                        <li class="record btn">体育投注记录</li>
+                        <li class="record btn">电子投注记录</li>
+                        <li class="record btn">捕鱼投注记录</li>
+                      </ul>
+                    </div> -->
+                    <!-- <div class="game_option">
+                      <div class="pjtime">
+                        <div class="titlename">开始时间</div>
+                        <div class="titleoption">
+                          <div  id="starttime">选择开始时间</div>
+                          <select class="" name="">
+                            <option value="">所有时间</option>
+                            <option value="">今天</option>
+                            <option value="">昨天</option>
+                            <option value="">一个月内</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="jy"></div>
+                      <div class="gamept">
+                        <div class="titlename">结束时间</div>
+                        <div class="titleoption">
+                          <div  id="endtime">选择结束时间</div>
+                          <select class="" name="">
+                            <option value="">FG棋牌</option>
+                            <option value="">夺宝棋牌</option>
+                            <option value="">开元棋牌</option>
+                            <option value="">新世界棋牌</option>
+                            <option value="">乐游棋牌</option>
+                            <option value="">VG棋牌</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div> -->
+                    <div class="gamelist">
+                      <ul>
+                        <li>平台</li>
+                        <li>游戏名称</li>
+                        <li>投注</li>
+                        <li>输赢</li>
+                        <li>时间</li>
+                        <div class="clear"></div>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- <div class="m_right_box_3">
+                        <div class="game_option">
+                          <div class="pjtime">
+                            <div class="titlename">交易时间</div>
+                            <div class="titleoption">
+                              <select class="" name="">
+                                <option value="">所有时间</option>
+                                <option value="">今天</option>
+                                <option value="">昨天</option>
+                                <option value="">一个月内</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="jy"></div>
+                          <div class="gamept">
+                            <div class="titlename">交易状态</div>
+                            <div class="titleoption">
+                              <select class="" name="">
+                                <option value="">全部状态</option>
+                                <option value="">平台资金切换</option>
+                                <option value="">会员充值</option>
+                                <option value="">会员取款</option>
+                                <option value="">人工存入</option>
+                                <option value="">活动优惠</option>
+                                <option value="">工人取款</option>
+                                <option value="">洗码</option>
+                                <option value="">赠送彩金</option>
+                                <option value="">领取佣金</option>
+                                <option value="">保险箱记录</option>
+                                <option value="">结算入款</option>
+                                <option value="">红包</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="gamelist">
+                          <ul>
+                            <li>全部时间</li>
+                            <li>全部状态</li>
+                            <li>支出</li>
+                            <li>收入</li>
+                            <li>余额</li>
+                            <div class="clear"></div>
+                          </ul>
+                        </div>
+                        <div class="count">
+                          <div class="count_1">—合计—</div>
+                          <div class="count_2">
+                            <p>充值:<span class="count_2_1">0.0</span></p>
+                            <p>优惠:<span class="count_2_2">0.0</span></p>
+                          </div>
+                          <div class="count_3">
+                            <p>提现:<span class="count_3_1">0.0</span></p>
+                            <p>反水:<span class="count_3_2">0.0</span></p>
+                          </div>
+                          <div class="count_4">余额:<span class="count_4_1">0.0<span>元</span></span></div>
+                        </div>
+                    </div> -->
+                    <div class="m_right_box_4">
+                        <div class="jilumenu">
+                          <ul>
+                            <li class="record btn record_active userform" ide="7">棋牌平台报表</li>
+                            <li class="record btn userform" ide="1">真人视讯报表</li>
+                            <li class="record btn userform" ide="2">电子游艺报表</li>
+                            <li class="record btn userform" ide="4">体育平台报表</li>
+                            <li class="record btn userform" ide="6">捕鱼平台报表</li>
+                          </ul>
+                        </div>
+                        <div id="baobiao">
+                            <div class="game_option_baobiao">
+                              <div class="pjtime_baobiao">
+                                <div class="titlename_baobiao">时间设置:</div>
+                                <div class="titleoption_baobiao">
+                                  <select class="checktime" name="">
+                                    <option value="0">今天</option>
+                                    <option value="1">昨天</option>
+                                    <option value="2">一个月内</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="count_num">
+                                <div class="count_num_1">
+                                  <span class="yltitle">盈利总额：<span class="ylze">0.0</span></span>
+                                </div>
+                                <div class="count_num_2">
+                                  <div class="count_num_2_1">
+                                    <p class="yxtz">0.0</p>
+                                    <p>有效投注总额</p>
+                                  </div>
+                                  <div class="count_num_2_2">
+                                    <p class="pjze">0.0</p>
+                                    <p>派奖总额</p>
+                                  </div>
+                                  <div class="count_num_2_3">
+                                    <p class="fdze">0.0</p>
+                                    <p>返点总额</p>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript" src="../script/datetime.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        FastClick.attach(document.body);
+        //登录后的用户信息
+        var userinfo = $api.getStorage('userinfo');
+        if(userinfo){
+          $('.name').text(userinfo.name);
+          $('.real_name').text(userinfo.real_name);
+          $('.email').val(userinfo.email);
+          $('.phone').val(userinfo.phone);
+          $('.qq').val(userinfo.qq);
+          $('.weixin').val(userinfo.weixin);
+        }
+        var header = $api.byId('header');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var m_right_box_height =   api.winHeight - headerPos.h - 10;
+        $api.css($api.dom('.m_left'),'height:'+m_right_box_height+'px');
+        $api.css($api.dom('.m_right_box_1'),'height:'+m_right_box_height+'px');
+        $api.css($api.dom('.m_right_box_3'),'height:'+m_right_box_height+'px');
+        $api.css($api.byId('baobiao'),'height:'+(m_right_box_height-50)+'px');
+
+        var leftff = $api.byId('m_left_box');
+        var rightff = $api.byId('m_right_box');
+        var count = $api.dom('.count');
+        var left_length,right_length,count_length;
+        $(".userlistbtn").on('click',function(){
+          $("#m_right_box").children("div").eq($(this).index()).show().siblings("div").hide();
+          api.hideProgress();
+          //获取个人报表
+          if($(this).index()==2){
+             var todaytime = new Date();
+             var t1 = todaytime.format("yyyy-MM-dd 00:00:00");//当天开始时间
+             var t2 = todaytime.format("yyyy-MM-dd 23:59:59");//当天结束时间
+            var gameurl = 'http://aipai.lbcity.cn:8686/api/usergameForm?gameType='+7+'&playerName='+userinfo.name+'&start_at='+t1+'&end_at='+t2;
+            $.get(gameurl,function(data){
+              $('.ylze').text(data.total_netAmount);//盈利总额
+              $('.yxtz').text(data.total_betAmount);//有效投注总额
+              $('.pjze').text(data.total_validBetAmount);//派奖总额
+              $('.fdze').text(data.total_validBetAmount);//返点总额
+            });
+
+            //选择时间
+            $(".checktime").on('change',function(){
+              var gametype = $('.record_active').attr('ide');
+              var checkday = new Date();
+              if($(this).val()==0){
+                var y1 = checkday.format("yyyy-MM-dd 00:00:00");//当天开始时间
+                var y2 = checkday.format("yyyy-MM-dd 23:59:59");//当天结束时间
+              }else if ($(this).val()==1){
+                checkday.setDate(checkday.getDate()-1);
+                var y1 = checkday.format("yyyy-MM-dd 00:00:00");//昨天开始时间
+                var y2 = checkday.format("yyyy-MM-dd 23:59:59");//昨天结束时间
+              }else {
+                var y1 = checkday.format("yyyy-MM-01 00:00:00");//本月开始时间
+                var y2 = checkday.format("yyyy-MM-dd hh:mm:ss");//当前时间
+              }
+             var gameurl = 'http://aipai.lbcity.cn:8686/api/usergameForm?gameType='+gametype+'&playerName='+userinfo.name+'&start_at='+y1+'&end_at='+y2;
+             $.get(gameurl,function(data){
+               $('.ylze').text(data.total_netAmount);//盈利总额
+               $('.yxtz').text(data.total_betAmount);//有效投注总额
+               $('.pjze').text(data.total_validBetAmount);//派奖总额
+               $('.fdze').text(data.total_validBetAmount);//返点总额
+             });
+            });
+            //选择游戏类型
+            $(".userform").on('click',function(){
+              var gametype = $(this).attr('ide');
+              var checkday = new Date();
+              if($(".checktime").val()==0){
+                var y1 = checkday.format("yyyy-MM-dd 00:00:00");//当天开始时间
+                var y2 = checkday.format("yyyy-MM-dd 23:59:59");//当天结束时间
+              }else if ($(".checktime").val()==1){
+                checkday.setDate(checkday.getDate()-1);
+                var y1 = checkday.format("yyyy-MM-dd 00:00:00");//昨天开始时间
+                var y2 = checkday.format("yyyy-MM-dd 23:59:59");//昨天结束时间
+              }else {
+                var y1 = checkday.format("yyyy-MM-01 00:00:00");//本月开始时间
+                var y2 = checkday.format("yyyy-MM-dd hh:mm:ss");//当前时间
+              }
+             var gameurl = 'http://aipai.lbcity.cn:8686/api/usergameForm?gameType='+gametype+'&playerName='+userinfo.name+'&start_at='+y1+'&end_at='+y2;
+             $.get(gameurl,function(data){
+               $('.ylze').text(data.total_netAmount);//盈利总额
+               $('.yxtz').text(data.total_betAmount);//有效投注总额
+               $('.pjze').text(data.total_validBetAmount);//派奖总额
+               $('.fdze').text(data.total_validBetAmount);//返点总额
+             });
+            })
+          }
+          if($(this).index()==1){
+            left_length = $api.offset(leftff);
+            right_length = $api.offset(rightff);
+            count_length = $api.offset(count);
+              api.openFrame({
+                name: 'touzhu',
+                url: './touzhu_jilu.html',
+                rect: {
+                    x: left_length.w,
+                    y: right_length.h+headerPos.h+20,
+                    w: right_length.w,
+                    h: api.winHeight-right_length.h-headerPos.h-30
+                },
+                pageParam: {
+                    listheight: api.winHeight-right_length.h-headerPos.h-50
+                }
+            })
+            api.closeFrame({
+                name: 'zhanghu'
+            });
+          }else {
+            api.closeFrame({
+                name: 'touzhu'
+            });
+            api.closeFrame({
+                name: 'zhanghu'
+            });
+          }          
+        })
+    };
+</script>
+</html>

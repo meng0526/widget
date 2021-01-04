@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>直属详情</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/ic_detail_directly.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .padding_top{
+    padding:38px;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  #login .list div:nth-child(1) div:nth-child(1){
+    width: 25%;
+    height: 50px;
+    float: left;
+  }
+  #login .list div:nth-child(1) div:nth-child(2){
+    width: 60%;
+    height: 50px;
+    float: left;
+  }
+  #login .list div:nth-child(1) div:nth-child(3){
+    width: 15%;
+    height: 50px;
+    float: left;
+  }
+  #login .list div:nth-child(1) div div{
+    width: 50%;
+    float: left;
+  }
+  #login .list div:nth-child(n+2) div{
+    width: 50%;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+  }
+  .list{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 12px;
+  }
+  .name{
+    color: #696b5a;
+  }
+  .num{
+    color: #dccf1a;
+  }
+</style>
+<body id="body">
+  <div id="login">
+      <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+      <div class="padding_top"></div>
+      <div class="list">
+        <div>
+          <div>
+            <div>
+              <img src="../image/game/src_761chess_resource_img_index_index_icon.png" alt="" width="20px" height="20px">
+            </div>
+            <div>
+              <p class="num">25545</p>
+              <p><span class="name">id:</span><span>25545</span></p>
+            </div>
+          </div>
+          <div></div>
+          <div>
+            <p class="name">注册日期:</p>
+            <p>2019-05-05</p>
+          </div>
+        </div>
+        <div>
+          <div class="name">今日流水:<span>0.0</span></div>
+          <div class="name">总流水:<span>0.0</span></div>
+        </div>
+        <div>
+          <div class="name">团队人数（新增）:<span>0.0</span><span>(<span class="num">0</span>)</span></div>
+          <div class="name">今日团队业绩:<span>0.0</span></div>
+        </div>
+        <div>
+          <div class="name">直属人数（新增）:<span>0.0</span><span>(<span class="num">0</span>)</span></div>
+          <div class="name">今日佣金预估:<span>0.0</span></div>
+        </div>
+        <div>
+          <div class="name">直属代理（新增）:<span>0.0</span><span>(<span class="num">0</span>)</span></div>
+          <div class="name">昨日佣金:<span>0.0</span></div>
+        </div>
+        <div>
+          <div class="name">历史总佣金:<span class="num">0.0</span></div>
+          <div class="name">可提取佣金:<span class="num">0.0</span></div>
+        </div>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px')
+}
+</script>
+</html>

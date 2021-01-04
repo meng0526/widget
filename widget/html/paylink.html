@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>支付跳转页</title>
+</head>
+<body>
+  <form style='display:none;' id='formpay' name='formpay' method='post' action='https://pay.qilinpay-api.com/'>
+      <input name='uid' id='uid' type='text' value='' />
+      <input name='price' id='price' type='text' value='' />
+      <input name='istype' id='istype' type='text' value=''/>
+      <input name='notify_url' id='notify_url' type='text' value=''/>
+      <input name='return_url' id='return_url' type='text' value=''/>
+      <input name='orderuid' id='orderuid' type='text' value=''/>
+      <input name='orderid' id='orderid' type='text' value=''/>
+      <input name='goodsname' id='goodsname' type='text' value=''/>
+      <input name='key' id='key' type='text' value=''/>
+      <input name='version' id='version' type='text' value=''/>
+      <input type='submit' id='submitdemo1'>
+  </form>
+</body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript">
+  apiready = function(){
+    api.addEventListener({
+        name: 'keyback'
+    }, function(ret, err) {
+      api.closeFrame({
+          name: api.frameName
+      });
+      api.setScreenOrientation({
+          orientation: 'landscape_left'
+      });
+    });
+      var data = api.pageParam.datas;
+      $("#uid").val(data.uid);
+      $("#price").val(data.price);
+      $('#istype').val(data.istype);
+      $('#notify_url').val(data.notify_url);
+      $('#return_url').val(data.return_url);
+      $('#orderid').val(data.orderid);
+      $('#orderuid').val(data.orderuid);
+      $('#goodsname').val(data.goodsname);
+      $('#key').val(data.key);
+      $('#version').val(data.version);
+      $('#submitdemo1').click();
+      if(data.istype==1||data.istype==2){
+        api.setScreenOrientation({
+            orientation: 'portrait_up'
+        });
+      }
+  }
+</script>

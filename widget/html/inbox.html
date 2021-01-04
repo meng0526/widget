@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>保险箱</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:65%;
+      float: left;
+    }
+    #header .logo{
+      width:15%;
+      float: left;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 23%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_left_nav_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    #m_right_box{
+      padding: 10px;
+      overflow-y: scroll;
+    }
+    .list_av{
+      height: 100%;
+    }
+    .list_av:nth-child(n+2){
+      display: none;
+    }
+    .list_av:nth-child(3){
+      word-wrap: break-word;
+      background-image: url('../image/game/nodata.png');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 77px 60px;
+    }
+    #main .m_right{
+      width: 76%;
+      float: right;
+      margin-top: 10px;
+      color: white;
+    }
+    input{
+      text-indent: 10px;
+      font-size: 12px;
+      outline-style: none;
+      color: white;
+      background-image: url('../image/game/src_761chess_resource_img_setting_pwd_input.png');
+      background-size: 100% 100%;
+    }
+    select{
+      text-align-last: center;
+      color: #79787B;
+      background: transparent;
+      appearance:none;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari 和 Chrome */
+      border: 0px;
+      background-image: url('../image/game/src_761chess_resource_img_setting_pwd_input.png');
+      background-size: 100% 100%;
+      outline-style: none;
+    }
+    .top{
+      height: 100px;
+    }
+    .top_1{
+      width: 33.3%;
+      height: 100%;
+      float: left;
+      text-align: left;
+      background-image: url('../image/game/src_761chess_resource_img_safebox_baoxianxiangyuebg.png');
+      background-size: 100% 100%;
+      text-align: center;
+      line-height: 50px;
+    }
+    .m_right_box_1 .top .top_2{
+      width: 33.3%;
+      height: 100%;
+      float: left;
+      text-align: right;
+      background-image: url('../image/game/src_761chess_resource_img_safebox_baoxianxiangiconzhuanru.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .m_right_box_2 .top .top_2{
+      width: 33.3%;
+      height: 100%;
+      float: left;
+      text-align: right;
+      background-image: url('../image/game/src_761chess_resource_img_safebox_out.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .top_3{
+      width: 33.3%;
+      height: 100%;
+      float: left;
+      text-align: right;
+      background-image: url('../image/game/src_761chess_resource_img_safebox_baoxianxiangyuebg.png');
+      background-size: 100% 100%;
+      text-align: center;
+      line-height: 50px;
+    }
+    .money{
+      height: 80px;
+      background-image: url('../image/game/webbg.png');
+      background-size: 100% 100%;
+      line-height: 80px;
+      text-align: center;
+    }
+    .money_1,.money_3{
+      width: 20%;
+      float: left;
+    }
+    .money_3 img{
+      width: 80%;
+      height: 70%;
+      position: relative;
+      top: 10px;
+    }
+    .money_2{
+      width: 60%;
+      float: left;
+    }
+    .money_2 input{
+      width: 100%;
+      height: 100%;
+      height: 40px;
+    }
+    .tixian{
+      padding: 10px 0px;
+      text-align: center;
+    }
+    .gamelist ul {
+      margin: 0 auto;
+      font-size: 12px;
+      width: 100%;
+    }
+    .gamelist ul li{
+      width: 33.3%;
+      float: left;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      color: #FFD784;
+    }
+    #list{
+      overflow-y: scroll;
+      word-wrap: break-word;
+    }
+    #list ul li{
+      width: 33.3%;
+      float: left;
+      height: 20px;
+      line-height: 22px;
+      text-align: center;
+      color: white;
+    }
+    .clear{
+      clear: both;
+    }
+    </style>
+</head>
+<script id="boxlist" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <li class="list1">{{= it[prop].created_at}}</li>
+    <li class="list2">{{= it[prop].des}}</li>
+    <li class="list3">{{= it[prop].money}}</li>
+  {{ } }}
+  <div class="clear"></div>
+</script>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico"><img src="../image/game/src_761chess_resource_img_safebox_box.png" alt="" width="250px" height="25px"></div>
+           <div class="logo"><img src="../image/game/src_761chess_resource_img_index_skeletonpic.png" alt="" width="75px" height="30px"></div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+                <div class="btn userlistbtn active"><img src="../image/game/src_761chess_resource_img_safebox_in.png" alt="../image/game/src_761chess_resource_img_safebox_zr.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_safebox_baoxianxiangquchu.png" alt="../image/game/src_761chess_resource_img_safebox_baoxianxiangquchu2.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_safebox_baoxianxiangmingxi.png" alt="../image/game/src_761chess_resource_img_safebox_baoxianxiangmingxi2.png" width="100%" height="45px"></div>
+              </div>
+            </div>
+            <div class="m_right">
+                <div id="m_right_box">
+                  <div class="m_right_box_1 list_av">
+                    <div class="top">
+                      <div class="top_1">
+                        <p class="boxmoney">0</p>
+                        <p>保险箱余额</p>
+                      </div>
+                      <div class="top_2"></div>
+                      <div class="top_3">
+                        <p class="bmoney">0</p>
+                        <p>钱包余额</p>
+                      </div>
+                    </div>
+                    <div class="money">
+                      <div class="money_1">转入金额</div>
+                      <div class="money_2"><input type="number" name="" value="0" placeholder="请输入转入金额" class="moneyval"></div>
+                      <div class="money_3"><img src="../image/game/src_761chess_resource_img_getcharge_tixianqingchuanniu.png" alt="" class="clear_moneyval"></div>
+                    </div>
+                    <div class="tixian">
+                      <img src="../image/game/src_761chess_resource_img_safebox_baoxianxiangquedingzhuanru.png" alt="" width="100px" height="35px" class="settlement" type="0">
+                    </div>
+                  </div>
+                  <div class="m_right_box_2 list_av">
+                    <div class="top">
+                      <div class="top_1">
+                        <p class="boxmoney">0</p>
+                        <p>保险箱余额</p>
+                      </div>
+                      <div class="top_2"></div>
+                      <div class="top_3">
+                        <p class="bmoney">0</p>
+                        <p>钱包余额</p>
+                      </div>
+                    </div>
+                    <div class="money">
+                      <div class="money_1">取出金额</div>
+                      <div class="money_2"><input type="number" name="" value="0" placeholder="请输入转出金额" class="moneyval"></div>
+                      <div class="money_3"><img src="../image/game/src_761chess_resource_img_getcharge_tixianqingchuanniu.png" alt="" class="clear_moneyval"></div>
+                    </div>
+                    <div class="tixian">
+                      <img src="../image/game/src_761chess_resource_img_safebox_baoxianxiangquedingquchu.png" alt="" width="100px" height="35px" class="settlement" type="1">
+                    </div>
+                  </div>
+                  <div class="m_right_box_3 list_av">
+                    <div class="gamelist">
+                      <ul>
+                        <li>时间</li>
+                        <li>描述</li>
+                        <li>金额</li>
+                        <div class="clear"></div>
+                      </ul>
+                    </div>
+                    <div id="list">
+                      <ul>
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/jquery_adaptive_backgrounds.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript" src="../script/doT_min.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      var userinfo = $api.getStorage('userinfo');
+      $('.boxmoney').text(userinfo.boxmoney);
+      $('.bmoney').text(userinfo.money);
+      FastClick.attach(document.body);
+        var header = $api.byId('header');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var m_right_box_height =   api.winHeight - headerPos.h;
+        $api.css($api.byId('m_right_box'),'height:'+m_right_box_height+'px');
+        //菜单切换
+        $(".userlistbtn").on('click',function(){
+          $(".list_av").eq($(this).index()).show().siblings().hide();
+        })
+        //清除
+        $(".clear_moneyval").on('click',function(){
+          $(this).parents('.money').find(".moneyval").val('');
+        })
+        //转入及转出操作
+        $('.settlement').on('click',function(){
+          var type = $(this).attr('type');
+          var money = $(this).parent('.tixian').siblings('.money').find('.moneyval').val();
+          var datas = {
+            'type':type,
+            'lastsession':userinfo.last_session,
+            'money':money
+          };
+          if(money<1){
+            var msgt = '';
+            if(type==0){
+              msgt = '转入金额非法！';
+            }else {
+              msgt = '转出金额非法！';
+            }
+            api.openFrame({
+              name: 'error',
+              url: 'error.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: msgt
+              }
+            });
+            return;
+          }
+          $.post('http://aipai.lbcity.cn:8686/api/GetOrGive',datas,function(data){
+            var msg = JSON.parse(data.status.msg);
+            if(data.status.errorCode==0){
+              api.openFrame({
+                name: 'success',
+                url: 'success.html',
+                bgColor:'rgba(0,0,0,0.0)',
+                animation:{
+                  type:"ripple",
+                  duration:300
+                },
+                pageParam: {
+                    describe: msg
+                }
+              });
+              setTimeout(function(){
+                $.post('http://aipai.lbcity.cn:8686/api/islogin',{'lastsession':userinfo.last_session},function(data){
+                   if(data==0){
+                      $api.setStorage('userinfo','');
+                      api.execScript({
+                        name: 'root',
+                        script: 'window.location.reload();'
+                      });
+                   }else {//如果没有过期更新用户信息
+                     console.log(JSON.stringify(data));
+                     $api.setStorage('userinfo',data);
+                     window.location.reload();//刷新页面
+                   }
+                })
+              },1000);
+            }else {
+              api.openFrame({
+                name: 'error',
+                url: 'error.html',
+                bgColor:'rgba(0,0,0,0.0)',
+                animation:{
+                  type:"ripple",
+                  duration:300
+                },
+                pageParam: {
+                    describe: msg
+                }
+              });
+            }
+          })
+        })
+
+    //操作记录
+    var gameurl = 'http://aipai.lbcity.cn:8686/api/boxlist';
+    $.post(gameurl,{'lastsession':userinfo.last_session},function(data){
+      if(data.total!=0){
+        var interText = doT.template($("#boxlist").text());
+        $("#list ul").html(interText(data.data));
+      }else {
+        $("#list").css({
+          'height':200+'px',
+          "background-image": "url('../image/nodata.png')",
+          "background-repeat": "no-repeat",
+          "background-position": "50% 50%",
+          "background-size": "77px 60px"
+        });
+      }
+    })
+  };
+</script>
+</html>

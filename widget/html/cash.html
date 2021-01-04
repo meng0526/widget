@@ -1,0 +1,682 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>提现</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:65%;
+      float: left;
+    }
+    #header .logo{
+      width:15%;
+      float: left;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 23%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_left_nav_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    #m_right_box{
+      padding: 10px;
+      overflow-y: scroll;
+    }
+    .list_av{
+      height: 100%;
+    }
+    .list_av:nth-child(n+2){
+      display: none;
+    }
+    .list_av:nth-child(3){
+      word-wrap: break-word;
+      background-image: url('../image/game/nodata.png');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 77px 60px;
+    }
+    #main .m_right{
+      width: 76%;
+      float: right;
+      margin-top: 10px;
+      color: white;
+    }
+    input{
+      text-indent: 10px;
+      font-size: 12px;
+      outline-style: none;
+      color: white;
+      background-image: url('../image/game/src_761chess_resource_img_setting_pwd_input.png');
+      background-size: 100% 100%;
+    }
+    select{
+      text-align-last: center;
+      color: #79787B;
+      background: transparent;
+      appearance:none;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari 和 Chrome */
+      border: 0px;
+      background-image: url('../image/game/src_761chess_resource_img_setting_pwd_input.png');
+      background-size: 100% 100%;
+      outline-style: none;
+    }
+    .top{
+      height: 30px;
+    }
+    .top_1{
+      width: 50%;
+      float: left;
+      text-align: left;
+    }
+    .top_2{
+      width: 50%;
+      float: left;
+      text-align: right;
+    }
+    .top_2 img{
+      position: relative;
+      top: 3px;
+    }
+    .money{
+      height: 80px;
+      background-image: url('../image/game/webbg.png');
+      background-size: 100% 100%;
+      line-height: 80px;
+      text-align: center;
+    }
+    .money_1,.money_3{
+      width: 20%;
+      float: left;
+    }
+    .money_3 img{
+      width: 80%;
+      height: 70%;
+      position: relative;
+      top: 10px;
+    }
+    .money_2{
+      width: 60%;
+      float: left;
+    }
+    .money_2 input{
+      width: 100%;
+      height: 100%;
+      height: 40px;
+    }
+    .bank{
+      height: 65px;
+      padding: 10px 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .no-bank{
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_tixaintixiandaoyinhangkadibu.png');
+      background-size: 100% 100%;
+      font-size: 13px;
+      line-height: 25px;
+    }
+    .no-bank_1{
+      width: 70%;
+      float: left;
+    }
+    .no-bank_2{
+      width: 30%;
+      float: left;
+    }
+    .no-bank_1_1{
+      width: 20%;
+      float: left;
+      text-align: center;
+    }
+    .no-bank_1_1 img{
+      position: relative;
+      top: 10px;
+    }
+    .no-bank_1_2{
+      width: 80%;
+      float: left;
+      text-indent: 10px;
+    }
+    .no-bank_2{
+      text-align: right;
+      padding-top: 20px;
+    }
+    .bank_1,.bank_2{
+      width: 50%;
+      float: left;
+    }
+    .bank_1_1{
+      width: 21px;
+      height: 21px;
+      float: left;
+      background: white;
+      border-radius:50%;
+    }
+    .bank_1_1 img{
+      position: relative;
+      top: 2px;
+    }
+    .bank_1_2{
+      width: 90%;
+      float: left;
+      text-indent: 10px;
+    }
+    .bank_2{
+      text-align: right;
+    }
+    .tixian{
+      padding: 10px 0px;
+      text-align: center;
+    }
+    .m_right_box_3 .addbank{
+      text-align: center;
+      position: relative;
+      top: 70%;
+    }
+    .m_right_box_3 .bankinfo{
+      background: black;
+      overflow-y: hidden;
+      display: none;
+    }
+    .m_right_box_3 .bankinfo .bankinfo_box{
+      width: 100%;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .m_right_box_3 .bankinfo input,.m_right_box_3 .bankinfo select{
+      width: 60%;
+      height: 30px;
+    }
+    .bankinfo_1{
+      display: block;
+      width: 35%;
+      float: left;
+      padding-right: 8px;
+      text-align: right;
+      line-height: 30px;
+    }
+    .bankinfo_2{
+      display: block;
+      width: 60%;
+      float: left;
+      line-height: 30px;
+    }
+    .jilumenu ul{
+      width: 100%;
+      height: 30px;
+      white-space: nowrap;
+      overflow-x: auto;
+   }
+   .record_active{
+     background-image: url('../image/game/src_761chess_resource_img_washcode_wc_header_tab2.png');
+     background-size: 100% 100%;
+   }
+   .jilumenu ul li:nth-child(n+2){
+     background-image: url('../image/game/src_761chess_resource_img_washcode_wc_header_tab.png');
+     background-size: 100% 100%;
+   }
+    .jilumenu ul li{
+       width: 90px;
+       height: 30px;
+       line-height: 30px;
+       font-size: 12px;
+       color: #666;
+       text-align: center;
+       display: inline-block;
+    }
+    .gamelist ul {
+      background-color: #473F36;
+      margin: 0 auto;
+      font-size: 12px;
+      width: 100%;
+    }
+    .gamelist ul li{
+      width: 19.8%;
+      float: left;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      color: #FFD784;
+    }
+    .gamelist ul li:nth-child(n+2){
+      border-left: 1px solid #3D342B;
+    }
+    .clear{
+      clear: both;
+    }
+    </style>
+</head>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico"><img src="../image/game/src_761chess_resource_img_getcharge_tixaindabiaoti.png" alt="" width="250px" height="25px"></div>
+           <div class="logo"><img src="../image/game/src_761chess_resource_img_index_skeletonpic.png" alt="" width="75px" height="30px"></div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+                <div class="btn userlistbtn active"><img src="../image/game/src_761chess_resource_img_getcharge_tixianbank.png" alt="../image/game/src_761chess_resource_img_getcharge_tixaintixiandaoyinhangkaweixuanzhong.png" width="100%" height="45px"></div>
+                <!-- <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_getcharge_zijinliushui.png" alt="../image/game/src_761chess_resource_img_getcharge_tixianzijinliushuixuanzhong.png" width="100%" height="45px"></div> -->
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_getcharge_yinhangkaguanli.png" alt="../image/game/src_761chess_resource_img_getcharge_tixainyinhangkatikuanxuanzhong.png" width="100%" height="45px"></div>
+              </div>
+            </div>
+            <div class="m_right">
+                <div id="m_right_box">
+                  <div class="m_right_box_1 list_av">
+                    <div class="top">
+                      <div class="top_1">账户余额：<span>￥<span class="usermoney">0.00</span>元</span></div>
+                      <div class="top_2"><span><img src="../image/game/src_761chess_resource_img_getcharge_tixiantixianjiluicon.png" alt="" width="11px" height="16px"></span>&nbsp;&nbsp;<span class="txjl">提现记录</span></div>
+                    </div>
+                    <div class="money">
+                      <div class="money_1">提现金额</div>
+                      <div class="money_2"><input type="number" name="" value="0" placeholder="清楚如您的提现金额 单笔最低20元最高20000000元" class="moneyval"></div>
+                      <div class="money_3"><img src="../image/game/src_761chess_resource_img_getcharge_tixianqingchuanniu.png" alt="" class="clear_moneyval"></div>
+                    </div>
+                    <div class="bank bank-true" style="display:none">
+                      <img src="" data-adaptive-background style="display:none" class="banklogo1">
+                      <div class="bank_1">
+                        <div class="bank_1_1"><img src="../image/small_logo/NJCB.png" alt="" class="banklogo2"></div>
+                        <div class="bank_1_2">
+                          <p class="banknameval">南京银行</p>
+                          <p class="bankcardval">456466****4345645645</p>
+                        </div>
+                      </div>
+                      <!-- <div class="bank_2">
+                        <span>更换银行卡></span>
+                      </div> -->
+                    </div>
+                    <div class="bank no-bank">
+                      <div class="no-bank_1">
+                        <div class="no-bank_1_1"><img src="../image/game/src_761chess_resource_img_getcharge_tixianyinliankatubiao.png" alt="" width="50px" height="30px"></div>
+                        <div class="no-bank_1_2">
+                          <p>提现到银行卡</p>
+                          <p>您暂时未绑定银行卡，请前往绑定。</p>
+                        </div>
+                      </div>
+                      <div class="no-bank_2">
+                        <span><img src="../image/game/src_761chess_resource_img_getcharge_tixianbangdingyinhangkaanniu.png" alt="" width="80px" height="30px" class="bindbank"></span>
+                      </div>
+                    </div>
+                    <div class="tixian">
+                      <img src="../image/game/src_761chess_resource_img_getcharge_tixainquedingtixiananniu.png" alt="" width="100px" height="35px" class="settlement">
+                    </div>
+                  </div>
+                  <!-- <div class="m_right_box_2 list_av">
+                      <div class="jilumenu">
+                        <ul>
+                          <li class="record btn record_active">流水详情</li>
+                          <li class="record btn">资金明细</li>
+                        </ul>
+                      </div>
+                      <div class="gamelist">
+                        <ul>
+                          <li>流水时间</li>
+                          <li>需求打码</li>
+                          <li>实际打码</li>
+                          <li>流水状态</li>
+                          <div class="clear"></div>
+                        </ul>
+                      </div>
+                      <div class="gamelist" style="display:none">
+                        <ul>
+                          <li>充值时间</li>
+                          <li>充值类型</li>
+                          <li>充值金额</li>
+                          <div class="clear"></div>
+                        </ul>
+                      </div>
+                  </div> -->
+                  <div class="m_right_box_3 list_av">
+                     <div class="addbank">
+                         <img src="../image/game/src_761chess_resource_img_getcharge_tixiantianjiadaoyinhangkaanniu.png" alt="" width="110px" height="35px" class="addbankcard">
+                     </div>
+                     <div class="bankinfo">
+                        <div class="bankinfo_box">
+                          <span class="bankinfo_1">持卡人姓名</span>
+                          <span class="bankinfo_2"><input type="text" placeholder="请输入持卡人姓名" class="bankusername"></span>
+                        </div>
+                        <div class="bankinfo_box">
+                          <span class="bankinfo_1">选择银行</span>
+                          <span class="bankinfo_2">
+                            <select class="bankname" name="">
+                                <option value="">请选择银行卡</option>
+                                <option value="中国工商银行">中国工商银行</option>
+                                <option value="中国建设银行">中国建设银行</option>
+                                <option value="交通银行">交通银行</option>
+                                <option value="中国银行">中国银行</option>
+                                <option value="中国光大银行">中国光大银行</option>
+                                <option value="中国民生银行">中国民生银行</option>
+                                <option value="中信银行">中信银行</option>
+                                <option value="平安银行">平安银行</option>
+                                <option value="上海浦东发展银行">上海浦东发展银行</option>
+                                <option value="兴业银行">兴业银行</option>
+                                <option value="邮政银行">邮政银行</option>
+                                <option value="北京银行">北京银行</option>
+                                <option value="广东发展银行">广东发展银行</option>
+                                <option value="江苏银行">江苏银行</option>
+                                <option value="华夏银行">华夏银行</option>
+                                <option value="上海银行">上海银行</option>
+                                <option value="渤海银行">渤海银行</option>
+                                <option value="东亚银行">东亚银行</option>
+                                <option value="宁波银行">宁波银行</option>
+                                <option value="浙商银行">浙商银行</option>
+                                <option value="杭州银行">杭州银行</option>
+                                <option value="广州银行">广州银行</option>
+                                <option value="福建农商银行">福建农商银行</option>
+                                <option value="恒生银行">恒生银行</option>
+                                <option value="台州银行">台州银行</option>
+                            </select>
+                          </span>
+                        </div>
+                        <div class="bankinfo_box">
+                          <span class="bankinfo_1">银行卡账号</span>
+                          <span class="bankinfo_2"><input type="number" name="" value="" placeholder="请输入银行卡号" class="banknum"></span>
+                        </div>
+                        <div class="bankinfo_box">
+                          <span class="bankinfo_1">开户地址</span>
+                          <span class="bankinfo_2"><input type="text" name="" value="" placeholder="请输入银行卡开户地址" class="bankaddress"></span>
+                        </div>
+                        <div class="bankinfo_box" style="font-size:10px;color:#777;">
+                          提示：请正确选定开户行，并绑定真实姓名，结算时将直接转入此账号，为了您的资金安全，绑定后不可随意更改，如需修改，请联系客服人员。
+                        </div>
+                        <div class="bankinfo_box" style="text-align:center">
+                          <img src="../image/game/src_761chess_resource_img_getcharge_tixianshangyibuanniuyhkgl.png" alt="" width="110px" height="35px" class="backbankbtn">
+                          <img src="../image/game/src_761chess_resource_img_getcharge_tixianquerenbangdinganniuyhkgl.png" alt="" width="110px" height="35px" class="addbankbtn">
+                        </div>
+                     </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/jquery_adaptive_backgrounds.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      var userinfo = $api.getStorage('userinfo');
+      //查询实际余额 中心账户+个人账户
+      var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+      $.get(center_money_url,function(data){
+        var data = JSON.parse(data);
+        $('.usermoney').text(data.Data);
+      })
+      //获取银行卡绑定信息
+      var bank_username,bank_name,bank_address,bank_card;
+      bank_username = userinfo.bank_username;//开户姓名
+      bank_name = userinfo.bank_name;//银行名称
+      bank_address = userinfo.bank_address;//开户地址
+      bank_card = userinfo.bank_card;//银行卡号
+      if(bank_username!=null&&bank_name!=null&&bank_address!=null&&bank_card!=null){
+         $('.no-bank').hide();
+         $('.bank-true').show();
+         $('.userlistbtn').eq(1).hide();
+         //获取开户行银行对应的编码
+          api.readFile({
+              path: 'widget://bankname.json'
+          }, function(ret, err) {
+              if (ret.status) {
+                var data = JSON.parse(ret.data);
+                var src = '../image/small_logo/'+data[bank_name]+'.png'
+                $('.banklogo1').attr('src',src);
+                $('.banklogo2').attr('src',src);
+                $.adaptiveBackground.run();
+              } else {
+                  alert(err.msg);
+              }
+         });
+         $(".banknameval").text(bank_name);
+         $(".bankcardval").text(bank_card);
+      }
+      FastClick.attach(document.body);
+        var header = $api.byId('header');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var m_right_box_height =   api.winHeight - headerPos.h;
+        $api.css($api.byId('m_right_box'),'height:'+m_right_box_height+'px');
+        //播放活动音效
+        api.startPlay({
+            path: 'widget://image/audio/src_761chess_resource_audio_musicsafedepositbox.mp3'
+        });
+        //菜单切换
+        $(".userlistbtn").on('click',function(){
+          $(".list_av").eq($(this).index()).show().siblings().hide();
+        })
+        //资金流水菜单切换
+        $(".record").on('click',function(){
+          $(".gamelist").eq($(this).index()).show().siblings('.gamelist').hide();
+        })
+        //提现记录
+        $(".txjl").on('click',function(){
+            api.openFrame({
+              name: 'cashwin',
+              url: 'cashwin.html',
+              bgColor:'rgba(0,0,0,0.6)',
+              animation:{
+                type:"movein",
+                subType:"from_bottom",
+                duration:0
+              }
+          });
+        })
+        //绑定银行卡
+        $('.bindbank').on('click',function(){
+          var alt = $('.btn:eq(2)').children('img').attr('alt');
+          var src = $('.btn:eq(2)').children('img').attr('src');
+          var acalt = $('#m_left_box .active').children('img').attr('alt');
+          var acsrc = $('#m_left_box .active').children('img').attr('src');
+          $('#m_left_box .active').children('img').attr('src',acalt);
+          $('#m_left_box .active').children('img').attr('alt',acsrc);
+          $('.btn:eq(2)').children('img').attr('src',alt);
+          $('.btn:eq(2)').children('img').attr('alt',src);
+          $('.btn:eq(2)').addClass('active').siblings().removeClass('active');
+          $(".list_av").eq(1).show().siblings().hide();
+        })
+        //添加银行卡
+        $('.addbankbtn').on('click',function(){
+          var bankusername,bankname,banknum,bankaddress;
+          bankusername = $('.bankusername').val();
+          bankname = $('.bankname').val();
+          banknum = $('.banknum').val();
+          bankaddress = $('.bankaddress').val();
+          var waringstring = '';
+          if(bankusername==''){
+             waringstring = '请输入持卡人姓名！'
+          }
+          if(bankname=='' && waringstring==''){
+            waringstring = '请选择银行卡！'
+          }
+          if(banknum=='' && waringstring==''){
+            waringstring = '请输入银行卡号！'
+          }
+          if(bankaddress=='' && waringstring==''){
+            waringstring = '请输入开户行地址！'
+          }
+          if(waringstring!=''){
+              api.openFrame({
+                name: 'error',
+                url: 'error.html',
+                bgColor:'rgba(0,0,0,0.0)',
+                animation:{
+                  type:"ripple",
+                  duration:300
+                },
+                pageParam: {
+                    describe: waringstring
+                }
+            });
+          }
+          //提交银行卡信息
+          var datas = {
+            'lastsession':userinfo.last_session,
+            'bank_name':bankname,
+            'bank_address':bankaddress,
+            'bank_username':bankusername,
+            'bank_card':banknum
+          };
+          $.post('http://aipai.lbcity.cn:8686/api/post_update_bank_info',datas,function(data){
+              if(data.status.errorCode==1){
+                var htmlname = 'error';
+              }else {
+                var htmlname = 'success';
+                setTimeout(function(){
+                  geyUserInfo();
+                },300);
+              }
+              var data = JSON.parse(data.status.msg);
+              api.openFrame({
+                name: htmlname,
+                url: htmlname+'.html',
+                bgColor:'rgba(0,0,0,0.0)',
+                animation:{
+                  type:"ripple",
+                  duration:300
+                },
+                pageParam: {
+                    describe: data
+                }
+            });
+          })
+      })
+      //绑定银行卡成功后重新获取用户信息
+      function geyUserInfo(){
+        $.post('http://aipai.lbcity.cn:8686/api/islogin',{'lastsession':userinfo.last_session},function(data){
+          $api.setStorage('userinfo',data);
+          api.execScript({
+            frameName: api.frameName,
+            script: 'window.location.reload();'
+          });
+        })
+      }
+      //提现
+      $(".settlement").on('click',function(){
+        if(bank_username!=null&&bank_name!=null&&bank_address!=null&&bank_card!=null){
+          if($('.moneyval').val()==''){
+              api.openFrame({
+                name: 'error',
+                url: 'error.html',
+                bgColor:'rgba(0,0,0,0.0)',
+                animation:{
+                  type:"ripple",
+                  duration:300
+                },
+                pageParam: {
+                    describe: '请输入提现金额！'
+                }
+            });
+            return;
+          }
+          var datas = {
+            'qk_pwd':userinfo.qk_pwd,
+            'money':$('.moneyval').val(),
+            'lastsession':userinfo.last_session
+          };
+          $.post('http://aipai.lbcity.cn:8686/api/post_drawing',datas,function(data){
+              if(data.status.errorCode==1){
+                var htmlname = 'error';
+              }else {
+                var htmlname = 'success';
+              }
+              var data = JSON.parse(data.status.msg);
+              api.openFrame({
+                name: htmlname,
+                url: htmlname+'.html',
+                bgColor:'rgba(0,0,0,0.0)',
+                animation:{
+                  type:"ripple",
+                  duration:300
+                },
+                pageParam: {
+                    describe: data
+                }
+            });
+          })
+        }else {
+            api.openFrame({
+              name: 'error',
+              url: 'error.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: '请绑定银行卡！'
+              }
+          });
+        }
+      })
+      //清除
+      $(".clear_moneyval").on('click',function(){
+        $(".moneyval").val('');
+      })
+      //上一步
+      $('.backbankbtn').on('click',function(){
+        $(".bankinfo").hide();
+        $(".addbank").show();
+      })
+      //添加银行卡
+      $('.addbankcard').on('click',function(){
+        $(".bankinfo").show();
+        $(".addbank").hide();
+      })
+  };
+</script>
+</html>

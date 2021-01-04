@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>直属查询</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+#list{
+  overflow-y: scroll;
+  word-wrap: break-word;
+}
+#list ul:nth-child(even){
+  background-color: #333333;
+}
+#list ul li{
+  width: 25%;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+.clear{
+  clear: both;
+}
+.detail{
+  display:inline;
+  padding: 3px 13px;
+  background: #000;
+  border-radius: 5px;
+  color: white;
+}
+</style>
+<script id="listtem" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <ul>
+      <li>{{= it[prop].id}}</li>
+       {{? it[prop].bank_username!=null}}
+          <li>{{= it[prop].bank_username}}</li>
+          {{??}}
+          <li>{{= it[prop].name}}</li>
+       {{?}}
+      <li>{{= it[prop].total_amount}}</li>
+      <li>{{= it[prop].zhishu}}</li>
+      <div class="clear"></div>
+    </ul>
+  {{ } }}
+</script>
+  <body>
+  <div id="list">
+
+  </div>
+  </body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript" src="../script/doT_min.js"></script>
+<script type="text/javascript">
+function funcGoto(data){
+  if(data.data.length!=0){
+    var interText = doT.template($("#listtem").text());
+    $("#list").html(interText(data.data));
+  }else {
+    $("#list").css({
+      'height':api.pageParam.listheight+'px',
+      "background-image": "url('../image/nodata.png')",
+      "background-repeat": "no-repeat",
+      "background-position": "50% 50%",
+      "background-size": "77px 60px"
+    });
+  }
+}
+apiready = function(){
+  FastClick.attach(document.body);
+  api.showProgress({
+      title: '努力加载中...',
+      text: '先喝杯茶...',
+      modal: false
+  });
+  var userinfo  = $api.getStorage('userinfo');
+  //下拉刷新
+  api.setRefreshHeaderInfo({
+      loadingImg: 'widget://image/refresh.png',
+      bgColor: '#232324',
+      textColor: '#7b7b7b',
+      textDown: '下拉刷新...',
+      textUp: '松开刷新...'
+  }, function(ret, err) {
+    api.refreshHeaderLoadDone();
+      //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+  });
+  var listheight = api.pageParam.listheight-15;
+  $api.css($api.byId("list"),'height:'+listheight+'px');
+  //加载直属用户
+  var datas = {
+    'id':userinfo.id
+  };
+  $.post('http://aipai.lbcity.cn:8686/api/userChildren',datas,function(data){
+    if(data.data.length!=0){
+      var interText = doT.template($("#listtem").text());
+      $("#list").html(interText(data.data));
+      api.hideProgress();
+    }else {
+      $("#list").css({
+        'height':api.pageParam.listheight+'px',
+        "background-image": "url('../image/nodata.png')",
+        "background-repeat": "no-repeat",
+        "background-position": "50% 50%",
+        "background-size": "77px 60px"
+      });
+    }
+    api.hideProgress();
+  })
+  $(document).on('click','.detail',function(){
+      api.openFrame({
+        name: 'zhishudetail',
+        url: 'zhishudetail.html',
+        bgColor:'rgba(0,0,0,0.0)',
+        animation:{
+          type:"ripple",
+          duration:300
+       }
+    });
+  })
+};
+</script>
