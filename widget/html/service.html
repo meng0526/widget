@@ -180,7 +180,7 @@
         });
         //在线客服
         var service_link;
-        $.get('http://aipai.lbcity.cn:8686/api/systeminfo',function(data){
+        $.get('http://aipai.lbcity.cn/api/systeminfo',function(data){
           service_link = data.service_link;
           $(".qqservice").text(data.qq);
           $(".wxservice").text(data.agent_qq);
@@ -198,7 +198,7 @@
         //菜单切换
         $(".userlistbtn").on('click',function(){
           if($(this).index()==3){
-            $.get('http://aipai.lbcity.cn:8686/api/querys',function(data){
+            $.get('http://aipai.lbcity.cn/api/querys',function(data){
                $(".query").html(data.content);
             });
           }

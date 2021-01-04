@@ -186,7 +186,7 @@
         });
       })
       //收款银行卡信息
-      $.get('http://aipai.lbcity.cn:8686/api/getbank_info',function(data){
+      $.get('http://aipai.lbcity.cn/api/getbank_info',function(data){
         $(".bankname").text(data[0].bank_id);
         $(".username").text(data[0].username);
         $(".banknum").text(data[0].card_no);
@@ -201,7 +201,7 @@
             'account':userinfo.bank_card,
             'lastsession':userinfo.last_session
           };
-          $.post('http://aipai.lbcity.cn:8686/api/bank_pay',datas,function(data){
+          $.post('http://aipai.lbcity.cn/api/bank_pay',datas,function(data){
              if(data.status.errorCode==0){
                  var msg = JSON.parse(data.status.msg);
                  api.openFrame({

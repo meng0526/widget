@@ -444,7 +444,7 @@
         var userinfo  = $api.getStorage('userinfo');
         if(userinfo!=undefined && userinfo!=''){
             //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
-            $.post('http://aipai.lbcity.cn:8686/api/islogin',{'lastsession':userinfo.last_session},function(data){
+            $.post('http://aipai.lbcity.cn/api/islogin',{'lastsession':userinfo.last_session},function(data){
                if(data==0){
                   $api.setStorage('userinfo','');
                   api.execScript({
@@ -457,7 +457,7 @@
             })
             $('.login_name').text(userinfo.name);
             //查询实际余额 中心账户+个人账户
-            var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+            var center_money_url = 'http://aipai.lbcity.cn/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
             $.get(center_money_url,function(data){
               var data = JSON.parse(data);
               $('.balance').text(data.Data);
@@ -473,7 +473,7 @@
         //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
         $('.conter_money_btn').on('click',function(){
           $(this).addClass('conter_money_btn_true');
-          var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+          var center_money_url = 'http://aipai.lbcity.cn/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
           $.get(center_money_url,function(data){
             var data = JSON.parse(data);
             $('.balance').text(data.Data);
@@ -577,11 +577,11 @@
     var data5,data7,data6,data4,data4list,data3,data2;
     $(function(){
       //获取公告信息
-      $.get('http://aipai.lbcity.cn:8686/api/service_center',function(data){
+      $.get('http://aipai.lbcity.cn/api/service_center',function(data){
            $('#notice').text(data[0].content);
       })
       //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
-      $.post('http://aipai.lbcity.cn:8686/api/gamelist',{'code':'dt'},function(data){
+      $.post('http://aipai.lbcity.cn/api/gamelist',{'code':'dt'},function(data){
         var data = JSON.parse(data);
         //棋牌游戏
         data5 = new Array();
@@ -692,7 +692,7 @@
         setTimeout(function(){
           //热门游戏初始化
           //ag链接
-          $.get('http://aipai.lbcity.cn:8686/api/cdnlink',function(data){
+          $.get('http://aipai.lbcity.cn/api/cdnlink',function(data){
            var data = 'http://'+data+'/1558704222384.png';
             $('#aglink').attr('src',data);
           })
@@ -729,26 +729,26 @@
           var currPage = $(this).attr('currPage');
           var gametypeid = $(this).attr('gametypeid');
           if(gamename=='shixun'){
-            var gameurl =  "http://aipai.lbcity.cn:8686/api/gamelink?plat_type=" + gametype + "&devices=1&game_type=1&lastsession=" + userinfo.last_session;
+            var gameurl =  "http://aipai.lbcity.cn/api/gamelink?plat_type=" + gametype + "&devices=1&game_type=1&lastsession=" + userinfo.last_session;
           }else if (gamename=='buyu') {
             var gameid = $(this).attr('gameid');
             if(gametype!='FG' && gametype!='MW'){
-              var gameurl =  "http://aipai.lbcity.cn:8686/api/gamelink?plat_type=" + gameid + "&game_type=" + gametypeid + "&game_code=" + gametype + "&lastsession=" + userinfo.last_session;
+              var gameurl =  "http://aipai.lbcity.cn/api/gamelink?plat_type=" + gameid + "&game_type=" + gametypeid + "&game_code=" + gametype + "&lastsession=" + userinfo.last_session;
             }else {
-              var gameurl =  "http://aipai.lbcity.cn:8686/api/gamelink?plat_type=" + gameid + "&game_type=" + gametypeid + "&lastsession=" + userinfo.last_session;
+              var gameurl =  "http://aipai.lbcity.cn/api/gamelink?plat_type=" + gameid + "&game_type=" + gametypeid + "&lastsession=" + userinfo.last_session;
             }
           }else if (gamename=='tiyu') {
-            var gameurl =  "http://aipai.lbcity.cn:8686/api/gamelink?plat_type=" + gametype + "&game_type=4&lastsession=" + userinfo.last_session;
+            var gameurl =  "http://aipai.lbcity.cn/api/gamelink?plat_type=" + gametype + "&game_type=4&lastsession=" + userinfo.last_session;
           }else if (gamename=='qipai') {
-            var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+ gametype +"&game_type=7&lastsession=" + userinfo.last_session;
+            var gameurl = "http://aipai.lbcity.cn/api/gamelink?plat_type="+ gametype +"&game_type=7&lastsession=" + userinfo.last_session;
           }else if(gamename=='caipiao'){
-            var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+ gametype +"&game_type=3&is_mobile_url=1&devices=1&lastsession=" + userinfo.last_session;
+            var gameurl = "http://aipai.lbcity.cn/api/gamelink?plat_type="+ gametype +"&game_type=3&is_mobile_url=1&devices=1&lastsession=" + userinfo.last_session;
             api.setScreenOrientation({
                 orientation: 'portrait_up'
             });
           }
           if(gamename=='qipai'){
-            var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+ gametype +"&game_type=7&game_code="+gametypeid+"&is_mobile_url=1&lastsession=" + userinfo.last_session;
+            var gameurl = "http://aipai.lbcity.cn/api/gamelink?plat_type="+ gametype +"&game_type=7&game_code="+gametypeid+"&is_mobile_url=1&lastsession=" + userinfo.last_session;
             $.get(gameurl,function(data){
               if(data){
                 api.openWin({

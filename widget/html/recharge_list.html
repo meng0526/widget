@@ -79,7 +79,7 @@ apiready = function(){
       textDown: '下拉刷新...',
       textUp: '松开刷新...'
   }, function(ret, err) {
-    var gameurl = 'http://aipai.lbcity.cn:8686/api/rechargeList?page=1&start_at=&end_at=&lastsession='+userinfo.last_session;
+    var gameurl = 'http://aipai.lbcity.cn/api/rechargeList?page=1&start_at=&end_at=&lastsession='+userinfo.last_session;
     $.get(gameurl,function(data){
       if(data.data.length!=0){
         var interText = doT.template($("#txlist").text());
@@ -93,7 +93,7 @@ apiready = function(){
       //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
   });
   //获取提现数据
-  var gameurl = 'http://aipai.lbcity.cn:8686/api/rechargeList?page=1&start_at=&end_at=&lastsession='+userinfo.last_session;
+  var gameurl = 'http://aipai.lbcity.cn/api/rechargeList?page=1&start_at=&end_at=&lastsession='+userinfo.last_session;
   $.get(gameurl,function(data){
     if(data.data.length!=0){
       var interText = doT.template($("#txlist").text());

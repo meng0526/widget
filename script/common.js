@@ -2,7 +2,7 @@
 var userinfo  = $api.getStorage('userinfo');
 //检测是否过期
 function is_outtime(){
-  $.post('http://aipai.lbcity.cn:8686/api/islogin',{'lastsession':userinfo.last_session},function(data){
+  $.post('http://aipai.lbcity.cn/api/islogin',{'lastsession':userinfo.last_session},function(data){
      if(data==0){
         $api.setStorage('userinfo','');
         api.openFrame({

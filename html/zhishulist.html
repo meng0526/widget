@@ -101,7 +101,7 @@ apiready = function(){
   var datas = {
     'id':userinfo.id
   };
-  $.post('http://aipai.lbcity.cn:8686/api/userChildren',datas,function(data){
+  $.post('http://aipai.lbcity.cn/api/userChildren',datas,function(data){
     if(data.data.length!=0){
       var interText = doT.template($("#listtem").text());
       $("#list").html(interText(data.data));

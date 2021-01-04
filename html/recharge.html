@@ -565,7 +565,7 @@
             path: 'widget://image/audio/src_761chess_resource_audio_musicrecharge.mp3'
         });
         //查询实际余额 中心账户+个人账户
-        var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+        var center_money_url = 'http://aipai.lbcity.cn/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
         $.get(center_money_url,function(data){
           var data = JSON.parse(data);
           $('.balance').text(data.Data);
@@ -573,7 +573,7 @@
         //点击查询余额
         $('.conter_money_btn').on('click',function(){
           $(this).addClass('conter_money_btn_true');
-          var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+          var center_money_url = 'http://aipai.lbcity.cn/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
           $.get(center_money_url,function(data){
             var data = JSON.parse(data);
             $('.balance').text(data.Data);
@@ -654,7 +654,7 @@
             'lastsession':userinfo.last_session,
             'istype':$("#btnistype").val()
           };
-          $.post('http://aipai.lbcity.cn:8686/api/jh_pay',datas,function(data){
+          $.post('http://aipai.lbcity.cn/api/jh_pay',datas,function(data){
             api.openFrame({
                 name: 'paylink',
                 url: './paylink.html',
@@ -760,7 +760,7 @@
           });
         })
         //收款银行卡信息
-        $.get('http://aipai.lbcity.cn:8686/api/getbank_info',function(data){
+        $.get('http://aipai.lbcity.cn/api/getbank_info',function(data){
           $(".kacode").text(data[0].card_no);
           var bankname = data[0].bank_id;
           //获取开户行银行对应的编码

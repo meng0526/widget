@@ -562,7 +562,7 @@
         var userinfo  = $api.getStorage('userinfo');
 
         var url;
-		$.get('http://aipai.lbcity.cn:8686/api/systeminfo',function(data){
+		$.get('http://aipai.lbcity.cn/api/systeminfo',function(data){
           url = "http://"+data.site_domain+"/r?i=" + userinfo.invite_code;
           $(".fenxiang_link").text(url);
 
@@ -579,7 +579,7 @@
         var datas = {
           'id':userinfo.id
         };
-        $.post('http://aipai.lbcity.cn:8686/api/userChildren',datas,function(data){
+        $.post('http://aipai.lbcity.cn/api/userChildren',datas,function(data){
           $(".zhishurenshu").text(data.total);
           	$("#myId").text(userinfo.id);
           $(".zhishuliushui").text(data.data[0].total_water);
@@ -589,7 +589,7 @@
             'name':$(".childrenusername").val(),
             'id':userinfo.id
           };
-          $.post('http://aipai.lbcity.cn:8686/api/userChildren',datas,function(data){
+          $.post('http://aipai.lbcity.cn/api/userChildren',datas,function(data){
             api.execScript({
                 frameName: 'zhishu',
                 script: 'funcGoto('+JSON.stringify(data)+');'
@@ -777,9 +777,9 @@
         sharedModule.shareText({
             text: url
         });
-        $.get('http://aipai.lbcity.cn:8686/api/myInviter?code='+userinfo.invite_code,function(data){
+        $.get('http://aipai.lbcity.cn/api/myInviter?code='+userinfo.invite_code,function(data){
            api.download({
-               url: 'http://aipai.lbcity.cn:8686/inviterQrcodes/'+data,
+               url: 'http://aipai.lbcity.cn/inviterQrcodes/'+data,
                savePath: 'fs://mycode1.jpg',
                allowResume: true
            }, function(ret, err) {

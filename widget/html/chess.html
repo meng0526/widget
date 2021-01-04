@@ -267,7 +267,7 @@
           var id = $(this).attr('id');
           var currPage = $(this).attr('currPage');
           var gametypeid = $(this).attr('gametypeid');
-          var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+ gametype +"&game_type=7&game_code="+gametypeid+"&is_mobile_url=1&lastsession=" + userinfo.last_session;
+          var gameurl = "http://aipai.lbcity.cn/api/gamelink?plat_type="+ gametype +"&game_type=7&game_code="+gametypeid+"&is_mobile_url=1&lastsession=" + userinfo.last_session;
           $.get(gameurl,function(data){
             if(data){
               api.openWin({

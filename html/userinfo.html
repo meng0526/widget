@@ -605,7 +605,7 @@
              var todaytime = new Date();
              var t1 = todaytime.format("yyyy-MM-dd 00:00:00");//当天开始时间
              var t2 = todaytime.format("yyyy-MM-dd 23:59:59");//当天结束时间
-            var gameurl = 'http://aipai.lbcity.cn:8686/api/usergameForm?gameType='+7+'&playerName='+userinfo.name+'&start_at='+t1+'&end_at='+t2;
+            var gameurl = 'http://aipai.lbcity.cn/api/usergameForm?gameType='+7+'&playerName='+userinfo.name+'&start_at='+t1+'&end_at='+t2;
             $.get(gameurl,function(data){
               $('.ylze').text(data.total_netAmount);//盈利总额
               $('.yxtz').text(data.total_betAmount);//有效投注总额
@@ -628,7 +628,7 @@
                 var y1 = checkday.format("yyyy-MM-01 00:00:00");//本月开始时间
                 var y2 = checkday.format("yyyy-MM-dd hh:mm:ss");//当前时间
               }
-             var gameurl = 'http://aipai.lbcity.cn:8686/api/usergameForm?gameType='+gametype+'&playerName='+userinfo.name+'&start_at='+y1+'&end_at='+y2;
+             var gameurl = 'http://aipai.lbcity.cn/api/usergameForm?gameType='+gametype+'&playerName='+userinfo.name+'&start_at='+y1+'&end_at='+y2;
              $.get(gameurl,function(data){
                $('.ylze').text(data.total_netAmount);//盈利总额
                $('.yxtz').text(data.total_betAmount);//有效投注总额
@@ -651,7 +651,7 @@
                 var y1 = checkday.format("yyyy-MM-01 00:00:00");//本月开始时间
                 var y2 = checkday.format("yyyy-MM-dd hh:mm:ss");//当前时间
               }
-             var gameurl = 'http://aipai.lbcity.cn:8686/api/usergameForm?gameType='+gametype+'&playerName='+userinfo.name+'&start_at='+y1+'&end_at='+y2;
+             var gameurl = 'http://aipai.lbcity.cn/api/usergameForm?gameType='+gametype+'&playerName='+userinfo.name+'&start_at='+y1+'&end_at='+y2;
              $.get(gameurl,function(data){
                $('.ylze').text(data.total_netAmount);//盈利总额
                $('.yxtz').text(data.total_betAmount);//有效投注总额

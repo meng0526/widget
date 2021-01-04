@@ -257,7 +257,7 @@
         $('.userlistbtn').eq(api.pageParam.index).children('img').attr('alt',btnsrc);
         //获取数据
         var dataarr = new Array();
-        $.post('http://aipai.lbcity.cn:8686/api/gamelist',{'code':code},function(data){
+        $.post('http://aipai.lbcity.cn/api/gamelist',{'code':code},function(data){
           var data = JSON.parse(data)
           for (var i = 0; i < data.data.length; i++) {
               var dataarrnew = Array();
@@ -327,7 +327,7 @@
                     var code = $(this).attr('code');
                     //获取数据
                     var dataarr = new Array();
-                    $.post('http://aipai.lbcity.cn:8686/api/gamelist',{'code':code},function(data){
+                    $.post('http://aipai.lbcity.cn/api/gamelist',{'code':code},function(data){
                       var data = JSON.parse(data)
                       for (var i = 0; i < data.data.length; i++) {
                           var dataarrnew = Array();
@@ -378,7 +378,7 @@
         $(document).on('click','.gameing',function(){
           var name = $(this).attr('name');
           var gametype = $(this).attr('gametype');
-          var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+gametype+"&game_type=2&lastsession=" + userinfo.last_session;
+          var gameurl = "http://aipai.lbcity.cn/api/gamelink?plat_type="+gametype+"&game_type=2&lastsession=" + userinfo.last_session;
           $.get(gameurl,function(data){
             var gamename = {
               'k':name

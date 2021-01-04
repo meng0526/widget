@@ -275,7 +275,7 @@ apiready = function(){
      });
      return;
     }
-    $.post('http://aipai.lbcity.cn:8686/api/update_login_password',datas,function(data){
+    $.post('http://aipai.lbcity.cn/api/update_login_password',datas,function(data){
       var datamsg = JSON.parse(data.status.msg);
       if(data.status.errorCode==0){
         api.openFrame({

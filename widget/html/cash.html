@@ -449,7 +449,7 @@
     apiready = function(){
       var userinfo = $api.getStorage('userinfo');
       //查询实际余额 中心账户+个人账户
-      var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+      var center_money_url = 'http://aipai.lbcity.cn/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
       $.get(center_money_url,function(data){
         var data = JSON.parse(data);
         $('.usermoney').text(data.Data);
@@ -571,7 +571,7 @@
             'bank_username':bankusername,
             'bank_card':banknum
           };
-          $.post('http://aipai.lbcity.cn:8686/api/post_update_bank_info',datas,function(data){
+          $.post('http://aipai.lbcity.cn/api/post_update_bank_info',datas,function(data){
               if(data.status.errorCode==1){
                 var htmlname = 'error';
               }else {
@@ -597,7 +597,7 @@
       })
       //绑定银行卡成功后重新获取用户信息
       function geyUserInfo(){
-        $.post('http://aipai.lbcity.cn:8686/api/islogin',{'lastsession':userinfo.last_session},function(data){
+        $.post('http://aipai.lbcity.cn/api/islogin',{'lastsession':userinfo.last_session},function(data){
           $api.setStorage('userinfo',data);
           api.execScript({
             frameName: api.frameName,
@@ -628,7 +628,7 @@
             'money':$('.moneyval').val(),
             'lastsession':userinfo.last_session
           };
-          $.post('http://aipai.lbcity.cn:8686/api/post_drawing',datas,function(data){
+          $.post('http://aipai.lbcity.cn/api/post_drawing',datas,function(data){
               if(data.status.errorCode==1){
                 var htmlname = 'error';
               }else {

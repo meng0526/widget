@@ -87,7 +87,7 @@ apiready = function(){
       textDown: '下拉刷新...',
       textUp: '松开刷新...'
   }, function(ret, err) {
-    $.get('http://aipai.lbcity.cn:8686/api/service_center',function(data){
+    $.get('http://aipai.lbcity.cn/api/service_center',function(data){
       if(data){
         var interText = doT.template($("#mas").text());
         $("#listmessage").html(interText(data));
@@ -119,7 +119,7 @@ apiready = function(){
   })
 
   //获取公告信息
-  $.get('http://aipai.lbcity.cn:8686/api/service_center',function(data){
+  $.get('http://aipai.lbcity.cn/api/service_center',function(data){
     var interText = doT.template($("#mas").text());
     $("#listmessage").html(interText(data));
     api.hideProgress();

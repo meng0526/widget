@@ -229,22 +229,22 @@
       })
       var paytype = api.pageParam.paytype;
       //系统配置信息
-      $.get('http://aipai.lbcity.cn:8686/api/systeminfo',function(data){
+      $.get('http://aipai.lbcity.cn/api/systeminfo',function(data){
         if(paytype=='wx'){
           $(".userinfo").text(data.wechat_nickname);
           $(".wxaccount").text(data.wechat_account);
           $(".accountmoney").text(api.pageParam.money);
-          $(".payqrcode").attr('src','http://aipai.lbcity.cn:8686'+data.wechat_qrcode);
+          $(".payqrcode").attr('src','http://aipai.lbcity.cn'+data.wechat_qrcode);
           $(".openapp").attr('src','../image/game/src_761chess_resource_img_deposit_open_wx.png');
         }else {
           $(".userinfo").text(data.alipay_nickname);
           $(".wxaccount").text(data.alipay_account);
           $(".accountmoney").text(api.pageParam.money);
-          $(".payqrcode").attr('src','http://aipai.lbcity.cn:8686'+data.alipay_qrcode);
+          $(".payqrcode").attr('src','http://aipai.lbcity.cn'+data.alipay_qrcode);
         }
       })
       //收款银行卡信息
-      $.get('http://aipai.lbcity.cn:8686/api/getbank_info',function(data){
+      $.get('http://aipai.lbcity.cn/api/getbank_info',function(data){
         $(".bankname").text(data[0].bank_id);
         $(".username").text(data[0].username);
         $(".banknum").text(data[0].card_no);
@@ -338,9 +338,9 @@
           };
           var posturl;
           if(paytype=='wx'){
-            posturl = 'http://aipai.lbcity.cn:8686/api/weixin_pay';
+            posturl = 'http://aipai.lbcity.cn/api/weixin_pay';
           }else {
-            posturl = 'http://aipai.lbcity.cn:8686/api/ali_pay';
+            posturl = 'http://aipai.lbcity.cn/api/ali_pay';
           }
           $.post(posturl,datas,function(data){
              if(data.status.errorCode==0){
