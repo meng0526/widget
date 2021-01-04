@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>转账充值</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+       html,body{
+         overflow: hidden;
+       }
+       .content{
+         height: 100%;
+       }
+       .content .bankinfo{
+         width: 47%;
+         height: 60%;
+         background-image: url('../image/game/shoukuaninfo.png'),url('../image/game/ic_gathering_bg.png');
+         background-size: 100px 30px,100% 100%;
+         background-repeat: no-repeat;
+         background-position: center 0,center;
+         float: left;
+       }
+       .content .bankinfo div{
+         float: left;
+         height: 40px;
+         line-height: 40px;
+         color: #a0a0a0;
+       }
+       .content .paybank div{
+         float: left;
+         color: #a0a0a0;
+       }
+       .content .bankinfo div:nth-child(odd),.content .paybank div:nth-child(odd){
+         text-align: center;
+         width: 30%;
+         font-size: 12px;
+       }
+       .content .paybank div:nth-child(even){
+         width: 70%;
+       }
+       .bspan1{
+         display: inline-block;
+         width: 70%;
+         float: left;
+         text-overflow: ellipsis;
+         overflow: hidden;/*超出部分隐藏*/
+         white-space: nowrap;/*规定段落中的文本不进行换行 */
+       }
+       .bspan2{
+         display: inline-block;
+         width: 30%;
+         float: left;
+       }
+       .content .bankinfo div:nth-child(even){
+         width: 60%;
+         border-bottom: 1px solid #b7b7b7;
+       }
+       .content .bankinfo div:nth-child(even) img{
+         position: relative;
+         top: 8px;
+         left: 10px;
+       }
+       .content .bankinfo div:nth-child(1),.content .bankinfo div:nth-child(2),.content .paybank div:nth-child(1),.content .paybank div:nth-child(2){
+         margin-top: 20px;
+       }
+       .content .paybank{
+         width: 47%;
+         height: 60%;
+         background-image: url('../image/game/saoqrcode.png'),url('../image/game/ic_gathering_bg.png');
+         background-size: 100px 30px,100% 100%;
+         background-repeat: no-repeat;
+         background-position: center 0,center;
+         float: right;
+       }
+      .accountif{
+        width: 100%!important;
+      }
+      input{
+         width: 100%;
+         height: 30px;
+         text-indent: 10px;
+         font-size: 11px;
+         outline-style: none;
+         color: white;
+         background-image: url('../image/game/src_761chess_resource_img_setting_pwd_input.png');
+         background-size: 100% 100%;
+       }
+       h3{
+         color: #a0a0a0;
+         font-size: 12px;
+         text-indent: 20px;
+         padding: 10px;
+       }
+       .ts{
+         text-align: center;
+         width: 100%!important;
+         font-size: 12px;
+       }
+       .tscent{
+         width: 100%!important;
+         font-size: 12px;
+         padding: 5px;
+       }
+       .buz{
+         width: 100%;
+         color: #a0a0a0;
+         font-size: 12px;
+         padding: 10px;
+         overflow: hidden;
+       }
+       .buz div:nth-child(1){
+         width: 47%;
+         float: left;
+       }
+       .buz div:nth-child(2){
+         width: 47%;
+         float: right;
+       }
+       .footer div{
+         width: 50%;
+         text-align: center;
+         float: left;
+       }
+       .footer{
+         width: 100%;
+         position:fixed;
+         bottom: 30px;
+       }
+       .qrcodebox{
+         width: 100%!important;
+         height: auto!important;
+         margin-top: 35px!important;
+       }
+       .qrcodebtn{
+         width: 100%!important;
+         height: auto!important;
+         margin-top: 5px!important;
+         text-align: center;
+       }
+    </style>
+</head>
+<body id="body">
+  <div class="content">
+    <div class="bankinfo">
+      <div>个人信息</div>
+      <div><span class="userinfo bspan1"></span> <span class="bspan2"><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></span> </div>
+      <div>账号</div>
+      <div><span class="wxaccount bspan1"></span> <span class="bspan2"><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></span> </div>
+      <div>存款金额</div>
+      <div><span class="accountmoney bspan1"></span> <span class="bspan2"><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></span> </div>
+      <div>存款信息</div>
+      <div><span class="moneyinfo bspan1 accountif"><input type="text" name="" value=""  placeholder="请输入汇款账户名" class="accountuser"></span></div>
+      <h3 class="tscent"></h3>
+    </div>
+    <div class="paybank">
+      <div class="qrcodebox">
+        <img src="" alt="" class="payqrcode"  height="80px">
+      </div>
+      <div class="qrcodebtn">
+        <img src="../image/game/src_761chess_resource_img_deposit_open_alipay.png" alt=""  height="20px" class="openapp">
+        <img src="../image/game/src_761chess_resource_img_deposit_save_code.png" alt=""  height="20px" class="saveqrcode">
+      </div>
+      <div class="ts">---说明---</div>
+      <div class="tscent">以上账号限本次存款使用，账户不定期更换，请勿恶意重复提交，否则封号处理！</div>
+    </div>
+    <div class="buz">
+      <div>第一步：保存付款二维码，扫码转账到指定账号。</div>
+      <div>第二部：填写存款信息，点击我已转账。</div>
+    </div>
+    <div class="footer">
+      <div><img src="../image/game/ic_return_back.png" alt="" width="100px" height="40px;"  class="btn back"></div>
+      <div><img src="../image/game/src_761chess_resource_img_deposit_have_transfer.png" alt="" width="100px" height="30px;"class="btn sub"></div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/jquery_adaptive_backgrounds.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      var userinfo = $api.getStorage('userinfo');
+      $("#body").css('height',$(window).height());
+      //返回上一页
+      $(".back").on('click',function(){
+        api.closeFrame({
+            name: api.frameName
+        });
+      })
+      //复制银行信息
+      $(".fz").on('click',function(){
+        var clipBoard = api.require('clipBoard');
+        clipBoard.set({
+            value: $(this).parent().siblings('span').text()
+        }, function(ret, err) {
+            if (ret) {
+                api.openFrame({
+                  name: 'success',
+                  url: 'success.html',
+                  bgColor:'rgba(0,0,0,0.0)',
+                  animation:{
+                    type:"flip",
+                    subType:"from_right",
+                    duration:300
+                  },
+                  pageParam: {
+                      describe: '复制成功'
+                  }
+              });
+            } else {
+                api.openFrame({
+                  name: 'error',
+                  url: 'error.html',
+                  bgColor:'rgba(0,0,0,0.0)',
+                  animation:{
+                    type:"flip",
+                    subType:"from_right",
+                    duration:300
+                  },
+                  pageParam: {
+                      describe: '复制失败，请重试'
+                  }
+              });
+            }
+        });
+      })
+      var paytype = api.pageParam.paytype;
+      //系统配置信息
+      $.get('http://aipai.lbcity.cn:8686/api/systeminfo',function(data){
+        if(paytype=='wx'){
+          $(".userinfo").text(data.wechat_nickname);
+          $(".wxaccount").text(data.wechat_account);
+          $(".accountmoney").text(api.pageParam.money);
+          $(".payqrcode").attr('src','http://aipai.lbcity.cn:8686'+data.wechat_qrcode);
+          $(".openapp").attr('src','../image/game/src_761chess_resource_img_deposit_open_wx.png');
+        }else {
+          $(".userinfo").text(data.alipay_nickname);
+          $(".wxaccount").text(data.alipay_account);
+          $(".accountmoney").text(api.pageParam.money);
+          $(".payqrcode").attr('src','http://aipai.lbcity.cn:8686'+data.alipay_qrcode);
+        }
+      })
+      //收款银行卡信息
+      $.get('http://aipai.lbcity.cn:8686/api/getbank_info',function(data){
+        $(".bankname").text(data[0].bank_id);
+        $(".username").text(data[0].username);
+        $(".banknum").text(data[0].card_no);
+        $(".bankaddress").text(data[0].bank_address);
+      })
+      //保存到相册
+      var imgname  = Date.parse(new Date());
+      $(".saveqrcode").on('click',function(){
+        var imgsrc = $(this).parent().siblings(".qrcodebox").children("img").attr('src');
+        api.download({
+            url: imgsrc,
+            savePath: 'fs://'+imgname+'.jpg',
+            report: true,
+            allowResume: true
+        }, function(ret, err) {
+            if (ret.state == 1) {
+              api.saveMediaToAlbum({
+                  path: 'fs://'+imgname+'.jpg'
+              }, function(ret, err) {
+                  if (ret && ret.status) {
+                    api.openFrame({
+                      name: 'success',
+                      url: 'success.html',
+                      bgColor:'rgba(0,0,0,0.0)',
+                      animation:{
+                        type:"ripple",
+                        duration:300
+                      },
+                      pageParam: {
+                          describe: '保存成功！'
+                      }
+                   });
+                  } else {
+                    api.openFrame({
+                      name: 'error',
+                      url: 'error.html',
+                      bgColor:'rgba(0,0,0,0.0)',
+                      animation:{
+                        type:"ripple",
+                        duration:300
+                      },
+                      pageParam: {
+                          describe: '保存失败！'
+                      }
+                   });
+                  }
+              });
+            }
+        });
+      })
+      //打开支付应用
+      $(".openapp").on('click',function(){
+        var systemType = api.systemType;
+        var apptype;
+        if(paytype=='wx'){
+          apptype = 'weixin://';
+        }else {
+          apptype = 'alipays://';
+        }
+         if(systemType == 'android'){
+            window.location.href=apptype;
+         }else {
+           //iOS中的使用方法如下：
+           api.openApp({
+              iosUrl: apptype, //打开微信的，其中weixin为微信的URL Scheme
+           });
+         }
+      })
+      //银行卡支付
+      $(".sub").on('click',function(){
+          var accountuser = $('.accountuser').val();
+          if(accountuser=="" || accountuser==null || accountuser==undefined){
+              api.openFrame({
+                name: 'error',
+                url: 'error.html',
+                bgColor:'rgba(0,0,0,0.0)',
+                animation:{
+                  type:"ripple",
+                  duration:300
+                },
+                pageParam: {
+                    describe: '请填写汇款账户名！'
+                }
+            });
+            return;
+          }
+          var datas = {
+            'money':$('.accountmoney').text(),
+            'accountuser':$('.accountuser').val(),
+            'lastsession':userinfo.last_session
+          };
+          var posturl;
+          if(paytype=='wx'){
+            posturl = 'http://aipai.lbcity.cn:8686/api/weixin_pay';
+          }else {
+            posturl = 'http://aipai.lbcity.cn:8686/api/ali_pay';
+          }
+          $.post(posturl,datas,function(data){
+             if(data.status.errorCode==0){
+                 var msg = JSON.parse(data.status.msg);
+                 api.openFrame({
+                   name: 'success',
+                   url: 'success.html',
+                   bgColor:'rgba(0,0,0,0.0)',
+                   animation:{
+                     type:"ripple",
+                     duration:300
+                   },
+                   pageParam: {
+                       describe: msg
+                   }
+               });
+             }else {
+                 api.openFrame({
+                   name: 'error',
+                   url: 'error.html',
+                   bgColor:'rgba(0,0,0,0.0)',
+                   animation:{
+                     type:"ripple",
+                     duration:300
+                   },
+                   pageParam: {
+                       describe: '提交错误请重试！'
+                   }
+               });
+             }
+          })
+      })
+  };
+</script>
+</html>

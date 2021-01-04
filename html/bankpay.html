@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>银行卡充值</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+       html,body{
+         overflow: hidden;
+       }
+       .content{
+         height: 100%;
+       }
+       .content .bankinfo{
+         width: 57%;
+         height: 60%;
+         background-image: url('../image/game/ic_gathering_bank.png'),url('../image/game/ic_gathering_bg.png');
+         background-size: 100px 30px,100% 100%;
+         background-repeat: no-repeat;
+         background-position: center 0,center;
+         float: left;
+       }
+       .content .bankinfo div,.content .paybank div{
+         float: left;
+         height: 40px;
+         line-height: 40px;
+         color: #a0a0a0;
+       }
+       .content .bankinfo div:nth-child(odd),.content .paybank div:nth-child(odd){
+         text-align: center;
+         width: 40%;
+       }
+       .content .paybank div:nth-child(even){
+         width: 60%;
+       }
+       .content .bankinfo div:nth-child(even){
+         width: 60%;
+         border-bottom: 1px solid #b7b7b7;
+       }
+       .content .bankinfo div:nth-child(even) img{
+         position: relative;
+         top: 8px;
+         left: 10px;
+       }
+       .content .bankinfo div:nth-child(1),.content .bankinfo div:nth-child(2),.content .paybank div:nth-child(1),.content .paybank div:nth-child(2){
+         margin-top: 35px;
+       }
+       .content .paybank{
+         width: 42%;
+         height: 60%;
+         background-image: url('../image/game/shoukuaninfo.png'),url('../image/game/ic_gathering_bg.png');
+         background-size: 100px 30px,100% 100%;
+         background-repeat: no-repeat;
+         background-position: center 0,center;
+         float: right;
+       }
+      .content .paybank input{
+         width: 90%;
+         height: 30px;
+         text-indent: 10px;
+         font-size: 12px;
+         outline-style: none;
+         color: white;
+         background-image: url('../image/game/src_761chess_resource_img_setting_pwd_input.png');
+         background-size: 100% 100%;
+       }
+       h3{
+         color: #a0a0a0;
+         font-size: 12px;
+       }
+       .ts{
+         text-align: center;
+       }
+       .tscent{
+         padding: 5px;
+       }
+       .buz{
+         width: 100%;
+         color: #a0a0a0;
+         font-size: 12px;
+         padding: 10px;
+         overflow: hidden;
+       }
+       .buz div:nth-child(1){
+         width: 47%;
+         float: left;
+       }
+       .buz div:nth-child(2){
+         width: 47%;
+         float: right;
+       }
+       .footer div{
+         width: 50%;
+         text-align: center;
+         float: left;
+       }
+       .footer{
+         width: 100%;
+         position:fixed;
+         bottom: 30px;
+       }
+    </style>
+</head>
+<body id="body">
+  <div class="content">
+    <div class="bankinfo">
+      <div>收款银行</div>
+      <div><span class="bankname"></span> <span><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></span> </div>
+      <div>收款人</div>
+      <div><span class="username"></span> <span><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></span> </div>
+      <div>收款账号</div>
+      <div><span class="banknum"></span> <span><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></span> </div>
+      <div>开户地</div>
+      <div><span class="bankaddress"></span> <span><img src="../image/game/src_761chess_resource_img_deposit_chonzhifuzh.png" alt="" width="40px" height="20px" class="btn fz"></span> </div>
+    </div>
+    <div class="paybank">
+      <div>存款金额</div>
+      <div><input type="text" name="" value="" placeholder="支付限额100-1000000" class="money"> </div>
+      <div>存款信息</div>
+      <div><input type="text" name="" value="" placeholder="填写存款人姓名" class="name"> </div>
+      <h3 class="ts">---提示---</h3>
+      <h3 class="tscent">以上银行账户限本次存款用，账户不定期更换每次存款前请依照本页所显示的银行账户入款如入款至已过期账号，无法查收，本公司不负责！</h3>
+    </div>
+    <div class="buz">
+      <div>第一步：复制收款银行前往充值</div>
+      <div>第二部：充值完成，填写您的存款信息。最后，提交充值</div>
+    </div>
+    <div class="footer">
+      <div><img src="../image/game/ic_return_back.png" alt="" width="100px" height="40px;"  class="btn back"></div>
+      <div><img src="../image/game/ic_commit_charge.png" alt="" width="100px" height="30px;"class="btn sub"></div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/jquery_adaptive_backgrounds.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      var userinfo = $api.getStorage('userinfo');
+      $("#body").css('height',$(window).height());
+      //返回上一页
+      $(".back").on('click',function(){
+        api.closeFrame({
+            name: api.frameName
+        });
+      })
+      //复制银行信息
+      $(".fz").on('click',function(){
+        var clipBoard = api.require('clipBoard');
+        clipBoard.set({
+            value: $(this).parent().siblings('span').text()
+        }, function(ret, err) {
+            if (ret) {
+                api.openFrame({
+                  name: 'success',
+                  url: 'success.html',
+                  bgColor:'rgba(0,0,0,0.0)',
+                  animation:{
+                    type:"flip",
+                    subType:"from_right",
+                    duration:300
+                  },
+                  pageParam: {
+                      describe: '复制成功'
+                  }
+              });
+            } else {
+                api.openFrame({
+                  name: 'error',
+                  url: 'error.html',
+                  bgColor:'rgba(0,0,0,0.0)',
+                  animation:{
+                    type:"flip",
+                    subType:"from_right",
+                    duration:300
+                  },
+                  pageParam: {
+                      describe: '复制失败，请重试'
+                  }
+              });
+            }
+        });
+      })
+      //收款银行卡信息
+      $.get('http://aipai.lbcity.cn:8686/api/getbank_info',function(data){
+        $(".bankname").text(data[0].bank_id);
+        $(".username").text(data[0].username);
+        $(".banknum").text(data[0].card_no);
+        $(".bankaddress").text(data[0].bank_address);
+      })
+      //银行卡支付
+      $(".sub").on('click',function(){
+          var datas = {
+            'money':$('.money').val(),
+            'name':$('.name').val(),
+            'payment_desc':userinfo.bank_name,
+            'account':userinfo.bank_card,
+            'lastsession':userinfo.last_session
+          };
+          $.post('http://aipai.lbcity.cn:8686/api/bank_pay',datas,function(data){
+             if(data.status.errorCode==0){
+                 var msg = JSON.parse(data.status.msg);
+                 api.openFrame({
+                   name: 'success',
+                   url: 'success.html',
+                   bgColor:'rgba(0,0,0,0.0)',
+                   animation:{
+                     type:"ripple",
+                     duration:300
+                   },
+                   pageParam: {
+                       describe: msg
+                   }
+               });
+             }else {
+                 api.openFrame({
+                   name: 'error',
+                   url: 'error.html',
+                   bgColor:'rgba(0,0,0,0.0)',
+                   animation:{
+                     type:"ripple",
+                     duration:300
+                   },
+                   pageParam: {
+                       describe: '数据不完整，请确认是否绑定银行卡'
+                   }
+               });
+             }
+          })
+      })
+  };
+</script>
+</html>

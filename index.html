@@ -1,0 +1,829 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>德胜</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./css/swiper_min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/animate_min.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        padding-top: 0px:
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+        -webkit-flex-flow: column;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+      background-image: url('./image/game/src_761chess_resource_img_index_bg.png');
+      background-size: 100% 100%;
+    }
+    #header{
+        width: 100%;
+        height: 50px;
+        background-image: url('./image/game/src_761chess_resource_img_index_header.png');
+        background-size: 100% 100%;
+    }
+    #header div{
+      float: left;
+      /*position: relative1;
+      top: -10px;*/
+    }
+    #header div:nth-child(1){
+      width: 30%;
+    }
+    #header div:nth-child(1) div:nth-child(1){
+      width: 30%;
+      float: left;
+    }
+    #header div:nth-child(1) div:nth-child(1) img{
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+    #header div:nth-child(1) div:nth-child(2){
+      width: 70%;
+      font-size: 12px;
+      color: white;
+      float: left;
+    }
+    .price{
+      color: white;
+      width: 30%;
+      margin-top: 10px;
+    }
+    #header div:nth-child(3){
+      width: 30%;
+      margin-top: 10px;
+    }
+    #header div:nth-child(4){
+      width: 10%;
+      margin-top: 10px;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 26%;
+      height: 100%;
+      float: left;
+      background-image: url('./image/game/src_761chess_resource_img_index_leftmenu.png');
+      background-repeat: no-repeat;
+      background-position: 10px 5px;
+      background-size: 90% 95%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 40px;
+      overflow-y: scroll;
+    }
+    #main .m_right{
+      width: 74%;
+      height: 100%;
+      float: left;
+    }
+    #footer{
+        height: 50px; line-height: 50px;
+        width: 100%;
+        text-align: center;
+        background-image: url('./image/game/src_761chess_resource_img_index_bottom.png');
+        background-size: 100% 100%:
+    }
+    #footer div:nth-child(1) {
+      width: 15%;
+      height: 100%;
+      float: left;
+    }
+    #footer div:nth-child(n+2):nth-child(-n+6){
+      width: 9.25%;
+      height: 100%;
+      float: left;
+      margin-left: 7px;
+    }
+    #footer div:nth-child(n+7){
+      width: 16%;
+      height: 100%;
+      float: left;
+    }
+    #footer div:nth-child(-n+7) img{
+      margin-top: 5px;
+    }
+    #footer div:nth-child(-n+7) img{
+      margin-left: 0px;
+    }
+    .news{
+      display: block;
+      width: 5%;
+      float: left;
+    }
+    .marquee{
+      width: 100%;
+      height: 25px;
+    }
+    .marquee marquee{
+      width: 95%;
+      float: left;
+      color: #D6C09A;
+      font-size: 13px;
+    }
+    .money{
+      display: block;
+      width: 80%;
+      height: 20px;
+      border-radius: 10px;
+      border: 1px solid #D6C09A;
+      line-height: 20px;
+      position: relative;
+    }
+    .money img:nth-child(1){
+      position: absolute;
+      left: -3px;
+      top: -6px;
+    }
+    .money img:nth-child(3){
+      position: absolute;
+      right: -3px;
+      top: -3px;
+    }
+    .gamecontent{
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .gamecontent:nth-child(n+2){
+      display: none;
+    }
+    .game_box_img{
+      display:inline-block;
+      text-align: center;
+    }
+    .gamelist_1 .game_box_img p img{
+       width: 94%;
+    }
+    .gamelist_3 .game_box_img p img{
+      width: 94%;
+      margin-top: 10px;
+    }
+    .gamelist_2 .game_box_img img,.gamelist_5 .game_box_img:nth-child(1) img{
+       width: 95%;
+       margin-top: 15px;
+    }
+    .gamelist_6 .game_box_img{
+      text-align: center;
+    }
+    .gamelist_6 .game_box_img img{
+      width: 70%;
+    }
+    .gamelist_4 .game_box_img p img{
+      width: 95%;
+      height: 95%;
+    }
+    .gamelist_5 .game_box_img p img{
+      width: 97%;
+      height: 95%;
+    }
+    .swiper-slide{
+      width: auto!important;
+    }
+    @-webkit-keyframes selectmoney {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+    }
+    .conter_money_btn_true{
+      -webkit-transform: selectmoney(360deg);
+      animation: selectmoney 5s linear infinite;
+      -moz-animation: selectmoney 5s linear infinite;
+      -webkit-animation: selectmoney 5s linear infinite;
+      -o-animation: selectmoney 5s linear infinite;
+    }
+    </style>
+</head>
+<!-- 棋牌游戏 -->
+<script id="type5" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <div class="btn game_box_img ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.1s">
+        <img src="{{= it[prop].icon2}}" alt="" class="chess" index="{{= prop}}">
+    </div>
+  {{ } }}
+</script>
+<!-- 热门游戏 -->
+<script id="type7" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <div class="game_box_img">
+      {{ for(var props in it[prop]) { }}
+        <p class="btn ani gameing" gamename="{{= it[prop][props].gamingItemName}}" currPage="{{= it[prop][props].currPage}}" gametype="{{= it[prop][props].platformCode}}" gameid="{{= it[prop][props].platformCode}}" gametypeid="{{= it[prop][props].gamingType}}" id="{{= it[prop][props].id}}" swiper-animate-effect="bounceIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.1s">
+          <img src="{{= it[prop][props].hotIcon}}" alt="">
+        </p>
+      {{ } }}
+    </div>
+  {{ } }}
+</script>
+<!-- 捕鱼游戏 -->
+<script id="type6" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <div class="game_box_img">
+      {{ for(var props in it[prop]) { }}
+        <p class="btn ani gameing" gamename="buyu" gametype="{{= it[prop][props].gamingPlatformCode}}" gameid="{{= it[prop][props].gamingPlatformName}}" gametypeid="{{= it[prop][props].gamingType}}" swiper-animate-effect="bounceIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.1s">
+          <img src="{{= it[prop][props].icon2}}" alt="">
+        </p>
+      {{ } }}
+    </div>
+  {{ } }}
+</script>
+<!-- 电子游戏 -->
+<script id="type4" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <div class="game_box_img">
+      {{ for(var props in it[prop]) { }}
+        <p class="btn ani elect" code="{{= it[prop][props].gamingPlatformCode}}" index="{{= it[prop][props].gamingPlatformId}}" swiper-animate-effect="bounceIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.1s">
+          <img src="{{= it[prop][props].icon2}}" alt="">
+        </p>
+      {{ } }}
+    </div>
+  {{ } }}
+</script>
+<!-- 真人视讯 -->
+<script id="type3" type="text/x-dot-template">
+  <div class="btn " swiper-animate-effect="bounceIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.1s">
+      <img src="" alt=""  gamename="shixun" class="gameing" gametype="AG" id="aglink">
+  </div>
+  {{ for(var prop in it) { }}
+    <div class="game_box_img">
+      {{ for(var props in it[prop]) { }}
+        <p class="btn ani gameing" gamename="shixun" gametype="{{= it[prop][props].gamingPlatformCode}}" swiper-animate-effect="bounceIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.1s">
+          <img src="{{= it[prop][props].icon2}}" alt="">
+        </p>
+      {{ } }}
+    </div>
+  {{ } }}
+</script>
+<!-- 体育赛事 -->
+<script id="type2" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <div class="btn game_box_img ani gameing" gamename="tiyu" gametype="{{= it[prop].gamingPlatformCode}}" swiper-animate-effect="bounceIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.1s">
+        <img src="{{= it[prop].icon2}}" alt="">
+    </div>
+  {{ } }}
+</script>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div>
+               <div>
+                 <img src="./image/game/src_761chess_resource_img_index_index_icon.png" alt="" width="30px" height="30px" class="set_userinfo btn login_istrue">
+               </div>
+               <div class="">
+                 <p class="login_name">未登录</p>
+                 <p class="is_login">
+                   <span class="login btn"><img src="./image/game/src_761chess_resource_img_index_login.png" alt="" width="50px" height="20px"></span>
+                   <span class="create btn"><img src="./image/game/src_761chess_resource_img_index_register.png" alt="" width="50px" height="20px"></span>
+                 </p>
+               </div>
+           </div>
+           <div class="price">
+              <span class="money">
+                <img src="./image/game/src_761chess_resource_img_index_capital.png" alt="" width="28px" height="28px">
+                <span style="color: white;width: 100%;text-align: center;" class="balance">0.00</span>
+                <img src="./image/game/src_761chess_resource_img_index_reload.png" alt="" width="25px" height="25px" class="conter_money_btn">
+              </span>
+           </div>
+           <div>
+             <img src="./image/game/src_761chess_resource_img_index_offiwww.png" alt="" width="200px" height="20px">
+           </div>
+           <div class="seting btn login_istrue">
+             <img src="./image/game/src_761chess_resource_img_index_index_set.png" alt="" width="52" height="15">
+           </div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+                <div class="btn gememenu active"><img src="./image/game/src_761chess_resource_img_index_hotgame2.png" alt="./image/game/src_761chess_resource_img_index_hotgame.png" width="90%" height="40px"></div>
+                <div class="btn gememenu"><img src="./image/game/src_761chess_resource_img_index_chess.png" alt="./image/game/src_761chess_resource_img_index_chesscheck.png" width="90%" height="40px"></div>
+                <div class="btn gememenu"><img src="./image/game/src_761chess_resource_img_index_fish.png" alt="./image/game/src_761chess_resource_img_index_fish2.png" width="90%" height="40px"></div>
+                <div class="btn gememenu"><img src="./image/game/src_761chess_resource_img_index_dianzi.png" alt="./image/game/src_761chess_resource_img_index_dianzi2.png" width="90%" height="40px"></div>
+                <div class="btn gememenu"><img src="./image/game/src_761chess_resource_img_index_video.png" alt="./image/game/src_761chess_resource_img_index_video2.png" width="90%" height="40px"></div>
+                <div class="btn gememenu"><img src="./image/game/src_761chess_resource_img_index_sport.png" alt="./image/game/src_761chess_resource_img_index_sport2.png" width="90%" height="40px"></div>
+              </div>
+            </div>
+            <div class="m_right">
+              <div class="marquee">
+                 <span class="news"><img src="./image/game/src_761chess_resource_img_index_msg.png" alt="" width="18" height="18"></span>
+                 <marquee behavior="" direction="" id="notice">暂无公告！</marquee>
+              </div>
+              <div class="gamelist">
+                <div class="gamelist_1 gamecontent">
+                  <div class="swiper-container swiper-container1">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="game7">
+                      </div>
+                      <div class="swiper-slide"></div>
+                    </div>
+                  </div>
+                </div>
+                 <div class="gamelist_2 gamecontent">
+                   <div class="swiper-container swiper-container2">
+                     <div class="swiper-wrapper">
+                       <div class="swiper-slide" id="game5">
+                       </div>
+                       <div class="swiper-slide"></div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="gamelist_3 gamecontent">
+                   <div class="swiper-container swiper-container3">
+                     <div class="swiper-wrapper">
+                       <div class="swiper-slide" id="game6">
+                       </div>
+                       <div class="swiper-slide"></div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="gamelist_4 gamecontent">
+                   <div class="swiper-container swiper-container4">
+                     <div class="swiper-wrapper">
+                       <div class="swiper-slide" id="game4">
+                       </div>
+                       <div class="swiper-slide"></div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="gamelist_5 gamecontent">
+                   <div class="swiper-container swiper-container5">
+                     <div class="swiper-wrapper">
+                       <div class="swiper-slide" id="game3">
+                       </div>
+                       <div class="swiper-slide"></div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="gamelist_6 gamecontent">
+                   <div class="swiper-container swiper-container6">
+                     <div class="swiper-wrapper">
+                        <div class="swiper-slide" id="game2">
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+        </div>
+        <div id="footer">
+           <div class="btn extension login_istrue"><img src="./image/game/src_761chess_resource_img_index_forward.png" alt=""  height="40px" width="120px"></div> 
+           <div class="btn activity"><img src="./image/game/src_761chess_resource_img_index_actvt.png" alt="" height="40px" width="30px"></div>
+           <div class="btn xima login_istrue"><img src="./image/game/src_761chess_resource_img_index_washcode.png" alt=""  height="40px" width="30px"></div>
+           <div class="btn message login_istrue"><img src="./image/game/src_761chess_resource_img_index_botmsg.png" alt="" height="40px" width="30px"></div>
+           <div class="btn service"><img src="./image/game/src_761chess_resource_img_index_gust.png" alt="" height="40px" width="30px"></div>
+           <div> </div>
+           <div class="btn cash login_istrue"><img src="./image/game/src_761chess_resource_img_index_getout.png" alt="" height="50px" width="100px"></div>
+           <div class="btn recharge login_istrue"><img src="./image/game/src_761chess_resource_img_index_load.png" alt="" height="50px" width="100px"></div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="./script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="./script/fastclick.js"></script>
+<script type="text/javascript" src="./script/common.js"></script>
+<script type="text/javascript" src="./script/swiper_min.js"></script>
+<script type="text/javascript" src="./script/swiper_animate_min.js"></script>
+<script type="text/javascript" src="./script/doT_min.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      api.addEventListener({
+          name:'resume'
+      }, function(ret, err){
+        var background_music = api.require('audioStreamer');
+        //background_music.setLoop({loop:true});
+        background_music.openPlayer({
+            path: './image/audio/background_music.mp3',
+        });
+      });
+     var connectionType = api.connectionType;
+      if(connectionType=='none'){
+          setTimeout(function(){
+            api.openFrame({
+              name: 'warning',
+              url: './html/warning.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"ripple",
+                duration:300
+              },
+              pageParam: {
+                  describe: '您的网络异常请检查！'
+              }
+          });
+        },3000)
+      }
+      api.openFrame({
+        name: 'loading',
+        url: './html/loading.html',
+        bgColor:'rgba(0,0,0,0.0)',
+        animation:{
+          type:"movein",
+          subType:"from_bottom",
+          duration:0
+        }
+      });
+        FastClick.attach(document.body);
+        //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
+        var userinfo  = $api.getStorage('userinfo');
+        if(userinfo!=undefined && userinfo!=''){
+            //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
+            $.post('http://aipai.lbcity.cn:8686/api/islogin',{'lastsession':userinfo.last_session},function(data){
+               if(data==0){
+                  $api.setStorage('userinfo','');
+                  api.execScript({
+                    name: 'root',
+                    script: 'window.location.reload();'
+                  });
+               }else {//如果没有过期更新用户信息
+                 $api.setStorage('userinfo',data);
+               }
+            })
+            $('.login_name').text(userinfo.name);
+            //查询实际余额 中心账户+个人账户
+            var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+            $.get(center_money_url,function(data){
+              var data = JSON.parse(data);
+              $('.balance').text(data.Data);
+            })
+            //隐藏登录注册按钮
+            $('.is_login').hide();
+            //设置登录后用户名的样式
+            $('.login_name').css({
+              'padding':'10px 0px',
+              'font-size':'15px'
+            });
+        }
+        //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
+        $('.conter_money_btn').on('click',function(){
+          $(this).addClass('conter_money_btn_true');
+          var center_money_url = 'http://aipai.lbcity.cn:8686/api/getMoney?id='+userinfo.id+'&name='+userinfo.name;
+          $.get(center_money_url,function(data){
+            var data = JSON.parse(data);
+            $('.balance').text(data.Data);
+            $('.conter_money_btn').removeClass('conter_money_btn_true');
+          })
+        })
+        api.setScreenOrientation({ //重力感应
+            orientation: 'auto_landscape'
+        });
+        //播放老板好
+        api.startPlay({
+            path: 'widget://image/audio/src_761chess_resource_audio_musichome.mp3'
+        });
+        //播放背景音乐
+        var background_music = api.require('audioStreamer');
+        //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
+        background_music.openPlayer({
+            path: './image/audio/background_music.mp3',
+        });
+        api.getPrefs({
+            key: 'background_music'
+        }, function(ret, err) {
+           var music = ret.value;
+           if(music){
+             background_music.setVolume({
+               volume: music
+             });
+           }else {
+             background_music.setVolume({
+               volume: 0.5
+             });
+           }
+        });
+        api.addEventListener({
+          name: 'background_music'
+          }, function(ret){
+          if(ret && ret.value){
+            background_music.setVolume({
+              volume: ret.value.musicnum
+            });
+          }
+        });
+        api.addEventListener({
+            name:'pause'
+        }, function(ret, err){
+           var audioStreamer = api.require('audioStreamer');
+           audioStreamer.pause();
+        });
+        var header = $api.byId('header');
+        var footer = $api.byId('footer');
+        //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var footerPos = $api.offset(footer);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h - footerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var aa = heights-50;
+        $api.css($api.byId('m_left_box'),'height:'+aa+'px');
+        var gamelist = $api.dom('.gamelist');
+        var gameinfo = $api.offset(gamelist);
+        $api.css(gamelist,'height:'+(api.winHeight-(gameinfo.t*2)+13)+'px');
+        //菜单切换
+        $(".gememenu").on('click',function(){
+              $(".gamecontent").eq($(this).index()).show().siblings().hide();
+              if($(this).index()==5){
+                $("#wrap").css({
+                  'background-image':'url(./image/game/src_761chess_resource_img_index_sportbg.png)',
+                  'background-size' :'100% 100%'
+                });
+              }else if ($(this).index()==2) {
+                $("#wrap").css({
+                  'background-image':'url(./image/game/src_761chess_resource_img_index_fishbg.png)',
+                  'background-size' :'100% 100%'
+                });
+              }else {
+                $("#wrap").css({
+                  'background-image':'url(./image/game/src_761chess_resource_img_index_bg.png)',
+                  'background-size' :'100% 100%'
+                });
+              }
+              var indexof = $(this).index() + 1;
+              var mySwiper = 'mySwiper'+indexof;
+                mySwiper = new Swiper('.swiper-container' + indexof,{
+                freeMode : true,
+                freeModeMomentum : true,
+                slidesPerView: "auto",
+                on:{
+                  init: function(){
+                    swiperAnimateCache(this); //隐藏动画元素
+                    this.emit('slideChangeTransitionEnd');//在初始化时触发一次slideChangeTransitionEnd事件
+                  },
+                  slideChangeTransitionEnd: function(){
+                    swiperAnimate(this); //每个slide切换结束时运行当前slide动画
+                    this.slides.eq(this.activeIndex).find('.ani').removeClass('ani');//动画只展示一次
+                  }
+                }
+            });
+        });
+    };
+    var data5,data7,data6,data4,data4list,data3,data2;
+    $(function(){
+      //获取公告信息
+      $.get('http://aipai.lbcity.cn:8686/api/service_center',function(data){
+           $('#notice').text(data[0].content);
+      })
+      //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
+      $.post('http://aipai.lbcity.cn:8686/api/gamelist',{'code':'dt'},function(data){
+        var data = JSON.parse(data);
+        //棋牌游戏
+        data5 = new Array();
+        for (var i = 0; i < data.data.length; i++) {
+          if(data.data[i].gamingType==5){
+             data5.push(data.data[i]);
+          }
+        }
+        var interText5 = doT.template($("#type5").text());
+        $("#game5").html(interText5(data5));
+        //热门游戏
+        data7 = new Array();
+        for (var i = 0; i < data.data[29].gameItemList.length; i++) {
+            var data7new = Array();
+            data7new.push(data.data[29].gameItemList[i]);
+            if(i+1<data.data[29].gameItemList.length){
+              data7new.push(data.data[29].gameItemList[i+1]);
+            }
+            data7.push(data7new);
+            if(i<data.data[29].gameItemList.length){
+              i+=1;
+            }else {
+              break;
+            }
+        }
+        var interText7 = doT.template($("#type7").text());
+        $("#game7").html(interText7(data7));
+        //捕鱼游戏
+        var data6list = new Array();
+        for (var i = 0; i < data.data.length; i++) {
+          if(data.data[i].gamingType==6){
+             data6list.push(data.data[i]);
+          }
+        }
+        data6 = new Array();
+        for (var i = 0; i < data6list.length; i++) {
+            var data6new = Array();
+            data6new.push(data6list[i]);
+            data6new.push(data6list[i+1]);
+            data6.push(data6new);
+            if(i<data6list.length){
+              i+=1;
+            }else {
+              break;
+            }
+        }
+        var interText6 = doT.template($("#type6").text());
+        $("#game6").html(interText6(data6));
+        //电子游戏
+        data4list = new Array();
+        for (var i = 0; i < data.data.length; i++) {
+          if(data.data[i].gamingType==4){
+             data4list.push(data.data[i]);
+          }
+        }
+        data4 = new Array();
+        for (var i = 0; i < data4list.length; i++) {
+            var data4new = Array();
+            data4new.push(data4list[i]);
+            if(i+1<data4list.length){
+              data4new.push(data4list[i+1]);
+            }
+            data4.push(data4new);
+            if(i<data4list.length){
+              i+=1;
+            }else {
+              break;
+            }
+        }
+         var interText4 = doT.template($("#type4").text());
+        $("#game4").html(interText4(data4));
+        //真人视讯1
+               data3list = new Array();
+        for (var i = 0; i < data.data.length; i++) {
+          if(data.data[i].gamingType==3){
+             data3list.push(data.data[i]);
+          }
+        }
+        data3 = new Array();
+        for (var i = 0; i < data3list.length; i++) {
+            var data3new = Array();
+            data3new.push(data3list[i]);
+            if(i+1<data3list.length){
+              data3new.push(data3list[i+1]);
+            }
+            data3.push(data3new);
+            if(i<data3list.length){
+              i+=1;
+            }else {
+              break;
+            }
+        }
+        var interText3 = doT.template($("#type3").text());
+        $("#game3").html(interText3(data3));
+        //体育赛事
+        data2 = new Array();
+        for (var i = 0; i < data.data.length; i++) {
+          if(data.data[i].gamingType==2){
+             data2.push(data.data[i]);
+          }
+        }
+        var interText2 = doT.template($("#type2").text());
+        $("#game2").html(interText2(data2));
+        api.closeFrame({
+            name: 'loading'
+        });
+        api.hideProgress();
+        setTimeout(function(){
+          //热门游戏初始化
+          //ag链接
+          $.get('http://aipai.lbcity.cn:8686/api/cdnlink',function(data){
+           var data = 'http://'+data+'/1558704222384.png';
+            $('#aglink').attr('src',data);
+          })
+        },2000);
+        $('.gamelist_1 .game_box_img,.gamelist_3 .game_box_img').css('width',($('.gamelist').height()/2)+'px');
+        $('.gamelist_4 .game_box_img p').css('width',($('.gamelist').height())+'px');
+        $('.gamelist_5 .game_box_img p').css('width',($('.gamelist').height()-18)+'px');
+        $('.gamelist_2 .game_box_img').css('width',($('.gamelist').height()/1.3)+'px');
+        $('.gamelist_5 .game_box_img:eq(0)').css('width',($('.gamelist'))+'px');
+        $('.gamelist_6 .game_box_img').css('width',($('.gamelist').width())+'px');
+        var mySwiper1 = new Swiper('.swiper-container1',{
+          freeMode : true,
+          freeModeMomentum : true,
+          slidesPerView: "auto",
+          on:{
+            init: function(){
+              swiperAnimateCache(this); //隐藏动画元素
+              this.emit('slideChangeTransitionEnd');//在初始化时触发一次slideChangeTransitionEnd事件
+            },
+            slideChangeTransitionEnd: function(){
+              swiperAnimate(this); //每个slide切换结束时运行当前slide动画
+              this.slides.eq(this.activeIndex).find('.ani').removeClass('ani');//动画只展示一次
+            }
+          }
+        });
+      });
+      //进入游戏
+      $(document).on('click','.gameing',function(){
+        if(login_istrue()){
+          var gametype = $(this).attr('gametype');
+          var userinfo  = $api.getStorage('userinfo');
+          var gamename = $(this).attr('gamename');
+          var id = $(this).attr('id');
+          var currPage = $(this).attr('currPage');
+          var gametypeid = $(this).attr('gametypeid');
+          if(gamename=='shixun'){
+            var gameurl =  "http://aipai.lbcity.cn:8686/api/gamelink?plat_type=" + gametype + "&devices=1&game_type=1&lastsession=" + userinfo.last_session;
+          }else if (gamename=='buyu') {
+            var gameid = $(this).attr('gameid');
+            if(gametype!='FG' && gametype!='MW'){
+              var gameurl =  "http://aipai.lbcity.cn:8686/api/gamelink?plat_type=" + gameid + "&game_type=" + gametypeid + "&game_code=" + gametype + "&lastsession=" + userinfo.last_session;
+            }else {
+              var gameurl =  "http://aipai.lbcity.cn:8686/api/gamelink?plat_type=" + gameid + "&game_type=" + gametypeid + "&lastsession=" + userinfo.last_session;
+            }
+          }else if (gamename=='tiyu') {
+            var gameurl =  "http://aipai.lbcity.cn:8686/api/gamelink?plat_type=" + gametype + "&game_type=4&lastsession=" + userinfo.last_session;
+          }else if (gamename=='qipai') {
+            var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+ gametype +"&game_type=7&lastsession=" + userinfo.last_session;
+          }else if(gamename=='caipiao'){
+            var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+ gametype +"&game_type=3&is_mobile_url=1&devices=1&lastsession=" + userinfo.last_session;
+            api.setScreenOrientation({
+                orientation: 'portrait_up'
+            });
+          }
+          if(gamename=='qipai'){
+            var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+ gametype +"&game_type=7&game_code="+gametypeid+"&is_mobile_url=1&lastsession=" + userinfo.last_session;
+            $.get(gameurl,function(data){
+              if(data){
+                api.openWin({
+                    name: 'game',
+                    url: './html/game.html',
+                    animation: {
+                      type:"none"
+                    },
+                    pageParam: {
+                        gamelink: data
+                    }
+                });
+              }
+            })
+          }else{
+            $.get(gameurl,function(data){
+              if(data){
+                api.openWin({
+                    name: 'game',
+                    url: './html/game.html',
+                    animation: {
+                      type:"none"
+                    },
+                    pageParam: {
+                        gamelink: data,
+                        gametype: gametype
+                    }
+                });
+              }
+            })
+          }
+        }
+      })
+      //棋牌游戏
+      $(document).on('click','.chess',function(){
+        if(login_istrue()){
+          var index =  $(this).attr('index');
+          api.openWin({
+            name: 'chess',
+            url: './html/chess.html',
+            bgColor:'rgba(0,0,0,1)',
+            animation:{
+              type:"push",
+              subType:"from_right",
+              duration:200
+            },
+            pageParam: {
+                gamelist: data5,
+                index:index
+            }
+          });
+        }
+      })
+      //电子游戏
+      $(document).on('click','.elect',function(){
+        if(login_istrue()){
+          var code = $(this).attr('code');
+          var index =  $(this).attr('index');
+          api.openWin({
+            name: 'elect',
+            url: './html/elect.html',
+            bgColor:'rgba(0,0,0,1)',
+            animation:{
+              type:"push",
+              subType:"from_right",
+              duration:200
+            },
+            pageParam: {
+                gamelist: data4list,
+                code: code,
+                index:index
+            }
+          });
+        }
+      })
+    })
+</script>
+</html>

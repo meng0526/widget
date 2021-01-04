@@ -1,0 +1,802 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>推广赚钱</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:65%;
+      float: left;
+    }
+    #header .logo{
+      width:15%;
+      float: left;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    .main_box{
+      padding: 10px 0px;
+    }
+    .main_box .menu_list ul li{
+      width: 20%;
+      float: left;
+    }
+    .content_1_left{
+      width: 65%;
+      float: left;
+      background-image: url('../image/game/newer_extension_bg.png');
+      padding: 3px;
+      background-size: 100% 100%;
+      height: 100%;
+    }
+    .content_1_right{
+      width: 33%;
+      height: 100%;
+      float: left;
+      padding-left: 6px;
+      color: white;
+    }
+    .content_1{
+      height: 100%;
+    }
+    .clear{
+      clear: both;
+    }
+    .content_2,.content_3,.content_4{
+      display: none;
+    }
+    .content_1_left_top ul li{
+      width: 50%;
+      float: left;
+      height: 26px;
+      line-height: 26px;
+    }
+    .content_1_left_top ul li:nth-child(n+3){
+      margin-top: 7px;
+    }
+    .content_1_left_top ul li div{
+      width: 95%;
+      background-image:url('../image/game/ic_safe_cun_bg.png');
+      background-size: 100% 100%;
+      height: 100%;
+      margin: 0 auto;
+      color: white;
+      font-size: 10px;
+      text-indent: 5px;
+    }
+    .content_1_left_center{
+      height: 26px;
+      line-height: 26px;
+      background-image: url('../image/game/ic_safe_cun_bg.png');
+      background-size: 100% 100%;
+      color: white;
+      width: 97.3%;
+      font-size: 10px;
+      text-indent: 5px;
+      margin: 0 auto;
+      margin-top: 7px;
+    }
+    .content_1_left_bottom{
+      margin-top: 7px;
+    }
+    .content_1_left_bottom div:nth-child(1){
+      width: 38%;
+      height: 100px;
+      float: left;
+      /*background-image: url('../image/game/history.png');*/
+      background-size: 100% 100%;
+      color: white;
+      background-position-x: -4px;
+      text-align: center;
+      line-height: 140px;
+    }
+    .content_1_left_bottom div:nth-child(2){
+      width: 38%;
+      float: left;
+      height: 100px;
+      /*background-image: url('../image/game/canget.png');*/
+      background-size: 100% 100%;
+      background-position-x: -8px;
+      color: white;
+      text-align: center;
+      line-height: 140px;
+    }
+    .content_1_left_bottom div:nth-child(3){
+      width: 24%;
+      float: left;
+      height: 85px;
+      background-image: url('../image/game/getmoney.png');
+      background-size: 93% 100%;
+      background-repeat: no-repeat;
+      background-position-x: 0px;
+      margin-top: 4px;
+    }
+    .content_1_right_1_1{
+      width: 45%;
+      height: 128px;
+      float: left;
+      background-color: white;
+      border-radius: 5px;
+      color: black;
+      text-align: center;
+      font-size: 12px;
+      line-height: 220px;
+      position: relative;
+    }
+    .content_1_right_1_1 div{
+      position: absolute;
+      top: 5px;
+      left: 10px;
+    }
+    .content_1_right_1_2{
+      width: 55%;
+      float: left;
+    }
+    .content_1_right_1_2 div:nth-child(n+2){
+      margin-top: 5px;
+    }
+    .content_1_right_1_2 div:nth-child(1){
+      height: 40px;
+      background-image: url('../image/game/sharetofriend.png');
+      background-size: 100% 100%;
+    }
+    .content_1_right_1_2 div:nth-child(2){
+      height: 40px;
+      background-image: url('../image/game/sharetoqq.png');
+      background-size: 100% 100%;
+    }
+    .content_1_right_1_2 div:nth-child(3){
+      height: 40px;
+      background-image: url('../image/game/sharetocircle.png');
+      background-size: 100% 100%;
+    }
+    .content_1_right_2{
+      height: 40px;
+      background: url('../image/game/src_761chess_resource_img_deposit_chonzhidailibg.png') no-repeat,url('../image/game/src_761chess_resource_img_deposit_chonzhichonzhijinebg.png') no-repeat 0.2rem center;
+      text-align: center;
+      background-size: 100% 100%,70% 75%;
+      line-height: 40px;
+      margin-top: 5px;
+    }
+    .content_1_right_2 div:nth-child(1){
+      width: 70%;
+      float: left;
+      text-overflow : ellipsis;
+      white-space : nowrap;
+      overflow : hidden;
+      font-size: 11px;
+      text-indent: 6px;
+    }
+    .content_1_right_2 div:nth-child(2){
+      width: 30%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/copywebsite.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 90% 90%;
+    }
+    .content_1_right_3{
+      height: 93px;
+    }
+    .content_1_right_3 div:nth-child(1){
+      width: 50%;
+      height: 100%;
+      background-image: url('../image/game/gethitory.png');
+      background-size: 90% 80%;
+      background-repeat: no-repeat;
+      background-position:center;
+      float: left;
+    }
+    .content_1_right_3 div:nth-child(2){
+      width: 50%;
+      height: 100%;
+      background-image: url('../image/game/moneychat.png');
+      background-size: 90% 80%;
+      background-repeat:no-repeat;
+      background-position: center;
+      float: left;
+    }
+    .name{
+      color: #d8d5ab;
+    }
+    .zeng{
+      color: #e2dc84;
+    }
+    .content_2,.content_3{
+      padding: 5px;
+      width: 98%;
+      height: 100%;
+      margin: 0 auto;
+      background-image: url('../image/game/newer_extension_bg.png');
+      background-size: 100% 100%;
+      color: white;
+    }
+    .gamelist ul {
+      background-color: #473F36;
+      margin: 0 auto;
+      font-size: 12px;
+    }
+    .gamelist ul li{
+      width: 25%;
+      float: left;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      color: #FFD784;
+    }
+    .content_2_1,.content_2_2,.content_2_3{
+      width: 33.3%;
+      float: left;
+    }
+    .content_2_1 div{
+      width: 50%;
+      float: left;
+      text-indent: 10px;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+    .content_2_2{
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinline2');
+      background-position: left;
+      background-repeat: no-repeat;
+    }
+    .content_2_2 div:nth-child(1){
+      width: 40%;
+      float: left;
+      font-size: 12px;
+      margin-top: 5px;/*如果只有id查询保留此属性*/
+    }
+    .content_2_2 div:nth-child(1) img{
+      position: relative;
+      top: 3px;
+    }
+    .content_2_2 div:nth-child(1) div{
+      width: 100%;
+    }
+    .content_2_2 div:nth-child(2){
+      width: 60%;
+      float: left;
+    }
+    .content_2_2 div:nth-child(2) input{
+      font-size: 12px;
+      text-indent: 13px;
+      width: 90%;
+      height: 30px;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhichontijilubg.png');
+      background-size: 100% 100%;
+      outline-style: none;
+      color: white;
+    }
+    .content_3_1{
+      text-align: right;
+    }
+    .content_3_1,.content_3_2{
+      width: 50%;
+      float: left;
+    }
+    .content_3_1 input{
+      font-size: 12px;
+      text-indent: 13px;
+      width: 60%;
+      height: 30px;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhichontijilubg.png');
+      background-size: 100% 100%;
+      outline-style: none;
+      color: white;
+      margin-top: 8px;
+    }
+    .content_3_2 div:nth-child(1){
+      width: 30%;
+      float: left;
+      text-align: center;
+    }
+    .content_3_2 div:nth-child(2){
+      width: 70%;
+      float: left;
+    }
+    .content_3_2 img{
+      margin-top: 8px;
+    }
+    .content_2_3 div{
+      width: 50%;
+      float: left;
+      text-align: center;
+    }
+    .content_2_3 img{
+      margin-top: 8px;
+    }
+    .content_2_box,.content_3_box{
+      overflow: hidden;
+      padding-top: 2px;
+      padding-bottom: 5px;
+      line-height: 19px;
+    }
+    .searchtype{
+      display: block;
+      margin-top: 8px;
+    }
+    select{
+      width: 75%;
+      text-indent: 15px;
+      background: transparent;
+      appearance:none;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari 和 Chrome */
+      border: 0px;
+      width: 90%;
+      height: 30px;
+      color: white;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhichontijilubg.png');
+      background-size: 100% 100%;
+      outline-style: none;
+    }
+    .activetype{
+      color: #f9da64;
+    }
+    .content_4{
+      background-image: url('../image/game/tuiguang_img.png');
+      background-size: 100% 100%;
+      height: 100%;
+      position: relative;
+    }
+    .content_4 img{
+      position: absolute;
+      right: 40px;
+      bottom: 30px;
+    }
+    .wenhao{
+      position: relative;
+      left: 2px;
+      top: 2px;
+    }
+    </style>
+</head>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico"><img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianbiaoti.png" alt="" width="200px" height="25px"></div>
+           <div class="logo"><img src="../image/game/src_761chess_resource_img_index_skeletonpic.png" alt="" width="75px" height="30px"></div>
+        </div>
+        <div id="main">
+          <div class="main_box">
+            <div class="menu_list">
+              <ul>
+                <li class="btn tuitab active"><img src="../image/game/mypromotion_yes.png" alt="../image/game/mypromotion_no.png" width="80%" height="40px"></li>
+                <li class="btn tuitab"><img src="../image/game/memeber_no.png" alt="../image/game/member_yes.png" width="80%" height="40px"></li>
+                <!-- <li class="btn tuitab"><img src="../image/game/performance_no.png" alt="../image/game/performance_yes.png" width="80%" height="40px"></li>
+                <li class="btn tuitab"><img src="../image/game/instruction_no.png" alt="../image/game/instruction_yes.png" width="80%" height="40px"></li> -->
+                <li></li>
+                <div class="clear"></div>
+              </ul>
+            </div>
+            <div class="content">
+              <div class="content_1 tuicol">
+                <div class="content_1_left">
+                    <div class="content_1_left_top">
+                      <ul>
+                        <li><div><span class="name">我的ID：</span><span id='myId'>415</span></div></li>
+                        <li><div><span class="name">推荐ID：</span><span>-</span></div></li>
+                        <li><div><span class="name">团队人数：</span><span class="zhishurenshu">3<span class="zeng">(0)</span></span></div></li>
+                        <li><div><span class="name">今日团队业绩：</span><span class="zeng">0.0</span></div></li>
+                        <li><div><span class="name">直属人数（新增）：</span><span class="zhishurenshu">3<span class="zeng">(0)</span></span></div></li>
+                        <li><div><span class="name">今日自营业绩：</span><span class="zeng">0.0</span></div></li>
+                        <div class="clear"></div>
+                      </ul>
+                    </div>
+                    <div class="content_1_left_center">
+                      <span class="name">今日佣金估计：</span>
+                      <span class="zeng">0.0</span>
+                      <span><img src="../image/game/src_761chess_resource_img_deposit_chonzhishuaxin.png" alt="" width="10px" height="10px"></span>
+                    </div>
+                    <div class="content_1_left_center">
+                      <span class="name">昨日佣金：</span>
+                      <span class="zeng">0.0</span>
+                    </div>
+                    <div class="content_1_left_bottom">
+                      <div></div>
+                      <div></div>
+                      <div class="commission"></div>
+                    </div>
+                </div>
+                <div class="content_1_right">
+                    <div class="content_1_right_1">
+                      <div class="content_1_right_1_1">
+                        <img src="" alt="" id="qrcode" width="100%" height="85%">
+                        <div style="color:black">
+                          截图保存二维码
+                        </div>
+                      </div>
+                      <div class="content_1_right_1_2">
+                        <div class="fenxiang"></div>
+                        <div class="fenxiang"></div>
+                        <div class="fenxiang"></div>
+                      </div>
+                      <div class="clear"></div>
+                    </div>
+                    <div class="content_1_right_2">
+                      <div class="fenxiang_link"></div>
+                      <div class="fuzhi_click"></div>
+                    </div>
+                    <div class="content_1_right_3">
+                      <div class="lqjl"></div>
+                       <div class="fyje"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <div class="content_2 tuicol">
+                <div class="content_2_box">
+                  <div class="content_2_1">
+                    <div class="name">直属人数:<span class="zhishurenshu">0</span></div>
+                    <div class="name">直属代理:<span>0</span></div>
+                    <div class="name">直属总流水:<span class="zhishuliushui">0.0</span></div>
+                  </div>
+                  <div class="content_2_2">
+                    <div>
+                      <div class="name sername activetype btn"><span><img src="../image/game/ic_chosed.png" alt="" width="15px" height="15px"></span>&nbsp;&nbsp;&nbsp;&nbsp;账号搜索</div>
+                      <!--<div class="name sername btn"><span><img src="../image/game/ic_unchosed.png" alt="" width="13px" height="13px"></span>&nbsp;&nbsp;&nbsp;&nbsp;注册时间</div>-->
+                    </div>
+                    <div>
+                      <span class="searchtype"><input type="text" placeholder="输入直接玩家账号" class="childrenusername"></span>
+                     <span class="searchtype" style="display:none">
+                        <select class="" name="">
+                          <option value="">所有时间</option>
+                          <option value="">今天</option>
+                          <option value="">昨天</option>
+                          <option value="">一周内</option>
+                          <option value="">一个月内</option>
+                        </select>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="content_2_3">
+                    <div class="btn"><img src="../image/game/search.png" alt="" width="70px" height="30px" class="clickchild"></div>
+                    <div class="btn"><img src="../image/game/reset.png" alt="" width="70px" height="30px" class="clickremove"></div>
+                  </div>
+                </div>
+                <div class="gamelist">
+                  <ul>
+                    <li>Id</li>
+                    <li>姓名</li>
+                    <li>总流水</li>
+                    <li>直属人数</li>
+                    <div class="clear"></div>
+                  </ul>
+                </div>
+              </div>
+              <div class="content_3 tuicol">
+                  <div class="content_3_box">
+                    <div class="content_3_1">
+                        <input type="text" placeholder="输入ID可查看直属会员信息">
+                    </div>
+                    <div class="content_3_2">
+                      <div class="btn"><img src="../image/game/search.png" alt="" width="70px" height="30px"></div>
+                      <div class="btn"><img src="../image/game/reset.png" alt="" width="70px" height="30px"></div>
+                    </div>
+                  </div>
+                  <div class="gamelist">
+                    <ul>
+                      <li>日期</li>
+                      <li>直属新增</li>
+                      <li>自营业绩</li>
+                      <li>团队新增</li>
+                      <li>团队业绩</li>
+                      <li>
+                        所得佣金
+                        <span class="wenhao">
+                          <img src="../image/game/src_761chess_resource_img_washcode_wc_icon_question.png" width="12px" height="12px" alt="">
+                        </span>
+                      </li>
+                      <li>操作</li>
+                      <div class="clear"></div>
+                    </ul>
+                  </div>
+              </div>
+              <div class="content_4 tuicol">
+                  <img src="../image/game/return_commission_list.png" alt="" width="140px" height="40px" class="fyje">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      FastClick.attach(document.body);
+        var header = $api.byId('header');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var box_height =   api.winHeight - headerPos.h - 65;
+        $api.css($api.dom('.content'),'height:'+box_height+'px');
+        //获取用户信息
+        var userinfo  = $api.getStorage('userinfo');
+
+        var url;
+		$.get('http://aipai.lbcity.cn:8686/api/systeminfo',function(data){
+          url = "http://"+data.site_domain+"/r?i=" + userinfo.invite_code;
+          $(".fenxiang_link").text(url);
+
+          //该程序有红尘工作室提供！请勿违法使用！代码仅供研究！开户二开搭建请联系QQ微信:153493221
+          var qrcode = "http://qr.liantu.com/api.php?text="+url;
+          $("#qrcode").attr('src',qrcode);
+        })
+
+        //播放推广音效
+        api.startPlay({
+            path: 'widget://image/audio/src_761chess_resource_audio_musiccgpromotion.mp3'
+        });
+        //直属人数  直属总流水
+        var datas = {
+          'id':userinfo.id
+        };
+        $.post('http://aipai.lbcity.cn:8686/api/userChildren',datas,function(data){
+          $(".zhishurenshu").text(data.total);
+          	$("#myId").text(userinfo.id);
+          $(".zhishuliushui").text(data.data[0].total_water);
+        })
+        $(".clickchild").on('click',function(data){
+          var datas = {
+            'name':$(".childrenusername").val(),
+            'id':userinfo.id
+          };
+          $.post('http://aipai.lbcity.cn:8686/api/userChildren',datas,function(data){
+            api.execScript({
+                frameName: 'zhishu',
+                script: 'funcGoto('+JSON.stringify(data)+');'
+            });
+          })
+        })
+        $(".clickremove").on('click',function(){
+          $(".childrenusername").val(' ');
+        })
+        //点击复制分享链接
+        $(".fuzhi_click").on('click',function(){
+          var clipBoard = api.require('clipBoard');
+          clipBoard.set({
+              value: $(".fenxiang_link").text()
+          }, function(ret, err) {
+              if (ret) {
+                  api.openFrame({
+                    name: 'success',
+                    url: 'success.html',
+                    bgColor:'rgba(0,0,0,0.0)',
+                    animation:{
+                      type:"flip",
+                      subType:"from_right",
+                      duration:300
+                    },
+                    pageParam: {
+                        describe: '复制成功'
+                    }
+                });
+              } else {
+                  api.openFrame({
+                    name: 'error',
+                    url: 'error.html',
+                    bgColor:'rgba(0,0,0,0.0)',
+                    animation:{
+                      type:"flip",
+                      subType:"from_right",
+                      duration:300
+                    },
+                    pageParam: {
+                        describe: '复制失败，请重试'
+                    }
+                });
+              }
+          });
+        })
+        //领取记录
+        $(".lqjl").on('click',function(){
+            api.openFrame({
+              name: 'moneyrecord',
+              url: 'moneyrecord.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"flip",
+                subType:"from_right",
+                duration:300
+              }
+          });
+        })
+        //返佣金额表
+        $(".fyje").on('click',function(){
+            api.openFrame({
+              name: 'fanyong',
+              url: 'fanyong.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"flip",
+                subType:"from_right",
+                duration:300
+              }
+          });
+        })
+        //查看领取佣金
+        $(".commission").on('click',function(){
+            api.openFrame({
+              name: 'commission',
+              url: 'commission.html',
+              bgColor:'rgba(0,0,0,0.6)',
+              animation:{
+                type:"movein",
+                subType:"from_bottom",
+                duration:0
+              }
+          });
+        })
+      //选择查询方式
+      $(".sername").on('click',function(){
+        $(this).addClass('activetype').siblings().removeClass('activetype');
+        $(this).children('span').html('<img src="../image/game/ic_chosed.png" alt="" width="15px" height="15px">');
+        $(this).siblings().children('span').html('<img src="../image/game/ic_unchosed.png" alt="" width="13px" height="13px">');
+        $('.searchtype').eq($(this).index()).show().siblings().hide();
+      })
+      //菜单切换
+      $(".tuitab").on('click',function(){
+          $(".tuicol").eq($(this).index()).show().siblings().hide();
+          var zhishu = $api.domAll('.gamelist');//距离顶部距离
+          if($(this).index()==1){
+            var zhishutop = $api.offset(zhishu[0]);
+            //直属查询列表
+              api.openFrame({
+                name: 'zhishu',
+                url: 'zhishulist.html',
+                rect: {
+                    x: 0,
+                    y: zhishutop.t+28,
+                },
+                pageParam: {
+                    listheight: api.winHeight-(zhishutop.t+28)
+                }
+            });
+            api.closeFrame({
+                name: 'yeji'
+            });
+          }else if ($(this).index()==2) {
+            var zhishutop = $api.offset(zhishu[1]);
+            //业绩查询列表
+              api.openFrame({
+                name: 'yeji',
+                url: 'yejilist.html',
+                rect: {
+                    x: 0,
+                    y: zhishutop.t+28,
+                },
+                pageParam: {
+                    listheight: api.winHeight-(zhishutop.t+28)
+                }
+            });
+            // api.setFrameAttr({ // 隐藏内容层
+            //     name: 'yeji',
+            //     hidden:true,
+            // });
+            api.closeFrame({
+                name: 'zhishu'
+            });
+          }else {
+            api.closeFrame({
+                name: 'yeji'
+            });
+            api.closeFrame({
+                name: 'zhishu'
+            });
+          }
+      })
+      //弹出佣金分成介绍
+      var isclick = true;
+      $(".wenhao").on('click',function(){
+        if(isclick){
+          api.bringFrameToFront({
+              from: 'shuoming',
+              to: 'yeji'
+          });
+          api.openFrame({
+              name: 'shuoming',
+              url: './yongjinshuoming.html',
+              rect: {
+                  x: 338,
+                  y: 170,
+                  w: 350,
+                  h: 80
+              }
+          });
+          isclick = false;
+        }else {
+          api.closeFrame({
+              name: 'shuoming'
+          });
+          isclick = true;
+        }
+      })
+      //点击其他地方关闭说明
+      $(document).click(function (e) {
+          var drag = $(".wenhao"),
+              dragel = $(".wenhao")[0],
+              target = e.target;
+          if (dragel !== target && !$.contains(dragel, target)) {
+            api.closeFrame({
+                name: 'shuoming'
+            });
+          }
+      });
+
+      //分享
+      $(".fenxiang").on('click',function(){
+        var sharedModule = api.require('shareAction');
+        sharedModule.shareText({
+            text: url
+        });
+        $.get('http://aipai.lbcity.cn:8686/api/myInviter?code='+userinfo.invite_code,function(data){
+           api.download({
+               url: 'http://aipai.lbcity.cn:8686/inviterQrcodes/'+data,
+               savePath: 'fs://mycode1.jpg',
+               allowResume: true
+           }, function(ret, err) {
+               if (ret.state == 1) {
+                 var sharedModule = api.require('shareAction');
+                 sharedModule.share({
+                    text:'邀请好友享百万奖金！',
+                     images: ['fs://mycode1.jpg'],
+                     type: 'image',
+                     thumbnail: "fs://mycode1.jpg"
+                 });
+               } else {
+                     alert
+               }
+           });
+         })
+      })
+    };
+</script>
+</html>

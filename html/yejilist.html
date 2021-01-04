@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>直属查询</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+#list{
+  overflow-y: scroll;
+  word-wrap: break-word;
+  background-image: url('../image/nodata.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 77px 60px;
+  position: relative;
+  z-index: 888;
+}
+#list ul:nth-child(even){
+  background-color: #333333;
+}
+#list ul li{
+  width: 14.28%;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+.clear{
+  clear: both;
+}
+.detail{
+  display:inline;
+  padding: 3px 13px;
+  background: #000;
+  border-radius: 5px;
+  color: white;
+}
+</style>
+  <body>
+  <div id="list">
+    <ul>
+      <li>2019-5-2</li>
+      <li>1</li>
+      <li>12</li>
+      <li>100.00</li>
+      <li>5</li>
+      <li>2</li>
+      <li><span class="detail btn">详情</span></li>
+      <div class="clear"></div>
+    </ul>
+    <ul>
+      <li>2019-5-2</li>
+      <li>1</li>
+      <li>12</li>
+      <li>100.00</li>
+      <li>5</li>
+      <li>2</li>
+      <li><span class="detail btn">详情</span></li>
+      <div class="clear"></div>
+    </ul>
+    <ul>
+      <li>2019-5-2</li>
+      <li>1</li>
+      <li>12</li>
+      <li>100.00</li>
+      <li>5</li>
+      <li>2</li>
+      <li><span class="detail btn">详情</span></li>
+      <div class="clear"></div>
+    </ul>
+    <ul>
+      <li>2019-5-2</li>
+      <li>1</li>
+      <li>12</li>
+      <li>100.00</li>
+      <li>5</li>
+      <li>2</li>
+      <li><span class="detail btn">详情</span></li>
+      <div class="clear"></div>
+    </ul>
+  </div>
+  </body>
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  //下拉刷新
+  api.setRefreshHeaderInfo({
+      loadingImg: 'widget://image/refresh.png',
+      bgColor: '#232324',
+      textColor: '#7b7b7b',
+      textDown: '下拉刷新...',
+      textUp: '松开刷新...'
+  }, function(ret, err) {
+    api.refreshHeaderLoadDone();
+      //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+  });
+  var listheight = api.pageParam.listheight-15;
+  $api.css($api.byId("list"),'height:'+listheight+'px');
+
+  $('.detail').on('click',function(){
+      api.openFrame({
+        name: 'zhishudetail',
+        url: 'zhishudetail.html'
+    });
+  })
+};
+</script>

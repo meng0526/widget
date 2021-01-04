@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>消息详情</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/message_detail.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .padding_top{
+    padding:35px;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  .message_title{
+    padding-left: 10px;
+  }
+  .message_content{
+    text-indent: 30px;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+  .publisher{
+    text-align: right;
+    padding-right: 10px;
+  }
+  .remove_message{
+    text-align: center;
+    margin-top: 20px;
+  }
+</style>
+<body id="body">
+  <div id="login">
+      <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+      <div class="padding_top"></div>
+      <div class="message_box">
+        <div class="message_title">
+
+        </div>
+        <div class="message_content">
+        </div>
+        <div class="publisher">
+          <p>视讯棋牌</p>
+          <p class="time"></p>
+        </div>
+        <!-- <div class="remove_message">
+           <img src="../image/game/delete_message.png" alt="" width="100px" height="40px">
+        </div> -->
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px');
+  //消息详情
+  $('.message_title').text(api.pageParam.title);
+  $('.message_content').text(api.pageParam.content);
+  $('.time').text(api.pageParam.time);
+}
+</script>
+</html>

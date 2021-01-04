@@ -1,0 +1,652 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>洗码</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:65%;
+      float: left;
+    }
+    #header .logo{
+      width:15%;
+      float: left;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 23%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_left_nav_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+      overflow-y: scroll;
+    }
+    #m_right_box{
+      width: 99%;
+    }
+    #main .m_right{
+      width: 76%;
+      float: right;
+      margin-top: 10px;
+      color: white;
+    }
+    .jcinfo{
+      text-indent: 5px;
+      height: 30px;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinlan2.png');
+      background-size: 100% 100%;
+      line-height: 30px;
+    }
+    .lianxi{
+      text-indent: 5px;
+      width: 100%;
+      float: left;
+    }
+    .lianxi div{
+      padding: 7px;
+    }
+    .edit{
+      float: right;
+      margin-right: 10px;
+    }
+    .edit img{
+      position:relative;
+      top: 3px;
+    }
+    .yellow{
+      color: #eaa65a;
+    }
+    .white input{
+      color: white;
+      outline: none;
+      border-radius: 10px;
+      text-indent: 5px;
+    }
+    .light_yellow{
+      color: #D6C09A;
+    }
+    .jilumenu ul{
+      width: 100%;
+      height: 40px;
+      white-space: nowrap;
+      overflow-x: auto;
+   }
+   .record_active{
+     background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinjilubg1.png');
+     background-size: 100% 100%;
+   }
+   .jilumenu ul li:nth-child(n+2){
+     background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinjilubg2.png');
+     background-size: 100% 100%;
+   }
+    .jilumenu ul li{
+       width: 120px;
+       height: 40px;
+       line-height: 40px;
+       font-size: 12px;
+       color: #666;
+       text-align: center;
+       display: inline-block;
+    }
+    .jy{
+      width: 30%;
+      height: 30px;
+      float: left;
+    }
+    .pjtime{
+      width: 40%;
+      height: 30px;
+      line-height: 30px;
+      float: left;
+    }
+    .gamept{
+      width: 30%;
+      height: 30px;
+      line-height: 30px;
+      float: left;
+    }
+    .pjtime_baobiao{
+      width: 100%;
+      height: 30px;
+      line-height: 35px;
+      float: left;
+    }
+    .game_option{
+      width: 99.6%;
+      height: 30px;
+      background-image: url('../image/game/gameoption.png');
+      background-size:100% 100%;
+      margin: 0 auto;
+      margin-top: 5px;
+    }
+    .game_option_baobiao{
+      width: 99.6%;
+      height: 30px;
+      margin: 0 auto;
+      margin-top: 5px;
+    }
+    .titlename{
+      text-align: right;
+      width: 40%;
+      float: left;
+      color: #79787B;
+      font-size: 10px;
+    }
+    .titlename img{
+      position: relative;
+      top: 5px;
+      right: 5px;
+    }
+    .titleoption{
+      width: 60%;
+      float: left;
+      color: #FFD784;
+      font-size: 13px;
+
+    }
+    .gamelist ul {
+      background-color: #473F36;
+      margin: 0 auto;
+      font-size: 12px;
+      width: 99.6%;
+    }
+    .gamelist ul li{
+      width: 24.8%;
+      float: left;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      color: #FFD784;
+    }
+    .gamelist ul li:nth-child(n+2){
+      border-left: 1px solid #3D342B;
+    }
+    .clear{
+      clear: both;
+    }
+    .m_right_box_1,.m_right_box_2,.m_right_box_3,.m_right_box_4,.m_right_box_5{
+      position: relative;
+    }
+    .count{
+      width: 100%;
+      height: 50px;
+      background-image: url('../image/game/src_761chess_resource_img_deposit_chonzhichonzhijinebg.png');
+      background-size: 100% 100%;
+      position: absolute;
+      bottom: 3px;
+      font-size: 12px;
+    }
+    .count .count_1{
+      width: 32%;
+      float: left;
+      line-height: 50px;
+      color: #c7c7c7;
+      padding-left: 10px;
+    }
+    .count .count_4{
+      width: 63%;
+      float: left;
+      text-align: right;
+      line-height: 85px;
+      padding-right: 10px;
+    }
+    .m_right_box div:nth-child(n+2){
+      display: none;
+    }
+    #list{
+      overflow-y:scroll;
+    }
+    #list ul:nth-child(even){
+      background-color: #333333;
+    }
+    #list ul li{
+      width: 25%;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+    }
+    </style>
+</head>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico"><img src="../image/game/src_761chess_resource_img_washcode_wc_title.png" alt="" width="200px" height="25px"></div>
+           <div class="logo"><img src="../image/game/src_761chess_resource_img_index_skeletonpic.png" alt="" width="75px" height="30px"></div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+                <div class="btn userlistbtn active"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_qp2.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_qp.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_by.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_by2.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_dz.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_dz2.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_zr.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_zr2.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_activity_ac_tab_ty.png" alt="../image/game/src_761chess_resource_img_activity_ac_tab_ty2.png" width="100%" height="45px"></div>
+              </div>
+            </div>
+            <div class="m_right">
+                <div id="m_right_box">
+                  <div class="m_right_box_1">
+                    <div class="game_option">
+                      <div class="pjtime">
+                        <div class="titlename">总计游戏投注：</div>
+                        <div class="titleoption">
+                          0.0
+                        </div>
+                      </div>
+                      <div class="jy"></div>
+                      <div class="gamept">
+                        <div class="titlename"><img src="../image/game/src_761chess_resource_img_washcode_wc_icon_history.png" alt="" width="15px" height="15px"></div>
+                        <div class="titleoption">
+                            <span class="xmjilu">历史洗码记录</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="gamelist">
+                      <ul>
+                        <li>全部游戏</li>
+                        <li>游戏洗码量</li>
+                        <li>比例</li>
+                        <li>洗码金额</li>
+                        <div class="clear"></div>
+                      </ul>
+                    </div>
+                    <div id="list">
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG棋牌</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                    </div>
+                    <div class="count">
+                      <div class="count_1">上次结算时间:-洗码金额:<span>￥<span>0.0</span></span></div>
+                      <div class="count_4"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinshoudongxima.png" alt="" width="100px" height="40px"></div>
+                    </div>
+                  </div>
+                  <div class="m_right_box_2">
+                    <div class="game_option">
+                      <div class="pjtime">
+                        <div class="titlename">总计游戏投注：</div>
+                        <div class="titleoption">
+                          0.0
+                        </div>
+                      </div>
+                      <div class="jy"></div>
+                      <div class="gamept">
+                        <div class="titlename"><img src="../image/game/src_761chess_resource_img_washcode_wc_icon_history.png" alt="" width="15px" height="15px"></div>
+                        <div class="titleoption">
+                              <span class="xmjilu">历史洗码记录</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="gamelist">
+                      <ul>
+                        <li>全部游戏</li>
+                        <li>游戏洗码量</li>
+                        <li>比例</li>
+                        <li>洗码金额</li>
+                        <div class="clear"></div>
+                      </ul>
+                    </div>
+                    <div id="list">
+                      <ul>
+                        <li>FG捕鱼嘉年华3D</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                      <ul>
+                        <li>FG捕鱼捕鸟达人</li>
+                        <li>0.0</li>
+                        <li>0.5%</li>
+                        <li>0.0</li>
+                        <div class="clear"></div>
+                      </ul>
+                    </div>
+                    <div class="count">
+                      <div class="count_1">上次结算时间:-洗码金额:<span>￥<span>0.0</span></span></div>
+                      <div class="count_4"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinshoudongxima.png" alt="" width="100px" height="40px"></div>
+                    </div>
+                  </div>
+                  <div class="m_right_box_3">
+                        <div class="game_option">
+                          <div class="pjtime">
+                            <div class="titlename">总计游戏投注：</div>
+                            <div class="titleoption">
+                              0.0
+                            </div>
+                          </div>
+                          <div class="jy"></div>
+                          <div class="gamept">
+                            <div class="titlename"><img src="../image/game/src_761chess_resource_img_washcode_wc_icon_history.png" alt="" width="15px" height="15px"></div>
+                            <div class="titleoption">
+                              <span class="xmjilu">历史洗码记录</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="gamelist">
+                          <ul>
+                            <li>全部游戏</li>
+                            <li>游戏洗码量</li>
+                            <li>比例</li>
+                            <li>洗码金额</li>
+                            <div class="clear"></div>
+                          </ul>
+                        </div>
+                        <div id="list">
+                          <ul>
+                            <li>AG电子</li>
+                            <li>0.0</li>
+                            <li>0.5%</li>
+                            <li>0.0</li>
+                            <div class="clear"></div>
+                          </ul>
+                          <ul>
+                            <li>传奇电子</li>
+                            <li>0.0</li>
+                            <li>0.5%</li>
+                            <li>0.0</li>
+                            <div class="clear"></div>
+                          </ul>
+                        </div>
+                        <div class="count">
+                          <div class="count_1">上次结算时间:-洗码金额:<span>￥<span>0.0</span></span></div>
+                          <div class="count_4"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinshoudongxima.png" alt="" width="100px" height="40px"></div>
+                        </div>
+                    </div>
+                    <div class="m_right_box_4">
+                      <div class="game_option">
+                        <div class="pjtime">
+                          <div class="titlename">总计游戏投注：</div>
+                          <div class="titleoption">
+                            0.0
+                          </div>
+                        </div>
+                        <div class="jy"></div>
+                        <div class="gamept">
+                          <div class="titlename"><img src="../image/game/src_761chess_resource_img_washcode_wc_icon_history.png" alt="" width="15px" height="15px"></div>
+                          <div class="titleoption">
+                            <span class="xmjilu">历史洗码记录</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gamelist">
+                        <ul>
+                          <li>全部游戏</li>
+                          <li>游戏洗码量</li>
+                          <li>比例</li>
+                          <li>洗码金额</li>
+                          <div class="clear"></div>
+                        </ul>
+                      </div>
+                      <div id="list">
+                        <ul>
+                          <li>AG国际馆</li>
+                          <li>0.0</li>
+                          <li>0.5%</li>
+                          <li>0.0</li>
+                          <div class="clear"></div>
+                        </ul>
+                        <ul>
+                          <li>BBIN真人娱乐</li>
+                          <li>0.0</li>
+                          <li>0.5%</li>
+                          <li>0.0</li>
+                          <div class="clear"></div>
+                        </ul>
+                      </div>
+                      <div class="count">
+                        <div class="count_1">上次结算时间:-洗码金额:<span>￥<span>0.0</span></span></div>
+                        <div class="count_4"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinshoudongxima.png" alt="" width="100px" height="40px"></div>
+                      </div>
+                    </div>
+                    <div class="m_right_box_5">
+                      <div class="game_option">
+                        <div class="pjtime">
+                          <div class="titlename">总计游戏投注：</div>
+                          <div class="titleoption">
+                            0.0
+                          </div>
+                        </div>
+                        <div class="jy"></div>
+                        <div class="gamept">
+                          <div class="titlename"><img src="../image/game/src_761chess_resource_img_washcode_wc_icon_history.png" alt="" width="15px" height="15px"></div>
+                          <div class="titleoption">
+                            <span class="xmjilu">历史洗码记录</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gamelist">
+                        <ul>
+                          <li>全部游戏</li>
+                          <li>游戏洗码量</li>
+                          <li>比例</li>
+                          <li>洗码金额</li>
+                          <div class="clear"></div>
+                        </ul>
+                      </div>
+                      <div id="list">
+                        <ul>
+                          <li>皇冠体育</li>
+                          <li>0.0</li>
+                          <li>0.5%</li>
+                          <li>0.0</li>
+                          <div class="clear"></div>
+                        </ul>
+                      </div>
+                      <div class="count">
+                        <div class="count_1">上次结算时间:-洗码金额:<span>￥<span>0.0</span></span></div>
+                        <div class="count_4"><img src="../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinshoudongxima.png" alt="" width="100px" height="40px"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      FastClick.attach(document.body);
+        var header = $api.byId('header');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var m_right_box_height =   api.winHeight - headerPos.h - 10;
+        $api.css($api.dom('.m_left'),'height:'+m_right_box_height+'px');
+        $api.css($api.dom('.m_right_box_1'),'height:'+m_right_box_height+'px');
+        $api.css($api.dom('.m_right_box_2'),'height:'+m_right_box_height+'px');
+        $api.css($api.dom('.m_right_box_3'),'height:'+m_right_box_height+'px');
+        $api.css($api.dom('.m_right_box_4'),'height:'+m_right_box_height+'px');
+        $api.css($api.dom('.m_right_box_5'),'height:'+m_right_box_height+'px');
+        $api.css($api.byId('m_left_box'),'height:'+m_right_box_height+'px');
+        $api.css($api.byId('list'),'height:'+(m_right_box_height-110)+'px');
+        $(".userlistbtn").on('click',function(){
+          $("#m_right_box").children("div").eq($(this).index()).show().siblings("div").hide();
+        })
+        //打开洗码记录
+        $(".xmjilu").on('click',function(){
+          api.openFrame({
+              name: 'ximajilu',
+              url: 'ximajilu.html',
+              bgColor:'rgba(0,0,0,0.0)',
+              animation:{
+                type:"flip",
+                subType:"from_right",
+                duration:300
+              }
+          });
+        })
+    };
+</script>
+</html>

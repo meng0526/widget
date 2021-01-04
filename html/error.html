@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>错误提示</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 25%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/src_761chess_resource_img_toast_toastbg.png');
+    background-size: 100% 100%;
+    position: relative;
+    text-align: center;
+  }
+  #login .login_box{
+    position: relative;
+    top: 15%;
+  }
+  #login .login_box img{
+    position: relative;
+    top: 12px;
+  }
+</style>
+<body id="body">
+  <div id="login">
+     <div class="login_box">
+       <img src="../image/game/src_761chess_resource_img_toast_toastdefail.png" alt="" width="40px" height="40px">&nbsp;&nbsp;
+       <span class="describe"></span>
+     </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px');
+  $api.text($api.dom('.describe'),api.pageParam.describe);
+  setInterval(function(){
+    api.closeFrame({
+      name: api.frameName
+    });
+  },800);
+}
+</script>
+</html>

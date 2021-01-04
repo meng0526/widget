@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>电子游艺</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/swiper_min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/animate_min.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:65%;
+      float: left;
+    }
+    #header .logo{
+      width:15%;
+      float: left;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 23%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_left_nav_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    #m_right_box{
+      padding: 10px;
+    }
+    #main .m_right{
+      width: 76%;
+      float: right;
+      margin-top: 10px;
+      color: white;
+    }
+    .marquee{
+      width: 100%;
+      height: 20px;
+    }
+    .gamecontent{
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .gamecontent:nth-child(n+2){
+      display: none;
+    }
+    .game_box_img{
+      display:inline-block;
+      text-align: center;
+    }
+    .gamelist_0 .game_box_img p img,.gamelist_1 .game_box_img img,.gamelist_2 .game_box_img p img,.gamelist_3 .game_box_img p img,.gamelist_4 .game_box_img p img,.gamelist_5 .game_box_img p img,.gamelist_6 .game_box_img p img{
+       width: 94%;
+       margin-top: 15px;
+    }
+    .swiper-slide{
+      width: auto!important;
+    }
+   </style>
+</head>
+<!-- 游戏菜单渲染 -->
+<script id="gamemenu" type="text/x-dot-template">
+{{ for(var prop in it) { }}
+   <div class="btn userlistbtn" code="{{= it[prop].gamingPlatformCode}}"><img src="{{= it[prop].icon4}}" alt="{{= it[prop].icon3}}" width="100%" height="45px"></div>
+{{ } }}
+</script>
+<script id="dataarr" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <div class="game_box_img">
+      {{ for(var props in it[prop]) { }}
+        <p class="btn ani gameing" gametype="{{= it[prop][props].platformCode}}" name="{{= it[prop][props].gamingItemName}}" swiper-animate-effect="bounceIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.1s">
+          <img src="{{= it[prop][props].conUrl}}" alt="">
+        </p>
+      {{ } }}
+    </div>
+  {{ } }}
+</script>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico"><img src="../image/game/src_761chess_resource_img_index_dianziicon.png" alt="" width="200px" height="25px"></div>
+           <div class="logo"><img src="../image/game/src_761chess_resource_img_index_skeletonpic.png" alt="" width="75px" height="30px"></div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+
+              </div>
+            </div>
+            <div class="m_right">
+              <div class="gamelist" id="gamebox">
+                <div class="gamelist_0 gamecontent">
+                  <div class="swiper-container swiper-container0">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="agdz">
+
+                        </div>
+                      <div class="swiper-slide"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gamelist_1 gamecontent">
+                  <div class="swiper-container swiper-container1">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="fgdz">
+
+                        </div>
+                      <div class="swiper-slide"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gamelist_2 gamecontent">
+                  <div class="swiper-container swiper-container2">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="cqdz">
+
+                        </div>
+                      <div class="swiper-slide"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gamelist_3 gamecontent">
+                  <div class="swiper-container swiper-container3">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="mgdz">
+
+                        </div>
+                      <div class="swiper-slide"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gamelist_4 gamecontent">
+                  <div class="swiper-container swiper-container4">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="jdbdz">
+
+                        </div>
+                      <div class="swiper-slide"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gamelist_5 gamecontent">
+                  <div class="swiper-container swiper-container5">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="bgdz">
+
+                        </div>
+                      <div class="swiper-slide"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gamelist_6 gamecontent">
+                  <div class="swiper-container swiper-container6">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide" id="jdbcp">
+
+                        </div>
+                      <div class="swiper-slide"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript" src="../script/swiper_min.js"></script>
+<script type="text/javascript" src="../script/swiper_animate_min.js"></script>
+<script type="text/javascript" src="../script/doT_min.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      api.openFrame({
+        name: 'loading',
+        url: 'loading.html',
+        bgColor:'rgba(0,0,0,0.0)',
+        animation:{
+          type:"movein",
+          subType:"from_bottom",
+          duration:0
+        }
+      });
+      FastClick.attach(document.body);
+        var header = $api.byId('header');
+        var userinfo  = $api.getStorage('userinfo');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var gamelist = $api.dom('.gamelist');
+        var gameinfo = $api.offset(gamelist);
+        $api.css(gamelist,'height:'+(api.winHeight-gameinfo.t)+'px');
+        //渲染菜单
+        var gamemenu = api.pageParam.gamelist;
+        var interText = doT.template($("#gamemenu").text());
+        $("#m_left_box").html(interText(gamemenu));
+
+        //渲染游戏信息
+        var code = api.pageParam.code
+        //首页进入显示对应游戏
+        $(".gamecontent").eq(api.pageParam.index).show().siblings().hide();
+        $('.userlistbtn').eq(api.pageParam.index).addClass('active');
+        var btnsrc = $('.userlistbtn').eq(api.pageParam.index).children('img').attr('src');
+        var btnalt = $('.userlistbtn').eq(api.pageParam.index).children('img').attr('alt');
+        $('.userlistbtn').eq(api.pageParam.index).children('img').attr('src',btnalt);
+        $('.userlistbtn').eq(api.pageParam.index).children('img').attr('alt',btnsrc);
+        //获取数据
+        var dataarr = new Array();
+        $.post('http://aipai.lbcity.cn:8686/api/gamelist',{'code':code},function(data){
+          var data = JSON.parse(data)
+          for (var i = 0; i < data.data.length; i++) {
+              var dataarrnew = Array();
+              dataarrnew.push(data.data[i]);
+              if(i+1<data.data.length){
+                dataarrnew.push(data.data[i+1]);
+              }
+              dataarr.push(dataarrnew);
+              if(i<data.data.length){
+                i+=1;
+              }else {
+                break;
+              }
+          }
+          var interText = doT.template($("#dataarr").text());
+          var idname = '#'+code;
+          $(idname).html(interText(dataarr));
+          $('.userlistbtn').eq(api.pageParam.index).addClass('rendering');
+          $('.gamelist_0 .game_box_img,.gamelist_1 .game_box_img,.gamelist_3 .game_box_img').css('width',($('.gamelist').height()/2.5)+'px');
+          $('.gamelist_2 .game_box_img').css('width',($('.gamelist').height()/1.8)+'px');
+          $('.gamelist_4 .game_box_img').css('width',($('.gamelist').height()/2)+'px');
+          //热门游戏初始化
+          var mySwiper = 'mySwiper'+api.pageParam.index;
+            mySwiper = new Swiper('.swiper-container'+api.pageParam.index,{
+            freeMode : true,
+            freeModeMomentum : true,
+            slidesPerView: "auto",
+            on:{
+              init: function(){
+                swiperAnimateCache(this); //隐藏动画元素
+                this.emit('slideChangeTransitionEnd');//在初始化时触发一次slideChangeTransitionEnd事件
+              },
+              slideChangeTransitionEnd: function(){
+                swiperAnimate(this); //每个slide切换结束时运行当前slide动画
+                this.slides.eq(this.activeIndex).find('.ani').removeClass('ani');//动画只展示一次
+              }
+            }
+          });
+          api.closeFrame({
+              name: 'loading'
+          });
+          api.hideProgress();
+        })
+        //初始化动画以及样式
+        // setTimeout(function(){
+        //
+        // },800);
+
+        //菜单切换
+          //当前点击的菜单对象
+          var menuthis;
+          $(document).on('click','.userlistbtn',function(){
+              $(".gamecontent").eq($(this).index()).show().siblings().hide();
+              menuthis = $(this);
+              if(!$(this).hasClass('rendering')){
+                    api.openFrame({
+                      name: 'loading',
+                      url: 'loading.html',
+                      bgColor:'rgba(0,0,0,0.0)',
+                      animation:{
+                        type:"movein",
+                        subType:"from_bottom",
+                        duration:0
+                      }
+                    });
+                    var indexof = $(this).index();
+                    var code = $(this).attr('code');
+                    //获取数据
+                    var dataarr = new Array();
+                    $.post('http://aipai.lbcity.cn:8686/api/gamelist',{'code':code},function(data){
+                      var data = JSON.parse(data)
+                      for (var i = 0; i < data.data.length; i++) {
+                          var dataarrnew = Array();
+                          dataarrnew.push(data.data[i]);
+                          if(i+1<data.data.length){
+                            dataarrnew.push(data.data[i+1]);
+                          }
+                          dataarr.push(dataarrnew);
+                          if(i<data.data.length){
+                            i+=1;
+                          }else {
+                            break;
+                          }
+                      }
+                      var interText = doT.template($("#dataarr").text());
+                      var idname = '#'+code;
+                      $(idname).html(interText(dataarr));
+                      $(menuthis).addClass('rendering');
+                      $('.gamelist_0 .game_box_img,.gamelist_1 .game_box_img,.gamelist_3 .game_box_img').css('width',($('.gamelist').height()/2.5)+'px');
+                      $('.gamelist_2 .game_box_img').css('width',($('.gamelist').height()/1.8)+'px');
+                      $('.gamelist_4 .game_box_img').css('width',($('.gamelist').height()/2)+'px');
+                      var mySwiper = 'mySwiper'+indexof;
+                        mySwiper = new Swiper('.swiper-container'+indexof,{
+                        freeMode : true,
+                        freeModeMomentum : true,
+                        slidesPerView: "auto",
+                        on:{
+                          init: function(){
+                            swiperAnimateCache(this); //隐藏动画元素
+                            this.emit('slideChangeTransitionEnd');//在初始化时触发一次slideChangeTransitionEnd事件
+                          },
+                          slideChangeTransitionEnd: function(){
+                            swiperAnimate(this); //每个slide切换结束时运行当前slide动画
+                            this.slides.eq(this.activeIndex).find('.ani').removeClass('ani');//动画只展示一次
+                          }
+                        }
+                    });
+                    api.closeFrame({
+                        name: 'loading'
+                    });
+                    api.hideProgress();
+                })
+              }
+            // setTimeout(function(){
+            // },500);
+        })
+        //进入游戏
+        $(document).on('click','.gameing',function(){
+          var name = $(this).attr('name');
+          var gametype = $(this).attr('gametype');
+          var gameurl = "http://aipai.lbcity.cn:8686/api/gamelink?plat_type="+gametype+"&game_type=2&lastsession=" + userinfo.last_session;
+          $.get(gameurl,function(data){
+            var gamename = {
+              'k':name
+            }
+            api.ajax({
+                url: data,
+                method: 'post',
+                data: {
+                    values: gamename
+                }
+            },function(data1, err){
+                if (data1) {
+                  api.openWin({
+                      name: 'game',
+                      url: 'game.html',
+                      animation: {
+                        type:"none"
+                      },
+                      pageParam: {
+                          gamelink: data1.data[0].game_url
+                      }
+                  });
+                } else {
+                    console.log( JSON.stringify( err ) );
+                }
+            });
+          })
+        })
+    };
+</script>
+</html>

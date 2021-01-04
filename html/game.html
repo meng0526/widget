@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>加载游戏</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<body>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      api.addEventListener({
+          name: 'keyback'
+      }, function(ret, err) {
+        api.closeWin({
+            name: 'game'
+        });
+        api.setScreenOrientation({
+            orientation: 'landscape_left'
+        });
+      });
+
+      if(api.pageParam.gametype=='AG'||api.pageParam.gametype=='BBIN'){
+        api.setScreenOrientation({
+            orientation: 'portrait_up'
+        });
+      }
+        api.showProgress({
+            title: '努力加载中...',
+            text: '先喝杯茶...',
+            modal: false
+        });
+        api.openFrame({
+            name: 'gamelink',
+            url: api.pageParam.gamelink
+        });
+        api.openFrame({
+            name: 'dot',
+            url: 'dot.html',
+            rect: {
+                w: 60,
+                h: 60
+            }
+        });
+        api.bringFrameToFront({
+            from: 'dot',
+            to: 'gamelink'
+        });
+    };
+</script>
+</html>

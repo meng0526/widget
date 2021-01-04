@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>领取佣金</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianlingquyongjinpop.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .padding_top{
+    padding:45px;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  .comison_1 div:nth-child(1),.comison_1 div:nth-child(3){
+    width: 43%;
+  }
+  .comison_1 div:nth-child(2){
+    width: 14%;
+  }
+  .comison_1 div{
+    float: left;
+    text-align: center;
+    line-height: 15px;
+    height: 15px;
+  }
+  .comison_2{
+    width: 75%;
+    margin: 0 auto;
+    height: 65px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 25px;
+    padding: 8px;
+  }
+  .comison_3{
+    height: 10px;
+    line-height: 10px;
+    text-indent: 65px;
+    margin-top: 10px;
+    font-size: 11px;
+  }
+  .comison_4{
+    text-align: center;
+    margin-top: 20px;
+  }
+  .comison_2_1{
+    color: #797979;
+    text-indent: 5px;
+  }
+  .comison_2_2{
+    height: 40px;
+    border-bottom: 1px solid #e2e2e2;
+  }
+  .comison_2_2_1{
+    float: left;
+    color: #000;
+    width: 80%;
+  }
+  .comison_2_2_1 input{
+    color: #000;
+    font-size: 12px;
+    outline-style: none;
+  }
+  .comison_2_2_2{
+    float: left;
+    color: #000;
+    width: 20%;
+    background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinline2.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+  .font_hui{
+    color:#6b6b6b;
+  }
+  .font_ylow{
+    color:yellow;
+  }
+</style>
+<body id="body">
+  <div id="login">
+    <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+    <div class="padding_top"></div>
+    <div class="comison_1">
+      <div><span class="font_hui">可转出佣金:<span class="font_ylow"><span>0.0</span>元</span></span></div>
+      <div></div>
+      <div><span class="font_hui">账号余额:<span class="font_ylow"><span>0.0</span>元</span></span></div>
+    </div>
+    <div class="comison_2">
+      <div class="comison_2_1">转出佣金金额</div>
+      <div class="comison_2_2">
+        <div class="comison_2_2_1"><span style="color:#000;font-weight:bold;font-size:22px;">￥</span><input type="tel" placeholder="请输入要提现的金额" id="money"></div>
+        <div class="comison_2_2_2">全部转出</div>
+      </div>
+    </div>
+    <div class="comison_3">提示：转出后立即到账，如未到账立即联系客服人员。</div>
+    <div class="comison_4"><img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianquerenzhuanchu.png" alt="" width="140px" height="45px" class="subyj"></div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px');
+
+  $(".subyj").on('click',function(){
+    var money = $("#money").val();
+    if(money==''){
+        api.openFrame({
+          name: 'warning',
+          url: 'warning.html',
+          bgColor:'rgba(0,0,0,0.0)',
+          animation:{
+            type:"flip",
+            subType:"from_right",
+            duration:300
+          },
+          pageParam: {
+              describe: '请输入转出佣金金额'
+          }
+      });
+    }else if (money<1) {
+        api.openFrame({
+          name: 'error',
+          url: 'error.html',
+          bgColor:'rgba(0,0,0,0.0)',
+          animation:{
+            type:"flip",
+            subType:"from_right",
+            duration:300
+          },
+          pageParam: {
+              describe: '转出金额必须大于0'
+          }
+      });
+    }
+  })
+}
+</script>
+</html>

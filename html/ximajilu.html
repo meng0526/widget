@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>洗码记录</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/src_761chess_resource_img_washcode_wc_bg_record.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .padding_top{
+    padding:35px;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  .list{
+    padding: 6px;
+  }
+  .list div:nth-child(-n+3){
+    background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinline2.png');
+    background-position: right;
+    background-repeat: no-repeat;
+  }
+  .list div{
+    width: 25%;
+    float: left;
+    text-align: center;
+    background-color:#473F36;
+    height: 30px;
+    line-height: 30px;
+    color: #e2dc84;
+  }
+</style>
+<body id="body">
+  <div id="login">
+      <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+      <div class="padding_top"></div>
+      <div class="list">
+        <div>洗码时间</div>
+        <div>洗码量</div>
+        <div>洗码金额</div>
+        <div>详情</div>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px')
+  var list  = $api.dom('.list');
+  var top = $api.offset(list);
+  api.openFrame({
+    name: 'ximalist',
+    url: 'ximalist.html',
+    rect: {
+        x: login_h.l+5,
+        y: top.t+35,
+        w: login_h.w-10,
+        h: login_h.h
+    },
+    pageParam: {
+        listheight: login_h.h-top.t
+    }
+  })
+
+  //关闭下拉frame
+  $(".close").on('click',function(){
+    api.closeFrame({
+        name: 'ximalist'
+    });
+  })
+}
+</script>
+</html>

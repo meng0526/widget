@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>返佣金额表</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/moneychart.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .padding_top{
+    padding:35px;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  .list{
+    padding: 5px;
+  }
+  .list div{
+    width: 33.3%;
+    float: left;
+    text-align: center;
+    background-color:#473F36;
+    height: 30px;
+    line-height: 30px;
+    color: #e2dc84;
+    background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinline2.png');
+    background-position: right;
+    background-repeat: no-repeat;
+  }
+  .list ul{
+    height: 200px;
+    overflow-y: scroll;
+    width: 100%;
+  }
+  .list ul li{
+    width: 33.3%;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color:#ffdc8c;
+    font-size: 14px;
+  }
+</style>
+<body id="body">
+  <div id="login">
+      <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+      <div class="padding_top"></div>
+      <div class="list">
+        <div>代理级别</div>
+        <div>团队业绩/日</div>
+        <div>返佣额度</div>
+        <ul>
+          <li>A1</li>
+          <li>0+</li>
+          <li>每万元返佣10.00元</li>
+          <li>A2</li>
+          <li>3万+</li>
+          <li>每万元返佣12.00元</li>
+            <li>A3</li>
+            <li>6万+</li>
+            <li>每万元返佣14.00元</li>
+            <li>A4</li>
+            <li>10万+</li>
+            <li>每万元返佣16.00元</li>
+              <li>A5</li>
+              <li>30万+</li>
+              <li>每万元返佣18.00元</li>
+              <li>A6</li>
+              <li>60万+</li>
+              <li>每万元返佣20.00元</li>
+                <li>A7</li>
+                <li>100万+</li>
+                <li>每万元返佣22.00元</li>
+        </ul>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px')
+}
+</script>
+</html>

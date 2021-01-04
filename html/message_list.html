@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>消息列表</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #listmessage{
+    overflow-y: scroll;
+  }
+  ul li{
+    width: 98%;
+    height: 65px;
+    background-image: url('../image/game/ic_message_list_bg.png');
+    background-size: 100% 100%;
+    margin: 8px auto;
+  }
+  ul li div:nth-child(1) p:nth-child(2),ul li div:nth-child(1) p:nth-child(3){
+     color: #eee;
+  }
+  ul li div:nth-child(1){
+     width: 80%;
+     float: left;
+     color: white;
+     text-indent: 10px;
+     line-height: 20px;
+     font-size: 12px;
+  }
+  ul li div:nth-child(1) p{
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+  }
+  ul li div:nth-child(2){
+    font-size: 12px;
+    width: 20%;
+    float: left;
+    color: white;
+    line-height: 25px;
+  }
+</style>
+<script id="mas" type="text/x-dot-template">
+  {{ for(var prop in it) { }}
+    <li>
+      <div>
+        <p>公告</p>
+        <p>{{= it[prop].title}}</p>
+        <p>{{= it[prop].content}}</p>
+      </div>
+      <div>
+        <p>{{= it[prop].updated_at}}</p>
+        <p><img src="../image/game/check_detail.png" title="{{= it[prop].title}}" content="{{= it[prop].content}}" time="{{= it[prop].updated_at}}"  width="90px" height="35px" alt="" class="message_detail"></p>
+      </div>
+    </li>
+  {{ } }}
+</script>
+<body id="body">
+  <ul id="listmessage">
+
+  </ul>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript" src="../script/doT_min.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('listmessage'),api.pageParam.listheight-50);
+  api.showProgress({
+    title: '努力加载中...',
+    text: '先喝杯茶...',
+    modal: false
+  });
+  //下拉刷新
+  api.setRefreshHeaderInfo({
+      loadingImg: 'widget://image/refresh.png',
+      bgColor: 'rgba(255,255,255,0)',
+      textColor: '#7b7b7b',
+      textDown: '下拉刷新...',
+      textUp: '松开刷新...'
+  }, function(ret, err) {
+    $.get('http://aipai.lbcity.cn:8686/api/service_center',function(data){
+      if(data){
+        var interText = doT.template($("#mas").text());
+        $("#listmessage").html(interText(data));
+        api.refreshHeaderLoadDone();
+      }
+    })
+  });
+
+  //打开消息详情
+  $(document).on('click','.message_detail',function(){
+      var title = $(this).attr('title');
+      var content = $(this).attr('content');
+      var time = $(this).attr('time');
+      api.openFrame({
+        name: 'message_detail',
+        url: 'message_detail.html',
+        bgColor:'rgba(0,0,0,0.6)',
+        animation:{
+          type:"flip",
+          subType:"from_right",
+          duration:300
+        },
+        pageParam:{
+          title : title,
+          content : content,
+          time : time
+        }
+    });
+  })
+
+  //获取公告信息
+  $.get('http://aipai.lbcity.cn:8686/api/service_center',function(data){
+    var interText = doT.template($("#mas").text());
+    $("#listmessage").html(interText(data));
+    api.hideProgress();
+  })
+
+}
+</script>
+</html>

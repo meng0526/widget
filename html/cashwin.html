@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>提现记录</title>
+  <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<style>
+  html,body{
+    overflow: hidden;
+  }
+  #login{
+    width: 80%;
+    height: 90%;
+    color: white;
+    margin: 0 auto;
+    background-image: url('../image/game/src_761chess_resource_img_getcharge_tixianjilutanchuangdibu.png');
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .padding_top{
+    padding:33px;
+  }
+  .close{
+    position: absolute;
+    right: -8px;
+    top: -5px;
+  }
+  .list{
+    padding: 0px 5px;
+  }
+  .list div{
+    width: 33.3%;
+    float: left;
+    text-align: center;
+    background-color:#473F36;
+    height: 30px;
+    line-height: 30px;
+    color: #e2dc84;
+    background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinline2.png');
+    background-position: right;
+    background-repeat: no-repeat;
+  }
+</style>
+<body id="body">
+  <div id="login">
+      <img src="../image/game/src_761chess_resource_img_extension_tuiguangzhuanqianguanbi.png" alt="" width="35px" height="35px" class="close btn">
+      <div class="padding_top"></div>
+      <div class="list">
+        <div>时间</div>
+        <div>金额</div>
+        <div>状态</div>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+apiready = function(){
+  FastClick.attach(document.body);
+  $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+  var login = $api.byId('login');
+  var login_h = $api.offset(login);
+  var login_offsettop = (api.winHeight-login_h.h)/2;
+  $api.css($api.byId('login'),'margin-top:'+login_offsettop+'px');
+  $(".close").on('click',function(){
+    api.closeFrame({
+        name: 'cash_list'
+    });
+  })
+  api.openFrame({
+    name: 'cash_list',
+    url: 'cash_list.html',
+    rect: {
+        x: login_h.l+5,
+        y: login_offsettop+100,
+        w: login_h.w-9,
+        h: login_h.h-120
+    },
+    pageParam: {
+        listheight: login_h.h
+    }
+});
+}
+</script>
+</html>

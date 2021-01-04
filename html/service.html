@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>客服</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    #wrap{
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+               flex-flow: column;
+    }
+    #header{
+        width: 100%;
+        height: 40px;
+        background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg.png');
+        background-size: 100% 100%;
+    }
+    #header .closeWin{
+      width:20%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_getcharge_top_bg1.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: 0px 3px;
+      text-indent: 20px;
+    }
+    #header .closeWin img,#header .user_ico img{
+      margin-top: 10px;
+    }
+    #header .logo img{
+      margin-top: 5px;
+    }
+    #header .user_ico{
+      width:65%;
+      float: left;
+    }
+    #header .logo{
+      width:15%;
+      float: left;
+    }
+    #main{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+    #main .m_left{
+      width: 23%;
+      height: 100%;
+      float: left;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_left_nav_bg.png');
+      background-size: 100% 100%;
+    }
+    #main .m_left #m_left_box{
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    #m_right_box{
+      padding: 10px;
+      overflow-y: scroll;
+    }
+    .list_av{
+      height: 100%;
+    }
+    .list_av:nth-child(n+2){
+      display: none;
+    }
+    #main .m_right{
+      width: 76%;
+      float: right;
+      margin-top: 10px;
+      color: white;
+    }
+    .list_av:nth-child(2),.list_av:nth-child(3){
+      display: flex;
+      align-items: center; /*定义body的元素垂直居中*/
+      justify-content: center; /*定义body的里的元素水平居中*/
+    }
+    .list_pepole{
+      width: 100%;
+      height: 70%;
+      text-align: center;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    .list_pepole_info{
+      width: 170px;
+      height: 100%;
+      text-align: center;
+      background-image: url('../image/game/src_761chess_resource_img_personalcenter_gerenzhonxinquanyibg1.png');
+      background-size: 100% 100%;
+      display: inline-block;
+      line-height: 50px;
+    }
+    .list_pepole_info:nth-child(n+2){
+      margin-left: 15px;
+    }
+    </style>
+</head>
+<body id="body">
+    <div id="wrap">
+        <div id="header">
+           <div class="btn closeWin"><img src="../image/game/src_761chess_resource_img_activity_header_return.png" alt="" width="60px" height="20px"></div>
+           <div class="user_ico"><img src="../image/game/src_761chess_resource_img_service_kefudabiaoti.png" alt="" width="250px" height="25px"></div>
+           <div class="logo"><img src="../image/game/src_761chess_resource_img_index_skeletonpic.png" alt="" width="75px" height="30px"></div>
+        </div>
+        <div id="main">
+            <div class="m_left">
+              <div id="m_left_box">
+                <div class="btn userlistbtn active"><img src="../image/game/src_761chess_resource_img_service_kefuzaixiankefu.png" alt="../image/game/src_761chess_resource_img_service_kf.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_service_kefuqqkefu.png" alt="../image/game/src_761chess_resource_img_service_kefuqqkefuxuanzhong.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_service_kefuweixinkefu.png" alt="../image/game/src_761chess_resource_img_service_kefuweixinkefuxiuanzhong.png" width="100%" height="45px"></div>
+                <div class="btn userlistbtn"><img src="../image/game/src_761chess_resource_img_service_kefuchangjianwenti.png" alt="../image/game/src_761chess_resource_img_service_kefuchangjianwentixuanzhong.png" width="100%" height="45px"></div>
+              </div>
+            </div>
+            <div class="m_right">
+                <div id="m_right_box">
+                  <div class="m_right_box_1 list_av">
+                  </div>
+                  <div class="m_right_box_2 list_av">
+                       <div class="list_pepole">
+                           <div class="list_pepole_info">
+                             <p>qq客服</p>
+                             <p class="qqservice"></p>
+                             <p>游戏专员</p>
+                             <p><img src="../image/game/src_761chess_resource_img_service_kefulianxikefuanniuqqkf.png" alt="" width="80px" height="30px" class="fuzhiqq"></p>
+                           </div>
+                       </div>
+                  </div>
+                  <div class="m_right_box_3 list_av">
+                    <div class="list_pepole">
+                        <div class="list_pepole_info">
+                          <p>微信客服</p>
+                          <p class="wxservice"></p>
+                          <p>游戏专员</p>
+                          <p><img src="../image/game/src_761chess_resource_img_service_kefufuzhiweixinhaoanniuwxkf.png" alt="" width="80px" height="30px" class="fuzhiwx"></p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="m_right_box_4 list_av query">
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery_3_4_1_min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/fastclick.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      FastClick.attach(document.body);
+        var header = $api.byId('header');
+        // //适配iOS 7+，Android 4.4+状态栏
+        // $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        $api.css($api.byId('body'),'height:'+api.winHeight+'px');
+        var heights = api.winHeight - headerPos.h;
+        $api.css($api.byId('main'),'height:'+heights);
+        var m_right_box_height =   api.winHeight - headerPos.h;
+        $api.css($api.byId('m_right_box'),'height:'+m_right_box_height+'px');
+        var box = $api.byId('m_right_box');
+        var box_papam = $api.offset(box);
+        //播放活动音效
+        api.startPlay({
+            path: 'widget://image/audio/src_761chess_resource_audio_musicacitivity.mp3'
+        });
+        //在线客服
+        var service_link;
+        $.get('http://aipai.lbcity.cn:8686/api/systeminfo',function(data){
+          service_link = data.service_link;
+          $(".qqservice").text(data.qq);
+          $(".wxservice").text(data.agent_qq);
+          api.openFrame({
+            name: 'liaot',
+            url: data.service_link,
+            rect: {
+                x: box_papam.l,
+                y: box_papam.t,
+                w: box_papam.w,
+                h: box_papam.h-35
+            }
+         });
+        })
+        //菜单切换
+        $(".userlistbtn").on('click',function(){
+          if($(this).index()==3){
+            $.get('http://aipai.lbcity.cn:8686/api/querys',function(data){
+               $(".query").html(data.content);
+            });
+          }
+          if($(this).index()==0){
+              api.openFrame({
+                name: 'liaot',
+                url: service_link,
+                rect: {
+                    x: box_papam.l,
+                    y: box_papam.t,
+                    w: box_papam.w,
+                    h: box_papam.h-35
+                }
+            });
+          }else {
+            api.closeFrame({
+                name: 'liaot'
+            });
+          }
+          $(".list_av").eq($(this).index()).show().siblings().hide();
+        })
+        //复制qq
+        $(".fuzhiqq").on('click',function(){
+          api.openApp({
+              androidPkg: 'android.intent.action.VIEW',
+              mimeType: 'text/html',
+              uri: 'http://wpa.qq.com/msgrd?v=3&uin='+$(".qqservice").text()+'&site=qq&menu=yes'
+          });
+        })
+        //复制wx
+        $(".fuzhiwx").on('click',function(){
+          var clipBoard = api.require('clipBoard');
+          clipBoard.set({
+              value: $(".wxservice").text()
+          }, function(ret, err) {
+              if (ret) {
+                  api.openFrame({
+                    name: 'success',
+                    url: 'success.html',
+                    bgColor:'rgba(0,0,0,0.0)',
+                    animation:{
+                      type:"flip",
+                      subType:"from_right",
+                      duration:300
+                    },
+                    pageParam: {
+                        describe: '复制成功,去微信添加吧！'
+                    }
+                });
+              } else {
+                  api.openFrame({
+                    name: 'error',
+                    url: 'error.html',
+                    bgColor:'rgba(0,0,0,0.0)',
+                    animation:{
+                      type:"flip",
+                      subType:"from_right",
+                      duration:300
+                    },
+                    pageParam: {
+                        describe: '复制失败，请重试'
+                    }
+                });
+              }
+          });
+        })
+    };
+</script>
+</html>
